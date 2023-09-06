@@ -1,33 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import axios from 'axios';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const myId=1;
+  
+  console.log("Hello World!")
+    // Faz uma requisição a um usuarío com um ID expecifico
+  axios.get(`http://localhost:3003/teacher?id=${myId}`)
+  .then(function (response) {
+    // manipula o sucesso da requisição
+    console.log(response);
+  })
+  .catch(function (error) {
+    // manipula erros da requisição
+    console.error(error);
+  })
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <fieldset>
+          <legend>Formulário de Cadastro de Aluno</legend>
+          <form>
+              <label htmlFor="name">Nome:</label>
+              <input type="text" name="name" size="45"/>
+              <br/>
+              <label htmlFor="date">Data de Nascimento:</label>
+              <input type="date" name="date"/>
+              <br/>
+              <label htmlFor="gender">Gênero:</label>
+              <input type="radio" name="gender"/>
+              <label htmlFor="gender" className="gender">Masculino</label>
+              <input type="radio" name="gender"/>
+              <label htmlFor="gender"  className="gender">Feminino</label>
+              <br/>
+              <label htmlFor="parent">Responsável:</label>
+              <input type="text" name="parent" size="45"/>
+              <br/>
+              <label htmlFor="contact">Contato:</label>
+              <input type="text" name="contact" size="45"/>
+              <br/>
+              <button type="submit">Cadastrar</button>
+          </form>
+      </fieldset>      
     </>
   )
 }
