@@ -1,10 +1,13 @@
-import axios from 'axios';
-import './App.css'
+import './App.css';
+import axios from "axios";
+import { Navbar } from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 
 function App() {
+
   const myId=1;
   
-  console.log("Hello World!")
     // Faz uma requisição a um usuarío com um ID expecifico
   axios.get(`http://localhost:3003/teacher?id=${myId}`)
   .then(function (response) {
@@ -15,34 +18,17 @@ function App() {
     // manipula erros da requisição
     console.error(error);
   })
-  return (
-    <>
-      <fieldset>
-          <legend>Formulário de Cadastro de Aluno</legend>
-          <form>
-              <label htmlFor="name">Nome:</label>
-              <input type="text" name="name" size="45"/>
-              <br/>
-              <label htmlFor="date">Data de Nascimento:</label>
-              <input type="date" name="date"/>
-              <br/>
-              <label htmlFor="gender">Gênero:</label>
-              <input type="radio" name="gender"/>
-              <label htmlFor="gender" className="gender">Masculino</label>
-              <input type="radio" name="gender"/>
-              <label htmlFor="gender"  className="gender">Feminino</label>
-              <br/>
-              <label htmlFor="parent">Responsável:</label>
-              <input type="text" name="parent" size="45"/>
-              <br/>
-              <label htmlFor="contact">Contato:</label>
-              <input type="text" name="contact" size="45"/>
-              <br/>
-              <button type="submit">Cadastrar</button>
-          </form>
-      </fieldset>      
-    </>
-  )
+
+  return <div className='App'>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/Agenda" element={<Agenda />} />
+      <Route path="/Triagem" element={<Triagem />} />
+      <Route path="/Alunos" element={<Alunos />} />
+      <Route path="/Anamnese" element={<Anamnese />} />
+    </Routes>
+  </div>
 }
 
 export default App
