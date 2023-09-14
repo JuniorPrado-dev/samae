@@ -3,24 +3,29 @@ import axios from "axios";
 import { Navbar } from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
+import Formulario from './components/form';
 
 function App() {
 
-  const myId=1;
-  
-    // Faz uma requisição a um usuarío com um ID expecifico
+  const myId = 1;
+
+  // Faz uma requisição a um usuarío com um ID expecifico
   axios.get(`http://localhost:3003/teacher?id=${myId}`)
-  .then(function (response) {
-    // manipula o sucesso da requisição
-    console.log(response);
-  })
-  .catch(function (error) {
-    // manipula erros da requisição
-    console.error(error);
-  })
+    .then(function (response) {
+      // manipula o sucesso da requisição
+      console.log(response);
+    })
+    .catch(function (error) {
+      // manipula erros da requisição
+      console.error(error);
+    })
 
   return <div className='App'>
     <Navbar />
+    <div className='content'>
+      <h1>Cadastro de Aluno</h1>
+      <Formulario />
+    </div>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Agenda" element={<Agenda />} />

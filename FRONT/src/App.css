@@ -3,3 +3,12 @@
   height: 100vh;
   width: 100%;
 }
+
+a{
+  text-decoration: inherit;
+  color: #fefefe;
+}
+
+.content{
+  padding: 30px;
+}
