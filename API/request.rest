@@ -1,0 +1,9 @@
+GET http://localhost:3003/teacher?id=1
+###
+POST http://localhost:3003/sign-up-student
+Content-Type: application/json
+
+{
+    "nome": "Mirian", 
+    "idade": 17
+}

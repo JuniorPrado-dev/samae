@@ -20,5 +20,5 @@ export async function getTeacher(req:Request, res:Response){
 
 //função do formulário de cadastro
 export async function postSignUpTeacher (req:Request, res:Response){
-   
+  
 }

@@ -20,6 +20,10 @@ export async function getStudents(req:Request, res:Response){
 
 //função do formulário de cadastro
 export async function postSignUpStudent (req:Request, res:Response){
+   const aluno=req.body
+   console.log(aluno);
+   
+   res.send("Aluno cadastrado com sucesso!")
 
 
 
