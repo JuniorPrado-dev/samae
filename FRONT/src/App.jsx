@@ -22,10 +22,6 @@ function App() {
 
   return <div className='App'>
     <Navbar />
-    <div className='content'>
-      <h1>Cadastro de Aluno</h1>
-      <Formulario />
-    </div>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Agenda" element={<Agenda />} />
