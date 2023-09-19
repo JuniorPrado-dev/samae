@@ -20,5 +20,29 @@ export async function getTeacher(req:Request, res:Response){
 
 //função do formulário de cadastro
 export async function postSignUpTeacher (req:Request, res:Response){
+     try {
+       const { nome, cpf, senha, nascimento, email, telefone, id_instituicao, sexo } = req.body;
    
-}
+       if (!nome || !cpf || !senha || !nascimento || !email || !telefone || !id_instituicao || !sexo) {
+         return res.send('Informe todos os campos obrigatórios');
+       }
+   
+       const [id] = await connection('tbprofessor').insert({
+         nome,
+         cpf,
+         senha,
+         nascimento,
+         email,
+         telefone,
+         id_instituicao,
+         sexo,
+       });
+   
+       return res.json({ id, nome, cpf, nascimento, email, telefone, id_instituicao, sexo });
+     } catch (error) {
+       console.error(error);
+       return res.send('Erro interno do servidor');
+     }
+   }
+   
+
