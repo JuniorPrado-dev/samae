@@ -13,7 +13,8 @@ export const Agenda = () => {
 
     const [form, onChange, resetState] = useForm({
         name:"",
-        hour:""
+        hour:"",
+        checkBox:""
     })
 
     const [itens, setItens] = useState(["Butter"])
@@ -40,8 +41,8 @@ export const Agenda = () => {
     }
 
     function deleteTask(itemDelete){
-        const filterArray = itens.filter(iten => (iten != itemDelete));
-        setItens(filterArray);
+        const filterArray = itens.filter(iten => (iten != itemDelete))
+        setItens(filterArray)
     }
 
 return (

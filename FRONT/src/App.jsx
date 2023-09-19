@@ -3,7 +3,7 @@ import axios from "axios";
 import { Navbar } from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
-import Formulario from './components/form';
+import SignUpTeacher from './components/form-student/form_student ';
 
 function App() {
 
@@ -22,8 +22,9 @@ function App() {
 
   return <div className='App'>
     <Navbar />
+    <SignUpTeacher />
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />}></Route>
       <Route path="/Agenda" element={<Agenda />} />
       <Route path="/Triagem" element={<Triagem />} />
       <Route path="/Alunos" element={<Alunos />} />
