@@ -1,38 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
-import { Onclick } from './Onclick';
+import './styled';
+import { Nav, Img, ButtonNav, ButtonHide, Line } from './styled'
+
+function Onclick () {
+    const nav = document.querySelector('#nav');
+    const buttonHide = document.querySelector('#hide');
+    
+    if (nav.style.display === 'block') {
+        nav.style.display = 'none'
+    } else {
+        nav.style.display = 'block'
+    }
+    
+    buttonHide.style.background = 'linear-gradient(to bottom, #2b3467, #1D5D9B)'
+}
+
+function OnMouseOut() {
+    const buttonHide = document.querySelector('#hide');
+    
+    buttonHide.style.background = '#1D5D9B'
+}
+
+function OnMouseEnter() {
+    const buttonHide = document.querySelector('#hide');
+    
+    buttonHide.style.background = 'linear-gradient(to top, #2b3467, #1D5D9B)'
+}
 
 export const Navbar = () => {
     return (
         <>
-            <nav id='nav'>
-                <button className='nav'>
-                    <img className='iconNav' src="../../../img/samae_logo.png"/>
+            <Nav id='nav'>
+                <ButtonNav>
+                    <Img src="../../../img/samae_logo.png"/>
                     <Link to="/">SAMAE</Link><br />
-                </button>
-                <button className='nav'>
-                    <img className='iconNav' src="../../../img/agenda.png"/>
+                </ButtonNav>
+                <ButtonNav>
+                    <Img src="../../../img/agenda.png"/>
                     <Link to="/agenda">Agenda</Link><br />
-                </button>
-                <button className='nav'>
-                    <img className='iconNav' src="../../../img/triagem.png"/>
+                </ButtonNav>
+                <ButtonNav>
+                    <Img src="../../../img/triagem.png"/>
                     <Link to="/triagem">Triagem</Link><br />
-                </button>
-                <button className='nav'>
-                    <img id='alunos' className='iconNav' src="../../../img/alunos.png"/>
+                </ButtonNav>
+                <ButtonNav>
+                    <Img id='alunos' src="../../../img/alunos.png"/>
                     <Link to="/alunos">Alunos</Link><br />
-                </button>
-                <button className='nav'>
-                    <img className='iconNav' src="../../../img/anamnese.png"/>
+                </ButtonNav>
+                <ButtonNav>
+                    <Img src="../../../img/anamnese.png"/>
                     <Link to="/anamnese">Anamnese</Link><br />
-                </button>
-            </nav>
-            <button id='hide' onClick={Onclick}>
-                <div className='line'></div>
-                <div className='line'></div>
-                <div className='line'></div>
-            </button>
+                </ButtonNav>
+            </Nav>
+
+            <ButtonHide id='hide' onClick={Onclick} onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}>
+                <Line onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}></Line>
+                <Line onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}></Line>
+                <Line onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}></Line>
+            </ButtonHide>
         </>
     )
 }

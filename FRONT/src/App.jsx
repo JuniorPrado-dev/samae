@@ -3,7 +3,7 @@ import axios from "axios";
 import { Navbar } from './components/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
-import Formulario from './components/form';
+import { Login } from './components/login/login';
 
 function App() {
 
@@ -20,7 +20,11 @@ function App() {
       console.error(error);
     })
 
-  return <div className='App'>
+    const telaLogin = <div id="pagLogin">
+      <Login/>
+    </div>
+
+    const system = <div className='App'>
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
@@ -29,7 +33,13 @@ function App() {
       <Route path="/Alunos" element={<Alunos />} />
       <Route path="/Anamnese" element={<Anamnese />} />
     </Routes>
-  </div>
+    </div>
+
+  return (
+    //telaLogin
+    system
+  )
+
 }
 
 export default App
