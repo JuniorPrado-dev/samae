@@ -20,7 +20,8 @@ export const Agenda = () => {
 
     const [form, onChange, resetState] = useForm({
         name:"",
-        hour:""
+        hour:"",
+        checkBox:""
     })
 
     function addTask(){
@@ -49,6 +50,7 @@ export const Agenda = () => {
     function deleteTask(index){
         const filteredArray = itens.filter((item, i) => i !== index);
         setItens(filteredArray);
+
     }
 
     return (
