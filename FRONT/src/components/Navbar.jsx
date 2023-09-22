@@ -28,7 +28,7 @@ function OnMouseEnter() {
     buttonHide.style.background = 'linear-gradient(to top, #2b3467, #1D5D9B)'
 }
 
-export const Navbar = () => {
+export const Navbar = () => { 
     return (
         <>
             <Nav id='nav'>
