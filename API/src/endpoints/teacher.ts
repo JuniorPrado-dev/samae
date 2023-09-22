@@ -4,7 +4,7 @@ import connection from "../database/connection"
 
 //função de listagem
 export async function getTeacher(req:Request, res:Response){
-    const id = req.query.id
+    const id = req.query.id;
     console.log(id)
     if (!id) {
        return res.send("Informe o Id")
@@ -12,21 +12,45 @@ export async function getTeacher(req:Request, res:Response){
 
     const professor = await connection('tbprofessor').where('id_professor', id)
     if (professor.length < 1) {
-       return res.send('Professor não encontrado')
+       return res.send("Professor não encontrado")
     }else{
        return res.send(professor)
     }
 }
 
+//função de login do professor
+export async function loginTeacher(req:Request, res:Response){
+
+  try{
+    const email = req.body;
+    const senha = req.body;
+
+    if(!email || !senha){
+      return res.send("Informe todos os campos obrigatórios");
+    }
+    const login = await connection('tbprofessor').where('email', email).where('senha', senha);
+        if(login.length < 1) {
+          return res.send("Seu login foi negado")
+        }else{
+          return res.send('Login feito com sucesso!')
+        }
+      }catch (error) {
+        return res.send("erro no servidor");
+      }
+
+}
+
 //função do formulário de cadastro
 export async function postSignUpTeacher (req:Request, res:Response){
      try {
-       const { nome, cpf, senha, nascimento, email, telefone, id_instituicao, sexo } = req.body;
+       const { nome, cpf, senha, nascimento, email, telefone, idInstituicao, sexo } = req.body;
    
-       if (!nome || !cpf || !senha || !nascimento || !email || !telefone || !id_instituicao || !sexo) {
-         return res.send('Informe todos os campos obrigatórios');
+       if (!nome || !cpf || !senha || !nascimento || !email || !telefone || !idInstituicao || !sexo) {
+         return res.send("Informe todos os campos obrigatórios");
        }
    
+       const id_instituicao = idInstituicao;
+
        const [id] = await connection('tbprofessor').insert({
          nome,
          cpf,
@@ -38,11 +62,33 @@ export async function postSignUpTeacher (req:Request, res:Response){
          sexo,
        });
    
-       return res.json({ id, nome, cpf, nascimento, email, telefone, id_instituicao, sexo });
+       return res.send("Os dados foram enviados com sucesso!");
      } catch (error) {
        console.error(error);
-       return res.send('Erro interno do servidor');
+       return res.send("Erro interno do servidor");
      }
+   }
+
+
+   //função da agenda do professor inserir dados
+   export async function postAgendTeacher (req:Request, res:Response) {
+    try{
+      const {nome, hora} = req.body
+
+      if(!nome || !hora ) {
+        return res.send("Informe os dados obrigatórios")
+      }
+
+    const ins = await connection('tbagenda').insert({
+      nome, hora,
+    })
+
+    return res.send("Os dados foram enviados com sucesso")
+
+
+    }catch(error){
+      return res.send("erro no servidor")
+    }
    }
    
 

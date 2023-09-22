@@ -2,6 +2,7 @@ import React from 'react';
 //import './Agenda.css';
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
+import axios from 'axios';
 
 export const Agenda = () => {
 
@@ -26,6 +27,23 @@ export const Agenda = () => {
     function post(){
         const newItemName = form.name
         const newItemHour = form.hour
+
+
+        const data = {
+            nome: newItemName,
+            hora: newItemHour,
+        
+          };
+        
+          axios.post('/post-agend-teacher', data)
+            .then((response) => {
+              console.log(response.data);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+
+
         const newList = [...itens, newItemName + " | " + newItemHour]
         setItens(newList)
         resetState()
@@ -50,7 +68,7 @@ return (
             <h2 className={"shopping__title"}>Agenda</h2>
             <ul className={"shopping__checklist"}>
                 {itens.map( (item, index) => <li key = { index }>
-                    <input type="checkbox" />
+                    <input type="checkbox" id="checkbox" name="checkbox" value="1" />
                     { item }
                     <button type='button' onClick={()=>deleteTask(item)}>X</button>
                     </li>) }
