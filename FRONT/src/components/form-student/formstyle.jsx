@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Body = styled.body`
+export const Main = styled.body`
     background-color: #cbd6d6;
     height: 100vh;
 `;
@@ -119,6 +119,7 @@ export const Insert = styled.button`
         background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
 
       }
+
 `;
 
 export const Reset = styled.button`
@@ -138,6 +139,7 @@ export const Reset = styled.button`
     }
     &:focus {
         background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+
 
     }
 `;

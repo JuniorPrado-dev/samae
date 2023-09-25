@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
-import { Label, Fieldset, Legend, Input, Btns, Insert, Reset, Body, Gender, Date } from './formstyle'
+import { Label, Fieldset, Legend, Input, Btns, Insert, Reset, Main, Gender, Date } from './formstyle'
   
 export default function Cadastrar() {
   const [form, onChange, resetState ] = useForm({ name: '', date: '', parent: '', contact: '' })
@@ -32,7 +32,7 @@ export default function Cadastrar() {
 
   function resetForm() {resetState()}
 
-  return <Body> 
+  return <Main> 
 
    <Fieldset>
     <Legend>Formulário de Cadastro de Aluno</Legend>
@@ -57,5 +57,5 @@ export default function Cadastrar() {
       </Btns>
     </form>
   </Fieldset>
-  </Body>
+  </Main>
 }
