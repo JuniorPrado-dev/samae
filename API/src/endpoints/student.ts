@@ -125,29 +125,31 @@ export async function triagemStudent (req:Request ,res:Response) {
 
       const id_aluno = idAluno;
 
-    const n1 = await connection('tbtriagem_n1').insert({
+    const a = await connection('tbtriagem_n1').insert({
        id_aluno, n1_n1, n1_n2, n1_n3, n1_n4, n1_n5, n1_n6, n1_n7, n1_n8, n1_n9, n1_n10, n1_n11
     })
 
-    const n2 = await connection('tbtriagem_n2').insert({
+    const b = await connection('tbtriagem_n2').insert({
       id_aluno, n2_n1, n2_n2, n2_n3, n2_n4
     })
 
-    const n3 = await connection('tbtriagem_n3').insert({
+    const c = await connection('tbtriagem_n3').insert({
       id_aluno, n3_n1, n3_n2, n3_n3, n3_n4
     })
 
-    const n4 = await connection('tbtriagem_n4').insert({
+    const d = await connection('tbtriagem_n4').insert({
       id_aluno, n4_n1, n4_n2, n4_n3, n4_n4
     })
 
-    const n5 = await connection('tbtriagem_matematica').insert({
+    const e = await connection('tbtriagem_matematica').insert({
       mt_n1, mt_n2, mt_n3, mt_n4, mt_n5, mt_n6, mt_n7, mt_n8, mt_n9, mt_n10, mt_n11
     })
 
-    const n6 =await connection('tbtriagem_habilidades').insert({
+    const f =await connection('tbtriagem_habilidades').insert({
       id_aluno, hc_n1, hc_n2, hc_n3, hc_n4, hc_n5, hc_n6, hc_n7, hc_n8, hc_n9, hc_n10, hc_n11, hc_n12, hc_n13, hc_n14, hc_n15, hc_n16, hc_n17
     })
+
+
 
     return res.send("Os dados foram enviados com sucesso!");
 

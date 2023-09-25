@@ -22,17 +22,16 @@ export async function getTeacher(req:Request, res:Response){
 export async function loginTeacher(req:Request, res:Response){
 
   try{
-    const email = req.body;
-    const senha = req.body;
+    const {email, senha} = req.body;
 
     if(!email || !senha){
       return res.send("Informe todos os campos obrigatórios");
     }
-    const login = await connection('tbprofessor').where('email', email).where('senha', senha);
-        if(login.length < 1) {
+    const loginprof = await connection('tbprofessor').where('email', email).where('senha', senha);
+        if(loginprof.length < 1) {
           return res.send("Seu login foi negado")
         }else{
-          return res.send('Login feito com sucesso!')
+          return res.send("Login feito com sucesso!")
         }
       }catch (error) {
         return res.send("erro no servidor");

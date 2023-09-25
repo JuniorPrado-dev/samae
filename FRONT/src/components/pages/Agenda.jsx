@@ -31,11 +31,11 @@ export const Agenda = () => {
 
         const data = {
             nome: newItemName,
-            hora: newItemHour,
+            hora: newItemHour
         
           };
         
-          axios.post('/post-agend-teacher', data)
+          axios.post('http://localhost:3003/post-agend-teacher', data)
             .then((response) => {
               console.log(response.data);
             })
