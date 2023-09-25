@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
+import { Label, Fieldset, Legend, Input, Btns, Insert, Reset, Body, Gender, Date } from './formstyle'
   
 export default function Cadastrar() {
   const [form, onChange, resetState ] = useForm({ name: '', date: '', parent: '', contact: '' })
@@ -31,27 +32,30 @@ export default function Cadastrar() {
 
   function resetForm() {resetState()}
 
-  return <fieldset>
-    <legend>Formulário de Cadastro de Aluno</legend>
+  return <Body> 
+
+   <Fieldset>
+    <Legend>Formulário de Cadastro de Aluno</Legend>
     <form onSubmit={send}>
-      <label htmlFor="name">Nome:</label><br/>
-      <input type="text" name="name" size="45" id='name' onChange={onChange} value={form.name} /><br/>
-      <label htmlFor="date">Data de Nascimento:</label><br/>
-      <input type="date" name="date" id='date' onChange={onChange} value={form.date} /><br/>
-      <label htmlFor="gender">Gênero:</label><br/>
-      <input type="radio" name="gender" id='gender' onChange={mudaGender} value="Masculino" />
-      <label htmlFor="gender" className="gender">Masculino</label><br/>
-      <input type="radio" name="gender" id='gender2' onChange={mudaGender} value="Feminino" />
-      <label htmlFor="gender" className="gender">Feminino</label><br/>
-      <label htmlFor="parent">Responsável:</label><br/>
-      <input type="text" name="parent" size="45" id='parent' onChange={onChange} value={form.parent} /><br/>
-      <label htmlFor="name">Contato:</label><br/>
-      <input type="text" name="contact" size="45" id='contact' onChange={onChange} value={form.contact} /><br/><br/>
+      <Label htmlFor="name">Nome:</Label><br/>
+      <Input type="text" name="name" size="45" id='name' onChange={onChange} value={form.name} /><br/>
+      <Label htmlFor="date">Data de Nascimento:</Label><br/>
+      <Date type="date" name="date" id='date' onChange={onChange} value={form.date} /><br/>
+      <Label htmlFor="gender">Gênero:</Label><br/>
+      <Gender type="radio" name="gender" id='gender' onChange={mudaGender} value="Masculino" />
+      <Label htmlFor="gender" className="gender">Masculino</Label><br/>
+      <Gender type="radio" name="gender" id='gender2' onChange={mudaGender} value="Feminino" />
+      <Label htmlFor="gender" className="gender">Feminino</Label><br/>
+      <Label htmlFor="parent">Responsável:</Label><br/>
+      <Input type="text" name="parent" size="45" id='parent' onChange={onChange} value={form.parent} /><br/>
+      <Label htmlFor="name">Contato:</Label><br/>
+      <Input type="text" name="contact" size="45" id='contact' onChange={onChange} value={form.contact} /><br/><br/>
       
-      <div className="btns">
-      <button type="submit" >Cadastrar</button>
-      <button onClick={resetForm}>Limpar</button>
-      </div>
+      <Btns>
+      <Insert type="submit" >Cadastrar</Insert>
+      <Reset onClick={resetForm}>Limpar</Reset>
+      </Btns>
     </form>
-  </fieldset>
+  </Fieldset>
+  </Body>
 }

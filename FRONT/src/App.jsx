@@ -26,7 +26,6 @@ function App() {
 
     const system = <div className='App'>
     <Navbar />
-    <SignUpTeacher />
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/Agenda" element={<Agenda />} />
