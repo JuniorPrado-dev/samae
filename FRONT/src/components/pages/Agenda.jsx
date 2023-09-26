@@ -12,25 +12,17 @@ export const Agenda = () => {
     const [watcher, setWatch] = useState(false)
     const [watcher2, setWatch2] = useState(true)
     
+    const [form, onChange, resetState] = useForm({
+        name: "",
+        hour: ""
+    })
+
     const [itens, setItens] = useState([
         {
             nome: "Butter",
             hora: "17:00"
         },
     ])
-
-    const [form, onChange, resetState] = useForm({
-        name: "",
-        hour: "",
-        checkBox: ""
-    })
-
-    const [itens, setItens] = useState(["Butter"])
-
-    function addTask() {
-        setWatch(true)
-        setWatch2(false)
-    }
 
     //Noticação
     function verificaHorario(itens, currentTime) {
@@ -65,15 +57,17 @@ export const Agenda = () => {
         verificaHorario(itens, time);
     }, 60000)
 
-    function post() {
-        const newItemName = form.name
-        const newItemHour = form.hour
-        const newList = [...itens, newItemName + " | " + newItemHour]
-    function addTask(){
-        setWatch(true)    
+    function addTask() {
+        setWatch(true)
         setWatch2(false)
     }
-    
+
+    function cancel() {
+        resetState()
+        setWatch(false)
+        setWatch2(true)
+    }
+
     function post(){
         const newItem ={
             nome: form.name,
@@ -86,29 +80,9 @@ export const Agenda = () => {
         setWatch2(true)
     }
 
-    function cancel() {
-        resetState()
-        setWatch(false)
-        setWatch2(true)
-    }
-
-    function deleteTask(index) {
-        const filterArray = itens.filter((item, i) => {
-            i !== index
-        })
+    function deleteTask(item) {
+        const filterArray = itens.filter((i, index) => i !== item);
         setItens(filterArray)
-    }
-
-    function trueOrFalse() {
-        const checkbox = document.querySelector('#check')
-        let res = null
-
-        if (checkbox.style.background === 'gray') {
-            res = false
-        }else{
-            res = true
-        }
-        console.log("O valor atual da checkbox é " + res);
     }
 
     return (
@@ -117,8 +91,8 @@ export const Agenda = () => {
                 <H2 className={"shopping__title"}>Agenda</H2>
                 <ul className={"shopping__checklist"}>
                     {itens.map((item, index) => <Li key={index}>
-                        <Checkbox type="checkbox" id='check' onClick={trueOrFalse}/>
-                        <Item>{item}</Item>
+                        <Checkbox type="checkbox" id='check'/>
+                        <Item>{item.nome} às {item.hora}</Item>
                         <BtnDelete type='button' onClick={() => deleteTask(item)}>
                             <IconX src="../../../img/lixeira.png" />
                         </BtnDelete>
@@ -143,40 +117,5 @@ export const Agenda = () => {
                 }
             </div>
         </Main>
-    function deleteTask(index){
-        const filteredArray = itens.filter((item, i) => i !== index);
-        setItens(filteredArray);
-
-    }
-
-    return (
-        <main>
-            <div className={"shopping"}>
-                <h2 className={"shopping__title"}>Agenda</h2>
-                <ul className={"shopping__checklist"}>
-                    {itens.map( (item, index) =>
-                        <li key={index}>
-                            <input type="checkbox" />
-                            {item.nome} às {item.hora}
-                            <button type='button' onClick={() => deleteTask(index)}>X</button>
-                        </li>) }
-                    {watcher && 
-                        <li>
-                            <input type="text" id="name" name="name" onChange={onChange} value={form.name}/>
-                            <input type="time" id="hour" name="hour" onChange={onChange} value={form.hour}/>
-                            <button type='submit' onClick={post}>Enviar</button>
-                            <button type="button" onClick={cancel}> X </button>
-                        </li>
-                    }
-                    {watcher2 &&
-                        <li className={"shopping__add"}>
-                            <button onClick={addTask} type='button'>
-                                +
-                            </button>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </main>
     )
-};
+}

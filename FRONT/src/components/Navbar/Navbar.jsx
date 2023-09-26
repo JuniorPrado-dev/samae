@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './styled';
-import { Nav, Img, ButtonNav, ButtonHide, Line } from './styled'
+import '../styled';
+import { Nav, Img, ButtonNav, ButtonHide, Line } from '../styled'
 
 function Onclick () {
     const nav = document.querySelector('#nav');

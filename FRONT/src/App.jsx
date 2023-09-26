@@ -1,6 +1,6 @@
 import './App.css';
 import axios from "axios";
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Login } from './components/login/login';
