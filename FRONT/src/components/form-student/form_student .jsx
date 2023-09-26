@@ -8,10 +8,8 @@ export default function Cadastrar() {
   const [gender,setGender]=useState('')
 
   const mudaGender=(e)=>{
-    console.log(e.target)
     setGender(e.target.value)
   }
-  console.log(gender);
   
   function send(e) {
     e.preventDefault()

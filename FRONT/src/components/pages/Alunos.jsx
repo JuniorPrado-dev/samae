@@ -1,10 +1,10 @@
 import React from 'react';
-import Cadastrar  from '../form-student/form_student ';
-
+import Cadastrar  from '../Form-student/form_student ';
+import Pesquisar from '../Search-bar/Search'
 
 export const Alunos = () => {
     return (
-    <div>Alunos
+    <div>
         <Cadastrar/>
     </div>
 
