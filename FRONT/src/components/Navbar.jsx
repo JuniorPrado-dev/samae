@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styled';
-import { Nav, Img, ButtonNav, ButtonHide, Line } from './styled'
+import { Nav, Img, Home, Triagem, Student, Anamnese, Agenda, ButtonHide, Line } from './styled'
 
 function Onclick () {
     const nav = document.querySelector('#nav');
@@ -32,26 +32,28 @@ export const Navbar = () => {
     return (
         <>
             <Nav id='nav'>
-                <ButtonNav>
-                    <Img src="../../../img/samae_logo.png"/>
-                    <Link to="/">SAMAE</Link><br />
-                </ButtonNav>
-                <ButtonNav>
-                    <Img src="../../../img/agenda.png"/>
+                <ul>
+                <Home>
+                    <Img src="../../../img/home.png"/>
+                    <Link to="/">Inicio</Link><br />
+                </Home>
+                <Agenda>
+                    <Img src="../../../img/calendario.png"/>
                     <Link to="/agenda">Agenda</Link><br />
-                </ButtonNav>
-                <ButtonNav>
+                </Agenda>
+                <Triagem>
                     <Img src="../../../img/triagem.png"/>
                     <Link to="/triagem">Triagem</Link><br />
-                </ButtonNav>
-                <ButtonNav>
+                </Triagem>
+                <Student>
                     <Img id='alunos' src="../../../img/alunos.png"/>
                     <Link to="/alunos">Alunos</Link><br />
-                </ButtonNav>
-                <ButtonNav>
+                </Student>
+                <Anamnese>
                     <Img src="../../../img/anamnese.png"/>
                     <Link to="/anamnese">Anamnese</Link><br />
-                </ButtonNav>
+                </Anamnese>
+                </ul>
             </Nav>
 
             <ButtonHide id='hide' onClick={Onclick} onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}>
