@@ -8,6 +8,7 @@ import { postAgendTeacher } from "./endpoints/teacher";
 import { getStudents } from "./endpoints/student";
 import { postSignUpStudent } from "./endpoints/student";
 import {triagemStudent} from "./endpoints/student";
+import {allStudents} from "./endpoints/student";
 import { getParents } from "./endpoints/parents";
 import cors from "cors";
 
@@ -18,15 +19,18 @@ app.use(express.json()) //express usar o json
 
 
 //teacher endpoints
-app.get("/teacher", getTeacher) //listar todos professores
+app.get("/teacher", getTeacher) //listar professor específico
 app.post("/sign-up-teacher", postSignUpTeacher) //enviar do front para o bd
 app.post("/login-teacher", loginTeacher) // login do professor
 app.post("/post-agend-teacher", postAgendTeacher) //guardar os dados da agenda
 
 //student endpoints
-app.get("/student", getStudents) //listar todos alunos
+app.get("/student", getStudents) //listar aluno específico
+app.get("/all-students", allStudents) //listar todos alunos
 app.post("/sign-up-student", postSignUpStudent) //enviar do front para o bd
 app.post("/triagem-student", triagemStudent) //enviar do front para o bd
+
+
 //parents endpoints
 app.get("/parent", getParents) //get para todos responsáveis
 

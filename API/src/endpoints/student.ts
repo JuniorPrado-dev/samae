@@ -18,6 +18,17 @@ export async function getStudents(req:Request, res:Response){
     }
 }
 
+//função de listagem GERAL
+export async function allStudents (req:Request, res:Response){
+  const aluno = await connection('tbaluno_anamnese') 
+  if (aluno.length < 1) {
+    return res.send("a tabela está vazia")
+  }else{
+    return res.send(aluno);
+  }
+
+}
+
 //função do formulário de anamnese
 export async function postSignUpStudent (req:Request, res:Response){
    try {
