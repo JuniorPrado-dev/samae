@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav `
+
     display: block;
     margin-right: 30px;
     float: left;
