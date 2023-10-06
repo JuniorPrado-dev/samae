@@ -1,107 +1,126 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav `
-    display: block;
-    margin-right: 30px;
-    float: left;
+    display: flex;
+    flex-direction: row;
     text-align: left;
-    margin-top: 0;
-    width: 15%;
-    height: 100vh;
-    display: block;
-    align-items: left;
+    margin: 0;
+    width: 100%;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    @media (max-width: 550px){
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
 `;
 
 export const Agenda = styled.li `
+    display: flex;
+    flex-wrap: no-wrap;
     margin-top: 0;
     padding: 30px 20px;
     width: 100%;
     height: 5vh;
-    background-color: #2b3467;
+    background-color: #1D5D9B;
     border: none;
     border-bottom: 1px solid lightgray;
+    list-style-type: none;
 
     &:active {
-    background-image: linear-gradient(to right, #2b3467, #1D5D9B);
+    background-image: linear-gradient(to left, #2b3467, #1D5D9B);
 
     }
     &:hover {
-    background-color: #1D5D9B;
+    background-color: #2b3467;
     }
 `;
 
 export const Triagem = styled.li `
+    display: flex;
+    flex-wrap: no-wrap;
     margin-top: 20;
     padding: 30px 20px;
     width: 100%;
     height: 5vh;
-    background-color: #2b3467;
+    background-color: #1D5D9B;
     border: none;
     border-bottom: 1px solid lightgray;
+    list-style-type: none;
 
     &:active {
-        background-image: linear-gradient(to right, #2b3467, #1D5D9B);
+        background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     
         }
     &:hover {
-        background-color: #1D5D9B;
+        background-color: #2b3467;
         }
 `;
 
 export const Home = styled.li `
+    display: flex;
+    flex-wrap: no-wrap;
     margin-top: 0;
     padding: 30px 20px;
     width: 100%;
     height: 5vh;
-    background-color: #2b3467;
+    background-color: #1D5D9B;
     border: none;
     border-bottom: 1px solid lightgray;
-    border-top: 1px solid lightgray;
+    list-style-type: none;
+
     &:active {
-        background-image: linear-gradient(to right, #2b3467, #1D5D9B);
+        background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     
         }
     &:hover {
-        background-color: #1D5D9B;
+        background-color: #2b3467;
         }
 `;
 
 export const Student = styled.li `
+    display: flex;
+    flex-wrap: no-wrap;
     margin-top: 30;
     padding: 30px 20px;
     width: 100%;
     height: 5vh;
-    background-color: #2b3467;
+    background-color: #1D5D9B;
     border: none;
     border-bottom: 1px solid lightgray;
+    list-style-type: none;
 
     &:active {
-        background-image: linear-gradient(to right, #2b3467, #1D5D9B);
+        background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     
         }
     &:hover {
-        background-color: #1D5D9B;
+        background-color: #2b3467;
         }
 `;
 
 export const Anamnese = styled.li `
+    display: flex;
+    flex-wrap: no-wrap;
     margin-top: 40;
     padding: 30px 20px;
     width: 100%;
     height: 5vh;
-    background-color: #2b3467;
+    background-color: #1D5D9B;
     border: none;
     border-bottom: 1px solid lightgray;
+    list-style-type: none;
 
     &:active {
-        background-image: linear-gradient(to right, #2b3467, #1D5D9B);
-    
-        }
+        background-image: linear-gradient(to left, #2b3467, #1D5D9B);
+    }
 
     &:hover {
-        background-color: #1D5D9B;
-        }
+        background-color: #2b3467;
+    }
 `;
 
 export const Img= styled.img `
@@ -112,4 +131,3 @@ export const Img= styled.img `
     position: relative;
     bottom: 15px;
 `;
-

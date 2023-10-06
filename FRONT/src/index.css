@@ -5,3 +5,8 @@
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+body{
+  width: 100%;
+  background-color: lightgray;
+}

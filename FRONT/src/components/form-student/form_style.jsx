@@ -1,27 +1,34 @@
 import styled from 'styled-components'
 
-export const Main = styled.body`
-    background-color: #cbd6d6;
-    height: 100vh;
+export const Main = styled.main`
+    margin: 8%;
+    height: 100%;
 `;
 
 export const Fieldset = styled.fieldset`
-    background: #FEFEFE;
-    margin: auto;
-    padding: 10px;
-    width: 30%;
-    color: black;
+    border: none;
     border-radius: 10px;
 `;
 
+export const Form = styled.form`
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    
+`
+
 export const Legend = styled.legend`
     background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
-    padding: 5px 10px;
-    border-radius: 5px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    padding: 8px 10px;
+    border-radius: 20px;
     text-align: center;
-    margin-bottom: 10px;
     font-weight: bold;
-    color: lightgray;
+    color: #fefefe;
 `;
 
 export const Label = styled.label`
@@ -70,12 +77,12 @@ export const Date = styled.input`
 `;
 
 export const Input = styled.input`
-    margin: 3px 20px;
+    margin: 3px 5%;
     margin-bottom: 10px;
     border: 1px solid #b9b4c7;
+    width: 90%;
     
     &:hover{
-        width: 400px;
         border: 1px solid gray;
     }
 
@@ -101,10 +108,10 @@ export const Btns = styled.div`
 `;
 
 export const Insert = styled.button`
-    padding: 5px 15px;
+    padding: 8px 15px;
     cursor: pointer;
     border: 0 none;
-    border-radius: 5px;
+    border-radius: 20px;
     background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
     color:lightgray;
     transition: 250ms;
@@ -123,10 +130,10 @@ export const Insert = styled.button`
 `;
 
 export const Reset = styled.button`
-    padding: 5px 15px;
+    padding: 8px 15px;
     cursor: pointer;
     border: 0 none;
-    border-radius: 5px;
+    border-radius: 20px;
     background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
     color:lightgray;
     transition: 250ms;

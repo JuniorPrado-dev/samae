@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Main = styled.main`
     padding: 3%;
     margin: auto;
+    margin-bottom: 20px;
     width: 60%;
     text-align: center;
     background-color: #FEFEFE;
@@ -151,6 +152,7 @@ export const AddTask = styled.button`
     border-radius: 30px;
     background-color: #1D5D9B;
 
+
     &:hover{
         background: linear-gradient(to top, #2b3467, #1D5D9B)
     }
@@ -158,4 +160,68 @@ export const AddTask = styled.button`
     &:focus{
         background: linear-gradient(to bottom, #2b3467, #1D5D9B);
     }
+`
+
+//alunos
+
+export const MainAluno = styled.main`
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    flex-wrap: wrap;
+    list-style-type: none;
+`
+
+export const AlunoImg = styled.img`
+    height: 100px;
+`
+export const CardAluno = styled.li`
+    margin: auto; 
+    margin-top: 8%;  
+    padding: 30px;
+    width: 300px;
+    text-align: left;
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    transition: 300ms;
+
+    &:hover{
+        padding: 35px;
+        transition: 300ms;
+    }
+`
+
+export const DeleteCard = styled.button`
+    margin-top: 30%;
+    padding: 6px 10px;
+    background-color: #F85959; 
+    float: right;
+    border: transparent;
+    border-radius: 20px;
+    transition: 250ms;
+
+    &:hover{
+        background-color: #ec2300;
+        transition: 250ms;
+    }
+`
+
+export const InserirAluno = styled.li`
+    padding: 1%;
+    margin: auto;
+    margin-top: 20vh;
+    width: 60%;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+`
+
+export const Adicionar = styled.li`
+    margin: 30px 48%;
+    list-style-type: none;
 `
