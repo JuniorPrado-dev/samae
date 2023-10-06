@@ -7,10 +7,10 @@ function Onclick () {
     const nav = document.querySelector('#nav');
     const buttonHide = document.querySelector('#hide');
     
-    if (nav.style.display === 'block') {
+    if (nav.style.display === 'flex') {
         nav.style.display = 'none'
     } else {
-        nav.style.display = 'block'
+        nav.style.display = 'flex'
     }
     
     buttonHide.style.background = 'linear-gradient(to bottom, #2b3467, #1D5D9B)'

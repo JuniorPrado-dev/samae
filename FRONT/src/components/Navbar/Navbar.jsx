@@ -8,28 +8,28 @@ export const Navbar = () => {
     return (
         <>
             <Nav id='nav'>
-                <ul>
+                
                 <Home>
                     <Img src="../../../img/home.png"/>
-                    <Link to="/">Inicio</Link><br />
+                    <Link to="/">Início</Link><br />
                 </Home>
                 <Agenda>
                     <Img src="../../../img/calendario.png"/>
                     <Link to="/agenda">Agenda</Link><br />
                 </Agenda>
-                <Triagem>
+                <Triagem >
                     <Img src="../../../img/triagem.png"/>
                     <Link to="/triagem">Triagem</Link><br />
                 </Triagem>
                 <Student>
-                    <Img id='alunos' src="../../../img/alunos.png"/>
+                    <Img src="../../../img/alunos.png"/>
                     <Link to="/alunos">Alunos</Link><br />
                 </Student>
                 <Anamnese>
                     <Img src="../../../img/anamnese.png"/>
                     <Link to="/anamnese">Anamnese</Link><br />
                 </Anamnese>
-                </ul>
+                
             </Nav>
 
            

@@ -7,6 +7,7 @@ export const Div = styled.div `
     height: 15%;
     background-color: #2b3467; 
     background-image: linear-gradient(to right, #2b3467, #1D5D9B);
+    
 
 `;
 export const ButtonHide= styled.button `
