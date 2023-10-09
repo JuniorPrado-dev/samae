@@ -70,8 +70,7 @@ return (
                 {watcher && 
                     <InserirAluno>
                         <Cadastrar/>
-                        <Text type="text" id="name" name="name" onChange={onChange} value={form.name}/>
-                        <input type="file" accept="image/jpeg, image/png" id="picture" name="picture" onChange={onChange}/>
+
                         <button type='submit' onClick={post}>Enviar</button>
                         <button type="button" onClick={cancel}> X </button>
                     </InserirAluno>

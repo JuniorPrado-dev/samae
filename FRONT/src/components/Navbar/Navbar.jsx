@@ -8,31 +8,41 @@ export const Navbar = () => {
     return (
         <>
             <Nav id='nav'>
-                
-                <Home>
-                    <Img src="../../../img/home.png"/>
-                    <Link to="/">Início</Link><br />
-                </Home>
-                <Agenda>
-                    <Img src="../../../img/calendario.png"/>
-                    <Link to="/agenda">Agenda</Link><br />
-                </Agenda>
-                <Triagem >
-                    <Img src="../../../img/triagem.png"/>
-                    <Link to="/triagem">Triagem</Link><br />
-                </Triagem>
-                <Student>
-                    <Img src="../../../img/alunos.png"/>
-                    <Link to="/alunos">Alunos</Link><br />
-                </Student>
-                <Anamnese>
-                    <Img src="../../../img/anamnese.png"/>
-                    <Link to="/anamnese">Anamnese</Link><br />
-                </Anamnese>
-                
-            </Nav>
 
-           
+                <Link to="/">
+                    <Home>
+                        <Img src="../../../img/home.png" />
+                        Início
+                    </Home>
+                </Link>
+                <Link to="/agenda">
+                    <Agenda>
+                        <Img src="../../../img/calendario.png" />
+                        Agenda
+                    </Agenda>
+                </Link>
+                <Link to="/triagem">
+                    <Triagem >
+                        <Img src="../../../img/triagem.png" />
+                        Triagem
+                    </Triagem>
+                </Link>
+                <Link to="/alunos">
+                    <Student>
+                        <Img src="../../../img/alunos.png" />
+                        Alunos
+                    </Student>
+                </Link>
+                <Link to="/anamnese">
+                    <Anamnese>
+                        <Img src="../../../img/anamnese.png" />
+                        Anamnese
+                    </Anamnese>
+                </Link>
+
+            </Nav><br/>
+
+
         </>
     )
 }

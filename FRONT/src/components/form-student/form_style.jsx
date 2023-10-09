@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-    margin: 8%;
     height: 100%;
 `;
 
 export const Fieldset = styled.fieldset`
     border: none;
     border-radius: 10px;
+    text-align: left;
 `;
 
 export const Form = styled.form`
@@ -19,7 +19,30 @@ export const Form = styled.form`
     box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
     
 `
+export const Text = styled.input`
+margin: 5px;
+padding: 5px;
+border: 1px solid #B9B4C7;
 
+&:hover{
+    width: 250px;
+    border: 1px solid gray;
+}
+
+&:focus{
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 2px solid #2b3467;
+    border-top: none;
+    background: linear-gradient(to top, #DCDCDC, transparent);
+}
+
+&::placeholder{
+    font-size: 15x;
+    color: #B9B4C7;
+}
+
+`
 export const Legend = styled.legend`
     background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
     margin-top: -40px;
