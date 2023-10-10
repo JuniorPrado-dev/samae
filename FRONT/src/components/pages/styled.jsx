@@ -216,12 +216,12 @@ export const InserirAluno = styled.li`
     width: 60%;
     text-align: center;
     border-radius: 5px;
-    -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
-    -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
-    box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
-`
 
+`
 export const Adicionar = styled.li`
     margin: 30px 48%;
     list-style-type: none;
+`
+export const EscolherArquivo = styled.input`
+    width: 100%;
 `

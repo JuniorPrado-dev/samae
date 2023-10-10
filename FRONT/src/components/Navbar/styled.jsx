@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Nav = styled.nav `
     display: flex;
     flex-direction: row;
+    background-color: #1D5D9B;
     text-align: left;
     margin: 0;
     width: 100%;
@@ -20,14 +21,13 @@ export const Nav = styled.nav `
 
 export const Agenda = styled.li `
     display: flex;
-    flex-wrap: no-wrap;
+    flex-wrap: no-wrap; 
     margin-top: 0;
     padding: 30px 20px;
-    width: 100%;
+    width: 20vw;
     height: 5vh;
-    background-color: #1D5D9B;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid lightgray;
     list-style-type: none;
 
     &:active {
@@ -37,6 +37,10 @@ export const Agenda = styled.li `
     &:hover {
     background-color: #2b3467;
     }
+
+    @media (max-width: 550px){
+        width: 100vw;
+    }
 `;
 
 export const Triagem = styled.li `
@@ -44,20 +48,23 @@ export const Triagem = styled.li `
     flex-wrap: no-wrap;
     margin-top: 20;
     padding: 30px 20px;
-    width: 100%;
+    width: 20vw;
     height: 5vh;
-    background-color: #1D5D9B;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid lightgray;
     list-style-type: none;
 
     &:active {
         background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     
-        }
+    }
     &:hover {
         background-color: #2b3467;
-        }
+    }
+
+    @media (max-width: 550px){
+        width: 100vw;
+    }
 `;
 
 export const Home = styled.li `
@@ -65,20 +72,23 @@ export const Home = styled.li `
     flex-wrap: no-wrap;
     margin-top: 0;
     padding: 30px 20px;
-    width: 100%;
+    width: 20vw;
     height: 5vh;
-    background-color: #1D5D9B;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid lightgray;
     list-style-type: none;
 
     &:active {
         background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     
-        }
+    }
     &:hover {
         background-color: #2b3467;
-        }
+    }
+
+    @media (max-width: 550px){
+        width: 100vw;
+    }
 `;
 
 export const Student = styled.li `
@@ -86,20 +96,23 @@ export const Student = styled.li `
     flex-wrap: no-wrap;
     margin-top: 30;
     padding: 30px 20px;
-    width: 100%;
+    width: 20vw;
     height: 5vh;
-    background-color: #1D5D9B;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid lightgray;
     list-style-type: none;
 
     &:active {
         background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     
-        }
+    }
     &:hover {
         background-color: #2b3467;
-        }
+    }
+
+    @media (max-width: 550px){
+        width: 100vw;
+    }
 `;
 
 export const Anamnese = styled.li `
@@ -107,11 +120,10 @@ export const Anamnese = styled.li `
     flex-wrap: no-wrap;
     margin-top: 40;
     padding: 30px 20px;
-    width: 100%;
+    width: 20vw;
     height: 5vh;
-    background-color: #1D5D9B;
+    background-color: transparent;
     border: none;
-    border-bottom: 1px solid lightgray;
     list-style-type: none;
 
     &:active {
@@ -120,6 +132,10 @@ export const Anamnese = styled.li `
 
     &:hover {
         background-color: #2b3467;
+    }
+
+    @media (max-width: 550px){
+        width: 100vw;
     }
 `;
 
