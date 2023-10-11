@@ -149,6 +149,7 @@ export const Triagem = () => {
             });
     }
 
+    //cards
     const cards = [
         <Cabecalho
             form={form}
@@ -169,7 +170,8 @@ export const Triagem = () => {
             checkboxes={checkboxes}
             handleCheckBoxChange={handleCheckBoxChange}
         />,
-        // Novo card com o botão "Enviar"
+
+        //card de revisão e enviar
         <div>
             <Cabecalho
                 form={form}
