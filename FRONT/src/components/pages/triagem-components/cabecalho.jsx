@@ -1,27 +1,29 @@
 import React from 'react';
+import { Hour, InputTriagem, H1 } from '../styled';
+import { Fieldset} from '../../form-student/form_style';
 
 export const Cabecalho = ({ form, onChange }) => {
   return (
     <main>
-      <div>
-        <h1>Triagem Psicopedagógica</h1>
+        <H1>Triagem Psicopedagógica</H1>
+      <Fieldset>
         <label>
           Aluno:
-          <input type='text' name='nome' onChange={onChange} value={form.nome} />
+          <InputTriagem type='text' name='nome' onChange={onChange} value={form.nome} /><br />
         </label>
         <label>
           Data da Triagem:
-          <input type='date' name='data' onChange={onChange} value={form.data} /><br />
+          <Hour type='date' name='data' onChange={onChange} value={form.data} /><br />
         </label>
         <label>
-          Professor:
-          <input type="text" name='professor' onChange={onChange} value={form.professor} />
+          Professor:<br />
+          <InputTriagem type="text" name='professor' onChange={onChange} value={form.professor} />
         </label>
         <label>
-          Psicopedagogo:
-          <input type="text" name='psicopedagogo' onChange={onChange} value={form.psicopedagogo} />
+          Psicopedagogo:<br />
+          <InputTriagem type="text" name='psicopedagogo' onChange={onChange} value={form.psicopedagogo} />
         </label><br /> <br />
-      </div>
+      </Fieldset>
     </main>
   )
 };

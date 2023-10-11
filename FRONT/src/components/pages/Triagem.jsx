@@ -5,6 +5,7 @@ import { Cabecalho } from './triagem-components/cabecalho';
 import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
 import { Hc } from './triagem-components/hc';
+import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
 
 export const Triagem = () => {
 
@@ -190,7 +191,9 @@ export const Triagem = () => {
                 checkboxes={checkboxes}
                 handleCheckBoxChange={handleCheckBoxChange}
             />
-            <button type="submit">Enviar</button>
+            <DivButton>
+                <Enviar type="submit">Enviar</Enviar>
+            </DivButton>
         </div>
     ];
 
@@ -211,20 +214,25 @@ export const Triagem = () => {
     const currentCard = cards[currentCardIndex];
 
     return (
-        <main>
+        <MainTriagem>
             <form onSubmit={send}>
                 <div>
                     {currentCard}
                 </div>
-                <div>
+                <Cards>
                     {currentCardIndex !== 0 && (
-                        <button onClick={handlePrevCard}>Anterior</button>
+                        <Anterior onClick={handlePrevCard}>
+                            <ImgCard src="../../../img/anterior.png" />
+                        </Anterior>
                     )}
                     {currentCardIndex !== cards.length - 1 && (
-                        <button onClick={handleNextCard}>Próximo</button>
+                        <Proximo onClick={handleNextCard}>
+                            <ImgCard src="../../../img/proximo.png" />
+                        </Proximo>
+                        
                     )}
-                </div>
+                </Cards>
             </form>
-        </main>
+        </MainTriagem>
     )
 }
