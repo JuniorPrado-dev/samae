@@ -159,7 +159,7 @@ export const Hc = ({ checkboxes, handleCheckBoxChange }) => {
                         onChange={handleCheckBoxChange}
                     />
                 </label> <br />
-            </div>
+            </div><br />
         </main>
     )
 };

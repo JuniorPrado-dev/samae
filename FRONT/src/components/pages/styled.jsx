@@ -80,7 +80,6 @@ export const Hour = styled.input`
     border: 1px solid #B9B4C7;
 
 &:hover{
-    width: 100px;
     border: 1px solid gray;
 }
 
@@ -224,4 +223,101 @@ export const Adicionar = styled.li`
 `
 export const EscolherArquivo = styled.input`
     width: 100%;
+`
+
+//triagem
+export const H1 = styled.h1`
+    background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+    margin-top: -60px;
+    margin-bottom: 20px;
+    padding: 8px 10px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #fefefe;
+`;
+
+export const MainTriagem = styled.main`
+    padding: 3%;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 60%;
+    text-align: left;
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+    box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
+
+    @media (max-width: 550px){
+        width: 90vw;
+    }
+`
+export const ImgCard = styled.img`
+    height: 6vh;
+`
+export const Proximo = styled.button`
+    margin-left: 90%;
+    border: none;
+    background: none;
+    cursor: pointer;
+`
+export const Anterior = styled.button`
+    border: none;
+    background: none;
+    cursor: pointer;
+`
+
+export const Cards = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+export const InputTriagem = styled.input`
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 3px;
+    border: 1px solid #B9B4C7;
+
+    &:hover{
+       border: 1px solid gray;
+    }
+
+    &:focus{
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 2px solid #2b3467;
+        border-top: none;
+        background: linear-gradient(to top, #DCDCDC, transparent);
+    }
+`
+export const Enviar = styled.button`
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+    color:lightgray;
+    transition: 250ms;
+    font-size: 16px;
+
+    &:hover {
+        transition: 250ms;
+        color: #fefefe;
+        font-size: 18px;
+      }
+      &:focus {
+        background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+
+      }
+    
+
+`
+export const DivButton = styled.button`
+    margin-bottom: -37px; 
+    display: flex;
+    flex-direction: row;    
+    justify-content: flex-end;
+    width: 100%;
+    border: none;
+    background: transparent;
 `
