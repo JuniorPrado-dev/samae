@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Main = styled.main`
     padding: 3%;
     margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
     width: 60%;
     text-align: center;
@@ -11,14 +12,12 @@ export const Main = styled.main`
     -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
     box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
-    position: relative;
-    top: 20%;
+
+    @media (max-width: 550px){
+        width: 90vw;
+    }
 `
 
-export const H2 = styled.h2`
-padding-bottom: 10px;
-font-size: 20px;
-`
 export const Item = styled.p`
     margin-bottom: -4px;
 `
@@ -240,6 +239,7 @@ export const H1 = styled.h1`
 export const MainTriagem = styled.main`
     padding: 3%;
     margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
     width: 60%;
     text-align: left;

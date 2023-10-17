@@ -1,8 +1,9 @@
 import React from 'react';
 import './styled.jsx';
-import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, H2, Item, BtnDelete } from './styled.jsx';
+import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, Item, BtnDelete } from './styled.jsx';
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
+import { Legend } from '../form-student/form_style.jsx';
 
 export const Agenda = () => {
 
@@ -87,8 +88,9 @@ export const Agenda = () => {
 
     return (
         <Main>
+            
+                <Legend className={"shopping__title"}>Agenda</Legend>
             <div className={"shopping"}>
-                <H2 className={"shopping__title"}>Agenda</H2>
                 <ul className={"shopping__checklist"}>
                     {itens.map((item, index) => <Li key={index}>
                         <Checkbox type="checkbox" id='check'/>
@@ -110,12 +112,14 @@ export const Agenda = () => {
                     </>
                     }
                 </ul>
+                
                 {watcher2 &&
                     <AddTask onClick={addTask} type='button'>
                         <Icon src="../../img/add.png" />
                     </AddTask>
                 }
             </div>
+            
         </Main>
     )
 }
