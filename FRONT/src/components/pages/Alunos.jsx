@@ -12,25 +12,9 @@ export const Alunos = () => {
     
     const [itens, setItens] = useState([])
 
-    const [form, onChange, resetState] = useForm({
-        name:""
-    })
-
     function addTask(){
         setWatch(true)    
         setWatch2(false)
-    }
-    
-    function post(){
-        const newItem ={
-            nome: form.name,
-            imagem:form.picture
-        }
-        const newList = [...itens,newItem ]
-        setItens(newList)
-        resetState()
-        setWatch(false)
-        setWatch2(true)
     }
 
     function cancel(){
@@ -55,6 +39,49 @@ export const Alunos = () => {
         }
     };
 
+    const [form, onChange, resetState] = useForm({ 
+        name: '',
+        date: '', 
+        parent: '', 
+        contact: '' 
+    })
+
+    const [gender, setGender] = useState('')
+  
+    const mudaGender = (e) => {
+      setGender(e.target.value)
+    }
+  
+    function send(e) {
+      e.preventDefault()
+      const aluno = {
+        name: form.name,
+        date: form.date,
+        gender: gender,
+        parent: form.parent,
+        contact: form.contact,
+        imagem: form.picture
+      }
+
+        const newItem ={
+            nome: form.name,
+            imagem:form.picture
+        }
+        const newList = [...itens,newItem ]
+        setItens(newList)
+        resetState()
+        setWatch(false)
+        setWatch2(true)
+
+        axios.post('http://localhost:3003/sign-up-student', aluno)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
 return (
     <main>
         <div>
@@ -69,10 +96,13 @@ return (
                     </CardAluno>) }
                 {watcher && 
                     <InserirAluno>
-                        <Cadastrar/>
-
-                        <button type='submit' onClick={post}>Enviar</button>
-                        <button type="button" onClick={cancel}> X </button>
+                        <Cadastrar
+                            form={form}
+                            onChange = {onChange}
+                            mudaGender = {mudaGender}
+                            cancel={cancel}
+                            send = {send}
+                        />
                     </InserirAluno>
                 }
             </MainAluno>
