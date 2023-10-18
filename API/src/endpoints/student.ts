@@ -120,42 +120,41 @@ export async function postSignUpStudent (req:Request, res:Response){
 //função de triagem do aluno
 export async function triagemStudent (req:Request ,res:Response) {
   try{
-    
-     const {idAluno, serie, nascimento, dataTriagem, idProfessor, psicopedagogo} = req.body;
-     const {n1_n1, n1_n2, n1_n3, n1_n4, n1_n5, n1_n6, n1_n7, n1_n8, n1_n9, n1_n10, n1_n11} = req.body;
+     const {idTriagem,idAluno, dataTriagem, idProfessor, psicopedagogo} = req.body;
+     const {n1_n1, n1_n2, n1_n3} = req.body;
      const {n2_n1, n2_n2, n2_n3, n2_n4} = req.body;
-     const {n3_n1, n3_n2, n3_n3, n3_n4} = req.body;
-     const {n4_n1, n4_n2, n4_n3, n4_n4} = req.body;
+     const {n3_n1, n3_n2, n3_n3} = req.body;
+     const {n4_n1, n4_n2, n4_n3, n4_n4, n4_n5, n4_n6} = req.body;
      const {mt_n1, mt_n2, mt_n3, mt_n4, mt_n5, mt_n6, mt_n7, mt_n8, mt_n9, mt_n10, mt_n11} = req.body;
-     const {hc_n1, hc_n2, hc_n3, hc_n4, hc_n5, hc_n6, hc_n7, hc_n8, hc_n9, hc_n10, hc_n11, hc_n12, hc_n13, hc_n14, hc_n15, hc_n16, hc_n17} = req.body;
+     const {hc_n1, hc_n2, hc_n3, hc_n4, hc_n5, hc_n6, hc_n7, hc_n8, hc_n9, hc_n10, hc_n11, hc_n12, hc_n13, hc_n14, hc_n15} = req.body;
   
-    if(!idAluno || !serie || !nascimento || !dataTriagem || !idProfessor || !psicopedagogo || !n1_n1 || !n1_n2 || !n1_n3 || !n1_n4 || !n1_n5 || !n1_n6 || !n1_n7 || !n1_n8 || !n1_n9 || !n1_n10 || !n1_n11 || !n2_n1 || !n2_n2 || !n2_n3 || !n2_n4 || !n3_n1 || !n3_n2 || !n3_n3 || !n3_n4 || !n4_n1 || !n4_n2 || !n4_n3 || !n4_n4 ||
-      !mt_n1 || !mt_n2 || !mt_n3 || !mt_n4 || !mt_n5 || !mt_n6 || !mt_n7 || !mt_n8 || !mt_n9 || !mt_n10 || !mt_n11 || !hc_n1 || !hc_n2 || !hc_n3 || !hc_n4 || !hc_n5 || !hc_n6 || !hc_n7 || !hc_n8 || !hc_n9 || !hc_n10 || !hc_n11 || !hc_n12 || !hc_n13 || !hc_n14 || !hc_n15 || !hc_n16 || !hc_n17){
+    if(!idAluno || !dataTriagem || !idProfessor || !psicopedagogo || !n1_n1 || !n1_n2 || !n1_n3 || !n2_n1 || !n2_n2 || !n2_n3 || !n2_n4 || !n3_n1 || !n3_n2 || !n3_n3 || !n4_n1 || !n4_n2 || !n4_n3 || !n4_n4 || !n4_n5 || !n4_n6 ||
+      !mt_n1 || !mt_n2 || !mt_n3 || !mt_n4 || !mt_n5 || !mt_n6 || !mt_n7 || !mt_n8 || !mt_n9 || !mt_n10 || !mt_n11 || !hc_n1 || !hc_n2 || !hc_n3 || !hc_n4 || !hc_n5 || !hc_n6 || !hc_n7 || !hc_n8 || !hc_n9 || !hc_n10 || !hc_n11 || !hc_n12 || !hc_n13 || !hc_n14 || !hc_n15){
       return res.send("Informe todos os dados obrigatórios")
     }
 
     
-
+      const id_triagem = idTriagem;
       const id_aluno = idAluno;
       const id_professor = idProfessor;
       const data_triagem = dataTriagem;
 
       const tr = await connection('tbtriagem').insert({
-        id_aluno, nascimento, data_triagem, serie, id_professor, psicopedagogo,
+        id_triagem, id_aluno, data_triagem, id_professor, psicopedagogo,
 
       });
 
 
-      const idTriagem = await connection('tbtriagem').where('id_aluno', id_aluno).where('nascimento', nascimento)
-      .where('data_triagem', data_triagem).where('serie', serie).where('id_professor', id_professor).where('psicopedagogo', psicopedagogo);
+      /*const idTriagem = await connection('tbtriagem').where('id_aluno', id_aluno)
+      .where('data_triagem', data_triagem).where('id_professor', id_professor).where('psicopedagogo', psicopedagogo);
 
 
-      const id_triagem = idTriagem[0].id_triagem;
+      const id_triagem = idTriagem[0].id_triagem;*/
 
 
 
     const a = await connection('triagem_n1').insert({
-      id_triagem, id_aluno, n1_n1, n1_n2, n1_n3, n1_n4, n1_n5, n1_n6, n1_n7, n1_n8, n1_n9, n1_n10, n1_n11,
+      id_triagem, id_aluno, n1_n1, n1_n2, n1_n3,
     });
 
     const b = await connection('triagem_n2').insert({
@@ -163,11 +162,11 @@ export async function triagemStudent (req:Request ,res:Response) {
     });
 
     const c = await connection('triagem_n3').insert({
-     id_triagem, id_aluno, n3_n1, n3_n2, n3_n3, n3_n4,
+     id_triagem, id_aluno, n3_n1, n3_n2, n3_n3,
     });
 
     const d = await connection('triagem_n4').insert({
-     id_triagem, id_aluno, n4_n1, n4_n2, n4_n3, n4_n4,
+     id_triagem, id_aluno, n4_n1, n4_n2, n4_n3, n4_n4, n4_n5, n4_n6,
     });
 
     const mt = await connection('triagem_matematica').insert({
@@ -175,7 +174,7 @@ export async function triagemStudent (req:Request ,res:Response) {
     });
 
     const hc = await connection('triagem_hab_comp').insert({
-     id_triagem, id_aluno, hc_n1, hc_n2, hc_n3, hc_n4, hc_n5, hc_n6, hc_n7, hc_n8, hc_n9, hc_n10, hc_n11, hc_n12, hc_n13, hc_n14, hc_n15, hc_n16, hc_n17,
+     id_triagem, id_aluno, hc_n1, hc_n2, hc_n3, hc_n4, hc_n5, hc_n6, hc_n7, hc_n8, hc_n9, hc_n10, hc_n11, hc_n12, hc_n13, hc_n14, hc_n15,
     });
 
 
