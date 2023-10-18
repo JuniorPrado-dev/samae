@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './styled';
 import { Nav, Img, Home, Triagem, Student, Anamnese, Agenda } from './styled'
+import Inicio from '../../img/home.png';
+import Calendario from '../../img/calendario.png';
+import Triage from '../../img/triagem.png';
+import Alunos from '../../img/alunos.png';
+import Anm from '../../img/anamnese.png';
 
 
 export const Navbar = () => {
@@ -11,31 +16,31 @@ export const Navbar = () => {
 
                 <Link to="/">
                     <Home>
-                        <Img src="../../../img/home.png" />
+                        <Img src={Inicio} />
                         Início
                     </Home>
                 </Link>
                 <Link to="/agenda">
                     <Agenda>
-                        <Img src="../../../img/calendario.png" />
+                        <Img src={Calendario}/>
                         Agenda
                     </Agenda>
                 </Link>
                 <Link to="/triagem">
                     <Triagem >
-                        <Img src="../../../img/triagem.png" />
+                        <Img src={Triage} />
                         Triagem
                     </Triagem>
                 </Link>
                 <Link to="/alunos">
                     <Student>
-                        <Img src="../../../img/alunos.png" />
+                        <Img src={Alunos} />
                         Alunos
                     </Student>
                 </Link>
                 <Link to="/anamnese">
                     <Anamnese>
-                        <Img src="../../../img/anamnese.png" />
+                        <Img src={Anm}/>
                         Anamnese
                     </Anamnese>
                 </Link>

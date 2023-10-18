@@ -6,7 +6,6 @@ export const Main = styled.main`
 
 export const Fieldset = styled.fieldset`
     border: none;
-    border-radius: 10px;
     text-align: left;
 `;
 

@@ -229,12 +229,12 @@ export const Triagem = () => {
                 <Cards>
                     {currentCardIndex !== 0 && (
                         <Anterior onClick={handlePrevCard}>
-                            <ImgCard src="../../../img/anterior.png" />
+                            <ImgCard src={Back} />
                         </Anterior>
                     )}
                     {currentCardIndex !== cards.length - 1 && (
                         <Proximo onClick={handleNextCard}>
-                            <ImgCard src="../../../img/proximo.png" />
+                            <ImgCard src={Next} />
                         </Proximo>
                         
                     )}
