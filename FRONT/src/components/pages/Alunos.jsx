@@ -84,5 +84,6 @@ export const Alunos = () => {
                 </Adicionar>
             }
         </MainAluno>
+
     )
 };
