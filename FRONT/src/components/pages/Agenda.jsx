@@ -4,6 +4,9 @@ import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, 
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { Legend } from '../form-student/form_style.jsx';
+import Reset from '../../img/excluir.png';
+import Lixeira from '../../img/lixeira.png';
+import Student from '../../img/add.png';
 
 export const Agenda = () => {
 
@@ -96,7 +99,7 @@ export const Agenda = () => {
                         <Checkbox type="checkbox" id='check'/>
                         <Item>{item.nome} às {item.hora}</Item>
                         <BtnDelete type='button' onClick={() => deleteTask(item)}>
-                            <IconX src="../../../img/lixeira.png" />
+                            <IconX src={Lixeira} />
                         </BtnDelete>
                     </Li>)}
                     {watcher &&
@@ -105,7 +108,7 @@ export const Agenda = () => {
                             <Text type="text" id="name" name="name" onChange={onChange} value={form.name} placeholder='Digite o nome do aluno' />
                             <Hour type="time" id="hour" name="hour" onChange={onChange} value={form.hour} />
                             <BtnNone type='button' onClick={cancel}>
-                                <IconX src="../../../img/excluir.png" />
+                                <IconX src={Reset} />
                             </BtnNone>
                         </Li>
                             <Submit type='submit' onClick={post}>Enviar</Submit>
@@ -115,7 +118,7 @@ export const Agenda = () => {
                 
                 {watcher2 &&
                     <AddTask onClick={addTask} type='button'>
-                        <Icon src="../../img/add.png" />
+                        <Icon src={Student}/>
                     </AddTask>
                 }
             </div>

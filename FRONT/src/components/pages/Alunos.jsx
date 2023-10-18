@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import Cadastrar  from '../form-student/form_student';
 import { AddTask, Adicionar, AlunoImg, CardAluno, DeleteCard, InserirAluno, MainAluno, Icon, IconX } from './styled';
+import Student from '../../img/add.png';
 
 export const Alunos = () => {
 
@@ -78,7 +79,7 @@ export const Alunos = () => {
             {watcher2 &&
                 <Adicionar>
                     <AddTask onClick={addTask} type='button'>
-                        <Icon src="../../img/add.png" />
+                        <Icon src={Student} />
                     </AddTask>
                 </Adicionar>
             }

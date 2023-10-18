@@ -77,6 +77,9 @@ export const Hour = styled.input`
     margin: 5px;
     padding: 3px;
     border: 1px solid #B9B4C7;
+    font-family: "Verdana";
+    font-size: 14px;
+    color: lightgray;
 
 &:hover{
     border: 1px solid gray;

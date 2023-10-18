@@ -1,6 +1,7 @@
 import React from 'react';
 import './topbarcss';
 import {Div, ButtonHide, Line, Img}from './topbarcss';
+import Logo from '../../img/samae_logo.png';
 
 
 function Onclick () {
@@ -36,7 +37,7 @@ export const Topbar =  () => {
                 <Line onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}></Line>
                 <Line onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}></Line>
             </ButtonHide>
-            <Img src="../../../img/samae_logo.png"/>
+            <Img src={Logo}/>
         </Div>
 
     )
