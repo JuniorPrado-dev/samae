@@ -180,15 +180,15 @@ export const LeituraEscrita = ({ checkboxes, handleCheckBoxChange, alter}) => {
                 <label>
                     Qual o nível de escrita do aluno?
                     <br />
-                    <input type="radio" name="alter" onChange={alter} value="Masculino" />
+                    <input type="radio" name="alter" onChange={alter} value="Pré-silábico - 01" />
                     <label htmlFor="triagem" className="alter">Pré-silábico - 01</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Feminino" />
+                    <input type="radio" name="alter" onChange={alter} value="Pré-silábico - 02" />
                     <label htmlFor="triagem" className="alter">Pré-silábico - 02</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Masculino" />
+                    <input type="radio" name="alter" onChange={alter} value="Silábico" />
                     <label htmlFor="triagem" className="alter">Silábico</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Feminino" />
+                    <input type="radio" name="alter" onChange={alter} value="Silábico Alfabético" />
                     <label htmlFor="triagem" className="alter">Silábico Alfabético</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Feminino" />
+                    <input type="radio" name="alter" onChange={alter} value="Alfabético" />
                     <label htmlFor="triagem" className="alter">Alfabético</label><br />
                 </label>
             </div><br />

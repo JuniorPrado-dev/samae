@@ -9,7 +9,7 @@ export const Cabecalho = ({ form, onChange }) => {
       <Fieldset>
         <label>
           Aluno:
-          <InputTriagem type='text' name='nome' onChange={onChange} value={form.nome} /><br />
+          <InputTriagem type='number' name='nome' onChange={onChange} value={form.nome} /><br />
         </label>
         <label>
           Data da Triagem:
@@ -17,7 +17,7 @@ export const Cabecalho = ({ form, onChange }) => {
         </label>
         <label>
           Professor:<br />
-          <InputTriagem type="text" name='professor' onChange={onChange} value={form.professor} />
+          <InputTriagem type="number" name='professor' onChange={onChange} value={form.professor} />
         </label>
         <label>
           Psicopedagogo:<br />
