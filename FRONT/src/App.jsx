@@ -3,8 +3,8 @@ import axios from "axios";
 import { Navbar } from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
-import { Login } from './components/login/login';
 import { Topbar } from './components/topbar/topbar';
+import { TelaInicial } from './components/inicio/Inicio';
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
     })
 
     const telaLogin = <div id="pagLogin">
-      <Login/>
+      <TelaInicial/>
     </div>
 
     const system = <div className='App'>

@@ -6,6 +6,8 @@ import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
 import { Hc } from './triagem-components/hc';
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
+import Back from '../../img/anterior.png'
+import Next from '../../img/proximo.png'
 
 export const Triagem = () => {
 
@@ -224,12 +226,12 @@ export const Triagem = () => {
                 <Cards>
                     {currentCardIndex !== 0 && (
                         <Anterior onClick={handlePrevCard}>
-                            <ImgCard src="../../../img/anterior.png" />
+                            <ImgCard src={Back} />
                         </Anterior>
                     )}
                     {currentCardIndex !== cards.length - 1 && (
                         <Proximo onClick={handleNextCard}>
-                            <ImgCard src="../../../img/proximo.png" />
+                            <ImgCard src={Next} />
                         </Proximo>
                         
                     )}
