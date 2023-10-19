@@ -96,10 +96,6 @@ export const Triagem = () => {
       };
     
       const [uniqueId, setUniqueId] = useState(generateUniqueId());
-    
-      const handleClick = () => {
-        setUniqueId(generateUniqueId());
-      };
 
     //chama e organiza tudo para mandar para a api
     function send(e) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AtitudesSocias = () => {
+export const AtitudesSocias = ({form, onChange, checkboxes, handleCheckBoxChange}) => {
   return (
     <main>
         <h2>

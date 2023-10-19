@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AspectosPerceptivos = () => {
+export const AspectosPerceptivos = ({form, onChange, alter}) => {
   return (
     <main>
         <h2>
@@ -9,48 +9,52 @@ export const AspectosPerceptivos = () => {
         <div>
             <label>    
                 Apresenta alguma dificuldade para enxergar?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim7" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não7" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
+            </label>
             <label>    
                 Exemplo
             <input type="text" name='q23' onChange={onChange} value={form.q23} />
-            </label><br />
+            </label><br /> <br />
             <label>    
                 Aparenta ter dificuldades para ouvir?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim8" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não8" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
+            </label>
             <label>    
                 Exemplo
             <input type="text" name='q24' onChange={onChange} value={form.q24} />
-            </label><br />
+            </label><br /><br />
             <label>    
                 É desatento?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim9" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não9" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
+            </label>
             <label>    
                 Exemplo
             <input type="text" name='q25' onChange={onChange} value={form.q25} />
-            </label><br />
+            </label><br /><br />
             <label>    
                 É agitado?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim10" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não10" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
+            </label>
             <label>    
                 Exemplo
             <input type="text" name='q26' onChange={onChange} value={form.q26} />
-            </label><br />
+            </label><br /><br />
         </div>
     </main>
   )

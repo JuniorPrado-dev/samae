@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Sono = () => {
+export const Sono = ({checkboxes, handleCheckBoxChange}) => {
   return (
     <main>
         <h2>

@@ -166,35 +166,36 @@ export const Anamnese = () => {
         <Cabecalho
             form={form}
             onChange={onChange}
+            alter={alter}
         />,
         <DadosFamiliares
             form={form}
             onChange={onChange}
+            alter={alter}
         />,
         <HistoricoEscolar
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
+            form={form}
+            onChange={onChange}
             alter={alter}
         />,
         <AspectosMotores
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-            onChange={onChange}
-            form={form}
+            alter={alter}
         />,
         <AspectosPerceptivos
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
+            form={form}
+            onChange={onChange}
+            alter={alter}
         />,
         <AspectosEmocionais
             checkboxes={checkboxes}
             handleCheckBoxChange={handleCheckBoxChange}
         />,
         <Sociabilidade
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
+            alter={alter}
         />,
         <AtitudesSocias
+            form={form}
+            onChange={onChange}
             checkboxes={checkboxes}
             handleCheckBoxChange={handleCheckBoxChange}
         />,
@@ -203,63 +204,70 @@ export const Anamnese = () => {
             handleCheckBoxChange={handleCheckBoxChange}
         />,
         <Disciplinação
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
+            form={form}
+            onChange={onChange}
         />,
         <Saúde
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
+            form={form}
+            onChange={onChange}
+            alter={alter}
         />,
         
         // Novo card com o botão "Enviar"
         <div>
             <Cabecalho
-                form={form}
-                onChange={onChange}
-            />
-            <DadosFamiliares
-                form={form}
-                onChange={onChange}
-            />
-            <HistoricoEscolar
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-                alter={alter}
-            />
-            <AspectosMotores
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-                onChange={onChange}
-                form={form}
-            />
-            <AspectosPerceptivos
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />
-            <AspectosEmocionais
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />,
-            <Sociabilidade
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />,
-            <AtitudesSocias
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />,
-            <Sono
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />,
-            <Disciplinação
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />,
-            <Saúde
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />,
+            form={form}
+            onChange={onChange}
+            alter={alter}
+        />
+        <DadosFamiliares
+            form={form}
+            onChange={onChange}
+            alter={alter}
+        />
+        <HistoricoEscolar
+            form={form}
+            onChange={onChange}
+            alter={alter}
+        />
+        <AspectosMotores
+            alter={alter}
+        />
+        <AspectosPerceptivos
+            form={form}
+            onChange={onChange}
+            alter={alter}
+        />
+        <AspectosEmocionais
+            checkboxes={checkboxes}
+            handleCheckBoxChange={handleCheckBoxChange}
+        />
+        <Sociabilidade
+            alter={alter}
+        />
+        <AtitudesSocias
+            form={form}
+            onChange={onChange}
+            checkboxes={checkboxes}
+            handleCheckBoxChange={handleCheckBoxChange}
+        />
+        <Sono
+            checkboxes={checkboxes}
+            handleCheckBoxChange={handleCheckBoxChange}
+        />
+        <Disciplinação
+            form={form}
+            onChange={onChange}
+        />
+        <Saúde
+            form={form}
+            onChange={onChange}
+            alter={alter}
+        />
+            <h2>
+                Outras ocorrências?
+            </h2>
+            <input type="text" name='q34' onChange={onChange} value={form.q34} />
 
             <DivButton>
                 <Enviar type="submit">Enviar</Enviar>
@@ -284,7 +292,7 @@ export const Anamnese = () => {
     const currentCard = cards[currentCardIndex];
 
     return ( 
-        <main>
+        <MainTriagem>
             <div>
                 <Search setResults={setResults} />
                 <Lista>
@@ -311,7 +319,7 @@ export const Anamnese = () => {
                     )}
                 </Cards>
             </form>
-        </main>
+        </MainTriagem>
     );
 
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const HistoricoEscolar = () => {
+export const HistoricoEscolar = ({form, onChange, alter}) => {
   return (
     <main>
         <h2>
@@ -16,10 +16,11 @@ export const HistoricoEscolar = () => {
                 <input type="text" name='q13' onChange={onChange} value={form.q13} />
             </label><br />
             <label>    
-                Apresenta dificuldade na fala?       
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                Apresenta dificuldade na fala?    
+                <br />    
+                    <input type="radio" name="alter" onChange={alter} value="Sim2" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não2" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
             </label><br />
             <label>    
@@ -31,10 +32,11 @@ export const HistoricoEscolar = () => {
             <input type="text" name='q15' onChange={onChange} value={form.q15} />
             </label><br />
             <label>    
-                A dificuldade de aprendizado foi avaliada por um profissional?       
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                A dificuldade de aprendizado foi avaliada por um profissional?      
+                <br /> 
+                    <input type="radio" name="alter" onChange={alter} value="Sim3" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não3" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
             </label><br />
             <label>    
