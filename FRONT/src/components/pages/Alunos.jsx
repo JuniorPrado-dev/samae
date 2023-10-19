@@ -83,7 +83,7 @@ return (
                         <p>{item.nome}</p>
                         <AlunoImg src={item.imagem} />
                         <DeleteCard type='button' onClick={()=>deleteTask(item)}>
-                        <IconX src={T} />
+                        <IconX src={Trash} />
                         </DeleteCard>
                     </CardAluno>) }
                 {watcher && 

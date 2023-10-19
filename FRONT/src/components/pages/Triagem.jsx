@@ -8,7 +8,6 @@ import { Hc } from './triagem-components/hc';
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
 import Back from '../../img/anterior.png'
 import Next from '../../img/proximo.png'
-import { v4 as uuidv4 } from 'uuid';
 
 export const Triagem = () => {
 
@@ -85,12 +84,28 @@ export const Triagem = () => {
         setWatcher(e.target.value)
     }
 
+    const generateUniqueId = () => {
+        const length = 9;
+        let result = '';
+        const characters = '0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      };
+    
+      const [uniqueId, setUniqueId] = useState(generateUniqueId());
+    
+      const handleClick = () => {
+        setUniqueId(generateUniqueId());
+      };
+
     //chama e organiza tudo para mandar para a api
     function send(e) {
         e.preventDefault()
-        const id_triagem = uuidv4();
         const aluno = {
-            idTriagem: id_triagem,
+            idTriagem: uniqueId,
             idAluno: form.nome,
             dataTriagem: form.data,
             idProfessor: form.professor,
