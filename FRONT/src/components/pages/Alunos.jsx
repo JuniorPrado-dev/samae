@@ -31,17 +31,6 @@ export const Alunos = () => {
         setItens(filterArray)
     }
 
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
-
-        if (file) {
-        const imageUrl = URL.createObjectURL(file);
-        setSelectedImage(imageUrl);
-        }
-    };
-
     const [form, onChange, resetState] = useForm({ 
         name: '',
         date: '', 
@@ -94,7 +83,7 @@ return (
                         <p>{item.nome}</p>
                         <AlunoImg src={item.imagem} />
                         <DeleteCard type='button' onClick={()=>deleteTask(item)}>
-                        <IconX src={Trash} />
+                        <IconX src={T} />
                         </DeleteCard>
                     </CardAluno>) }
                 {watcher && 

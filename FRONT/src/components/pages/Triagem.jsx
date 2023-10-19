@@ -8,6 +8,7 @@ import { Hc } from './triagem-components/hc';
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
 import Back from '../../img/anterior.png'
 import Next from '../../img/proximo.png'
+import { v4 as uuidv4 } from 'uuid';
 
 export const Triagem = () => {
 
@@ -87,65 +88,68 @@ export const Triagem = () => {
     //chama e organiza tudo para mandar para a api
     function send(e) {
         e.preventDefault()
+        const id_triagem = uuidv4();
         const aluno = {
+            idTriagem: id_triagem,
             idAluno: form.nome,
             dataTriagem: form.data,
             idProfessor: form.professor,
             psicopedagogo: form.psicopedagogo,
 
-            n1_n1: checkboxes.checkbox1,
-            n1_n2: checkboxes.checkbox2,
-            n1_n3: checkboxes.checkbox3,
+            n1_n1: checkboxes.checkbox1.toString(),
+            n1_n2: checkboxes.checkbox2.toString(),
+            n1_n3: checkboxes.checkbox3.toString(),
 
-            n2_n1: checkboxes.checkbox4,
-            n2_n2: checkboxes.checkbox5,
-            n2_n3: checkboxes.checkbox6,
-            n2_n4: checkboxes.checkbox7,
+            n2_n1: checkboxes.checkbox4.toString(),
+            n2_n2: checkboxes.checkbox5.toString(),
+            n2_n3: checkboxes.checkbox6.toString(),
+            n2_n4: checkboxes.checkbox7.toString(),
 
-            n3_n1: checkboxes.checkbox8,
-            n3_n2: checkboxes.checkbox9,
-            n3_n3: checkboxes.checkbox10,
+            n3_n1: checkboxes.checkbox8.toString(),
+            n3_n2: checkboxes.checkbox9.toString(),
+            n3_n3: checkboxes.checkbox10.toString(),
 
-            n4_n1: checkboxes.checkbox11,
-            n4_n2: checkboxes.checkbox12,
-            n4_n3: checkboxes.checkbox13,
-            n4_n4: checkboxes.checkbox14,
-            n4_n5: checkboxes.checkbox15,
+            n4_n1: checkboxes.checkbox11.toString(),
+            n4_n2: checkboxes.checkbox12.toString(),
+            n4_n3: checkboxes.checkbox13.toString(),
+            n4_n4: checkboxes.checkbox14.toString(),
+            n4_n5: checkboxes.checkbox15.toString(),
             n4_n6: watcher,
 
-            mt_n1: checkboxes.checkbox16,
-            mt_n2: checkboxes.checkbox17,
-            mt_n5: form.recNum,
-            mt_n6: form.escNum,
-            mt_n7: checkboxes.checkbox18,
-            mt_n8: checkboxes.checkbox19,
-            mt_n9: checkboxes.checkbox20,
-            mt_n10: checkboxes.checkbox21,
-            mt_n11: checkboxes.checkbox22,
-            mt_n12: checkboxes.checkbox23,
-            mt_n13: checkboxes.checkbox24,
+            mt_n1: checkboxes.checkbox16.toString(),
+            mt_n2: checkboxes.checkbox17.toString(),
+            mt_n3: form.recNum,
+            mt_n4: form.escNum,
+            mt_n5: checkboxes.checkbox18.toString(),
+            mt_n6: checkboxes.checkbox19.toString(),
+            mt_n7: checkboxes.checkbox20.toString(),
+            mt_n8: checkboxes.checkbox21.toString(),
+            mt_n9: checkboxes.checkbox22.toString(),
+            mt_n10: checkboxes.checkbox23.toString(),
+            mt_n11: checkboxes.checkbox24.toString(),
 
-            hc_n1: checkboxes.checkbox25,
-            hc_n2: checkboxes.checkbox26,
-            hc_n3: checkboxes.checkbox27,
-            hc_n4: checkboxes.checkbox28,
-            hc_n5: checkboxes.checkbox29,
-            hc_n6: checkboxes.checkbox30,
-            hc_n7: checkboxes.checkbox31,
-            hc_n8: checkboxes.checkbox32,
-            hc_n9: checkboxes.checkbox33,
-            hc_n10: checkboxes.checkbox34,
-            hc_n11: checkboxes.checkbox35,
-            hc_n12: checkboxes.checkbox36,
-            hc_n13: checkboxes.checkbox37,
-            hc_n14: checkboxes.checkbox38,
-            hc_n15: checkboxes.checkbox39,
+            hc_n1: checkboxes.checkbox25.toString(),
+            hc_n2: checkboxes.checkbox26.toString(),
+            hc_n3: checkboxes.checkbox27.toString(),
+            hc_n4: checkboxes.checkbox28.toString(),
+            hc_n5: checkboxes.checkbox29.toString(),
+            hc_n6: checkboxes.checkbox30.toString(),
+            hc_n7: checkboxes.checkbox31.toString(),
+            hc_n8: checkboxes.checkbox32.toString(),
+            hc_n9: checkboxes.checkbox33.toString(),
+            hc_n10: checkboxes.checkbox34.toString(),
+            hc_n11: checkboxes.checkbox35.toString(),
+            hc_n12: checkboxes.checkbox36.toString(),
+            hc_n13: checkboxes.checkbox37.toString(),
+            hc_n14: checkboxes.checkbox38.toString(),
+            hc_n15: checkboxes.checkbox39.toString(),
         }
 
         //conecta api e front
         axios.post('http://localhost:3003/triagem-student', aluno)
             .then(function (response) {
                 console.log(response);
+                alert(response.data);
             })
             .catch(function (error) {
                 console.log(error);
