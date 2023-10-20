@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AspectosMotores = () => {
+export const AspectosMotores = ({alter}) => {
   return (
     <main>
         <h2>
@@ -9,23 +9,26 @@ export const AspectosMotores = () => {
         <div>
             <label>    
                 Apresenta alguma dificuldade de locomoção, postura e/ou coordenação?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim4" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não4" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
             </label><br />
             <label>    
                 Possui bom desempenho em educação física?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim5" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não5" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
             </label><br />
             <label>    
                 Apresenta interesse pela matéria?
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                <br />
+                    <input type="radio" name="alter" onChange={alter} value="Sim6" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não6" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
             </label><br />        
         </div>

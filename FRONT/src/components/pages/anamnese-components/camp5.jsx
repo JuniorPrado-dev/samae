@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AspectosEmocionais = () => {
+export const AspectosEmocionais = ({checkboxes, handleCheckBoxChange}) => {
   return (
     <main>
         <h2>
@@ -8,7 +8,7 @@ export const AspectosEmocionais = () => {
         </h2>
         <div>
             <label>
-                Tranquilo?
+                Tranquilo
                 <input
                     type="checkbox"
                     name="checkbox1"
@@ -17,7 +17,7 @@ export const AspectosEmocionais = () => {
                 />
             </label><br />
             <label>
-                Ansioso?
+                Ansioso
                 <input
                     type="checkbox"
                     name="checkbox2"
@@ -26,7 +26,7 @@ export const AspectosEmocionais = () => {
                 />
             </label><br />
             <label>
-                Segura?
+                Segura
                 <input
                     type="checkbox"
                     name="checkbox3"
@@ -35,7 +35,7 @@ export const AspectosEmocionais = () => {
                 />
             </label><br />
             <label>
-                Alegre?
+                Alegre
                 <input
                     type="checkbox"
                     name="checkbox4"
@@ -44,7 +44,7 @@ export const AspectosEmocionais = () => {
                 />
             </label><br />
             <label>
-                Queixoso?
+                Queixoso
                 <input
                     type="checkbox"
                     name="checkbox5"
@@ -53,7 +53,7 @@ export const AspectosEmocionais = () => {
                 />
             </label><br />
             <label>
-                Intolerante?
+                Intolerante
                 <input
                     type="checkbox"
                     name="checkbox6"

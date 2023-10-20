@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DadosFamiliares = () => {
+export const DadosFamiliares = ({form, onChange, alter}) => {
   return (
     <main>
         <h2>
@@ -58,17 +58,19 @@ export const DadosFamiliares = () => {
             <input type="text" name='q10' onChange={onChange} value={form.q10} />
             </label><br />
             <label>
-                Qual o estado civil dos pais?        
+                Qual o estado civil dos pais?     
+                <br />   
                     <input type="radio" name="alter" onChange={alter} value="Biológico" />
                     <label htmlFor="triagem" className="alter">Biológico</label><br />
                     <input type="radio" name="alter" onChange={alter} value="Adotivo" />
                     <label htmlFor="triagem" className="alter">Adotivo</label><br />
             </label><br />
             <label>
-                A criança é ciente da adoção?        
-                    <input type="radio" name="alter" onChange={alter} value="Sim" />
+                A criança é ciente da adoção?   
+                <br />     
+                    <input type="radio" name="alter" onChange={alter} value="Sim1" />
                     <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não" />
+                    <input type="radio" name="alter" onChange={alter} value="Não1" />
                     <label htmlFor="triagem" className="alter">Não</label><br />
             </label><br />
             <label>

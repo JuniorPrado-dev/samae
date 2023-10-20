@@ -6,7 +6,8 @@ import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
 import { Hc } from './triagem-components/hc';
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
-import { v4 as uuidv4 } from 'uuid';
+import Back from '../../img/anterior.png'
+import Next from '../../img/proximo.png'
 
 export const Triagem = () => {
 
@@ -83,13 +84,24 @@ export const Triagem = () => {
         setWatcher(e.target.value)
     }
 
+    const generateUniqueId = () => {
+        const length = 9;
+        let result = '';
+        const characters = '0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      };
+    
+      const [uniqueId, setUniqueId] = useState(generateUniqueId());
+
     //chama e organiza tudo para mandar para a api
     function send(e) {
         e.preventDefault()
-        const randomId = uuidv4();
         const aluno = {
-
-            idTriagem: randomId,
+            idTriagem: uniqueId,
             idAluno: form.nome,
             dataTriagem: form.data,
             idProfessor: form.professor,
@@ -143,7 +155,7 @@ export const Triagem = () => {
             hc_n14: checkboxes.checkbox38.toString(),
             hc_n15: checkboxes.checkbox39.toString(),
         }
-    
+
         //conecta api e front
         axios.post('http://localhost:3003/triagem-student', aluno)
             .then(function (response) {
@@ -152,10 +164,9 @@ export const Triagem = () => {
             })
             .catch(function (error) {
                 console.log(error);
-            }); 
+            });
     }
 
-    //cards
     const cards = [
         <Cabecalho
             form={form}
@@ -176,8 +187,7 @@ export const Triagem = () => {
             checkboxes={checkboxes}
             handleCheckBoxChange={handleCheckBoxChange}
         />,
-
-        //card de revisão e enviar
+        // Novo card com o botão "Enviar"
         <div>
             <Cabecalho
                 form={form}
