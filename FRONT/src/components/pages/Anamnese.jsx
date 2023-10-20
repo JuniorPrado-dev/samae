@@ -6,7 +6,6 @@ import axios from "axios";
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
 import Back from '../../img/anterior.png';
 import Next from '../../img/proximo.png';
-import { v4 as uuidv4 } from 'uuid';
 import { Cabecalho } from './anamnese-components/cabecalho';
 import { DadosFamiliares } from './anamnese-components/camp1';
 import { HistoricoEscolar } from './anamnese-components/camp2';
