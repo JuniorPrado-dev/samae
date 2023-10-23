@@ -21,7 +21,6 @@ import { Saúde } from './anamnese-components/camp10';
 export const Anamnese = () => {
     const [results, setResults] = useState([]);
 
-
     const [checkboxes, setCheckboxes] = useState({
         checkbox1: false,
         checkbox2: false,

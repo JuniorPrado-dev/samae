@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
+import { LoginResponsavel } from './components/login/loginParent';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
     </div>
 
     const system = <div className='App'>
+
     <Topbar/>
     <Navbar />
     <Routes>
@@ -36,10 +38,13 @@ function App() {
       <Route path="/Anamnese" element={<Anamnese />} />
     </Routes>
     </div>
+    
+    const responsavel = <LoginResponsavel/>
 
   return (
-    //telaLogin
-    system
+    telaLogin
+    //system
+    //responsavel
   )
 
 }
