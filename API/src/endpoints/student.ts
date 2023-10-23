@@ -32,81 +32,96 @@ export async function allStudents (req:Request, res:Response){
 //função do formulário de anamnese
 export async function postSignUpStudent (req:Request, res:Response){
    try {
-      const { nome, sexo, nascimento, religiao } = req.body;
-      const { am_p1, am_p2, am_p3} = req.body;
-      const {ap_p1, ap_p2, ap_p3, ap_p4} = req.body;
-      const {a_p1} = req.body;
-      const {d_p1, d_p2, d_p3, d_p4, d_p5, d_p6, d_p7, d_p8, d_p9, d_p10, d_p11, d_p12, d_p13, d_p14} = req.body;
-      const {medidas, contrariado, saude, acompanhamento, apoio} = req.body;  
-      const {h_p1, h_p2, h_p3, h_p4, h_p5, h_p6, h_p7, h_p8, h_p9, h_p10} = req.body;
+      const { nome, sexo, nascimento} = req.body;
+      const {d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14} = req.body;
+      const {h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13} = req.body;
+      const { am_n1, am_n2, am_n3} = req.body;
+      const {ap_n1, ap_n2, ap_n3, ap_n4, ap_n5, ap_n6, ap_n7, ap_n8} = req.body;
+      const {ae_n1, ae_n2, ae_n3, ae_n4, ae_n5, ae_n6} = req.body;
+      const {s_n1, s_n2, s_n3, s_n4, s_n5, s_n6, s_n7, s_n8} = req.body;
+      const {asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7} = req.body;
+      const {sn_n1, sn_n2, sn_n3} = req.body;
+      const {dc_n1, dc_n2, dc_n3} = req.body;
+      const {sd_n1, sd_n2, sd_n3, sd_n4, sd_n5, sd_n6} = req.body;  
+      
 
 
 
 
-  
-      if (!nome || !sexo || !nascimento || !religiao || !am_p1 || !am_p2 || !am_p3 || !ap_p1 || !ap_p2 || !ap_p3 || !ap_p4 || !a_p1 || 
-         !d_p1 || !d_p2 || !d_p3 || !d_p4 || !d_p5 || !d_p6 || !d_p7 || !d_p8 || !d_p9 || !d_p10 || !d_p11 || !d_p12 || !d_p13 || !d_p14 ||
-         !medidas || !contrariado || !saude || !acompanhamento || !apoio || !h_p1 || !h_p2 || !h_p3 || !h_p4 || !h_p5 || !h_p6 || !h_p7 || !h_p8 || !h_p9 || !h_p10) {
+  /*
+      if (!nome || !sexo || !nascimento || !d_n1 || !d_n2 || !d_n3 || !d_n4 || !d_n5 || !d_n6 || !d_n7 || !d_n8 || !d_n9 || !d_n10 || !d_n11 || !d_n12 || !d_n13 || !d_n14 || !h_n1 || !h_n2 || !h_n3 || !h_n4 || !h_n5 || !h_n6 || !h_n7 || !h_n8 || !h_n9 || !h_n10 || !h_n11 || !h_n12 || !h_n13 || !am_n1 || !am_n2 || !am_n3 || !ap_n1 || !ap_n2 || !ap_n3 || !ap_n4 || !ap_n5 || !ap_n6 || !ap_n7 || !ap_n8 || !ae_n1 || !ae_n2 || !ae_n3 || !ae_n4 || !ae_n5 || !ae_n6 || !s_n1 || !s_n2 || !s_n3 || !s_n4 || !s_n5 || !s_n6 || !s_n7 || !s_n8 || !asp_n1 || !asp_n2 || !asp_n3 || !asp_n4 || !asp_n5 || !asp_n6 || !asp_n7 || !sn_n1 || !sn_n2 || !sn_n3 || !dc_n1 || !dc_n2 || !dc_n3 || !sd_n1 || !sd_n2 || !sd_n3 || !sd_n4 || !sd_n5 || !sd_n6 ) {
         return res.send('Informe todos os campos obrigatórios');
-      }
+      }*/
   
       const id = await connection('tbaluno_anamnese').insert({
         nome,
         sexo,
         nascimento,
-        religiao,
       });
 
         
 
       const idAluno = await connection('tbaluno_anamnese').where('nome', nome).where('sexo', sexo)
-      .where('nascimento', nascimento).where('religiao', religiao);
+      .where('nascimento', nascimento);
 
       
-    const id_aluno = idAluno[0].id_aluno;
+       const id_aluno = idAluno[0].id_aluno;
   
 
 
       const am = await connection('tbaspectos_motores_anamnese').insert({
         id_aluno, 
-        am_p1,
-         am_p2,
-         am_p3,
+        am_n1,
+        am_n2,
+        am_n3,
        });
 
 
        const ap = await connection('tbaspectos_perceptivos_anamnese').insert({
-         id_aluno,
-         ap_p1,
-         ap_p2,
-         ap_p3,
-         ap_p4,
+        id_aluno, ap_n1, ap_n2, ap_n3, ap_n4, ap_n5, ap_n6, ap_n7, ap_n8,
        });
 
 
        const a = await connection('tbatitudes_anamnese').insert({
-        id_aluno, 
-        a_p1,
-      
+        id_aluno, asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7,
        });
 
 
        const d = await connection('tbdados_anamnese').insert({
-         id_aluno, d_p1, d_p2, d_p3, d_p4, d_p5, d_p6, d_p7, d_p8, d_p9, d_p10, d_p11, d_p12, d_p13, d_p14,
-      
-       });
-
-
-       const f = await connection('tbfinal_anamnese').insert({
-         id_aluno, medidas, contrariado, saude, acompanhamento, apoio,
+         id_aluno, d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14,
       
        });
 
 
        const h = await connection('tbhistorico_anamnese').insert({
-         id_aluno, h_p1, h_p2, h_p3, h_p4, h_p5, h_p6, h_p7, h_p8, h_p9, h_p10,
+         id_aluno, h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13,
       
        });
+
+       const ae = await connection('aspectos_emocionais_anamnese').insert({
+        id_aluno, ae_n1, ae_n2, ae_n3, ae_n4, ae_n5, ae_n6,
+
+       })
+
+       const s = await connection('tbsociabilidade_anamnese').insert({
+        id_aluno, s_n1, s_n2, s_n3, s_n4, s_n5, s_n6, s_n7, s_n8,
+        
+       })
+
+       const sn = await connection('tbsono_anamnese').insert({
+        id_aluno, sn_n1, sn_n2, sn_n3,
+        
+       })
+
+       const dc = await connection('tbdisciplinação_anamnese').insert({
+        id_aluno, dc_n1, dc_n2, dc_n3,
+        
+       })
+
+       const sd = await connection('tbsaude_anamnese').insert({
+        id_aluno, sd_n1, sd_n2, sd_n3, sd_n4, sd_n5, sd_n6,
+        
+       })
 
 
   

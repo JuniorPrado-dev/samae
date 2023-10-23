@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'; // Certifique-se de importar o React se não estiver importado
 
-export const Cabecalho = ({form, onChange, alter}) => {
+export const Cabecalho = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
     <main>
         <h1>
@@ -10,17 +10,15 @@ export const Cabecalho = ({form, onChange, alter}) => {
             <label>    
                 Aluno
                 <input type="text" name='c1' onChange={onChange} value={form.c1} />
-            </label><br /><br />
-            <label>    
-                Apresenta dificuldade na fala?       
-                <br />
-                    <input type="radio" name="alter" onChange={alter} value="Masculino" />
-                    <label htmlFor="anamnese" className="alter">Masculino</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Feminino" />
-                    <label htmlFor="anamnese" className="alter">Feminino</label><br />
             </label><br />
+            <RadioQuestion
+                question="Gênero"
+                options={['Masculino', 'Feminino']}
+                selectedOption={watcher.watcher1}
+                onChange={(e) => alter('watcher1', e.target.value)}
+            />
             <label>    
-                Data de Nascimento?
+                Data de Nascimento
                 <input type="date" name='c2' onChange={onChange} value={form.c2} />
             </label><br />
         </div>

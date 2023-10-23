@@ -1,27 +1,54 @@
 import React, { useState } from 'react';
 
-export const Home = () => {
-  const generateUniqueId = () => {
-    const length = 9;
-    let result = '';
-    const characters = '0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
+export const Home  = () => {
+  const [watcher, setWatcher] = useState({
+    watcher1: '',
+    watcher2: '',
+    // Adicione mais campos de watcher conforme necessário
+  });
+
+  const alter = (fieldName, value) => {
+    setWatcher((prevWatchers) => ({
+      ...prevWatchers,
+      [fieldName]: value,
+    }));
   };
 
-  const [uniqueId, setUniqueId] = useState(generateUniqueId());
-
-  const handleClick = () => {
-    setUniqueId(generateUniqueId());
+  const RadioQuestion = ({ question, options, selectedOption, onChange }) => {
+    return (
+      <div>
+        <p>{question}</p>
+        {options.map((option, index) => (
+          <label key={index}>
+            {option}
+            <input
+              type="radio"
+              value={option}
+              checked={selectedOption === option}
+              onChange={onChange}
+            />
+          </label>
+        ))}
+      </div>
+    );
   };
+  console.log(RadioQuestion.onChange);
 
   return (
     <div>
-      <p>ID gerado: {uniqueId}</p>
-      <button onClick={handleClick}>Gerar Novo ID</button>
+      <RadioQuestion
+        question="Você gosta de frutas?"
+        options={['Sim', 'Não']}
+        selectedOption={watcher.watcher1}
+        onChange={(e) => alter('watcher1', e.target.value)}
+      />
+      <RadioQuestion
+        question="Você pratica esportes regularmente?"
+        options={['Sim', 'Não']}
+        selectedOption={watcher.watcher2}
+        onChange={(e) => alter('watcher2', e.target.value)}
+      />
+      {/* ... outras perguntas ... */}
     </div>
   );
 };
