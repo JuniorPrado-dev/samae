@@ -1,17 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
-
-//keyframes
-const show = keyframes`
-    0%, 49.99% {
-        opacity: 0;
-        z-index: 1;
-    }
-
-    50%, 100% {
-        opacity: 1;
-        z-index: 5;
-    }
-`
+import styled, { css } from "styled-components";
 
 //css
 const formContainer = css`
@@ -34,14 +21,13 @@ const signUp = css`
 const btn = css`
     border-radius: 20px;
     border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+    cursor: pointer;
 
     &:active {
         transform: scale(0.95);
@@ -51,9 +37,55 @@ const btn = css`
         outline: none;
     }
 `
-const ghost = css`
-    background-color: transparent;
-    border-color: #FFFFFF;
+const teacher = css`
+    background-color: #fff;
+    border-color: #fff;
+    color: #2b3460;
+    transition: 500ms;
+    z-index: 1;
+    position: relative;
+
+    &:hover{
+        background: transparent;
+        color: #fff;
+        transition: 500ms;
+    }
+
+    &:after {
+        position: absolute;
+        border-radius: 20px;
+        content: "";
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: #2b3460;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5);
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        transition: all 0.3s ease;
+    }
+
+    &:hover:after {
+        top: auto;
+        bottom: 0;
+        height: 100%;
+    }
+
+`
+const parent = css`
+    background: linear-gradient(to top, #2b3460, #1D5D9B); 
+    border-color: #2b3460;
+    border-top: 1px solid #1D5D9B;
+    color: #fff;
+    transition: 500ms;
+
+    &:hover{
+        background: transparent;
+        color: #2b3460;
+        transition: 500ms;
+    }
 `
 const overlay = css`
     background: #FF416C;
@@ -85,22 +117,26 @@ const overlayPanel = css`
 	transition: transform 0.6s ease-in-out;
 `
 const overlayLeft = css`
-    transform: translateX(-20%);
+    left: 0;
+    background: linear-gradient(to top, #2b3460 10%, #1D5D9B, #3876BF); 
+    color: #fff;
 `
 const overlayRight = css`
     right: 0;
-    transform: translateX(0);
+`
+export const PanelActive = css`
+    transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
 `
 
 //styled
-export const Body = styled.body`
-    background: #f6f5f7;
-    display: flex; 
-    justify-content: center;
+export const Main = styled.main`
+    display: flex;
     align-items: center;
-    flex-direction: column;
     height: 100vh;
-    margin: -20px 0 50px;
+    width: 100vw;
 `
 export const H1 = styled.div`
     font-weight: bold;
@@ -116,10 +152,10 @@ export const Container = styled.div`
         0 10px 10px rgba(0,0,0,0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
-    max-width: 100%;
-    min-height: 480px;
+    height: 70%;
+    width: 50vw;
     transform: translateX(50%);
+    
 `
 export const FormAndIn = styled.div`
     ${formContainer}
@@ -129,12 +165,13 @@ export const FormAndUp = styled.div`
     ${formContainer}
     ${signUp}
 `
-export const Button = styled.div`
+export const Teacher = styled.div`
     ${btn}
+    ${teacher}
 `
-export const Ghost = styled.div`
+export const Parent = styled.div`
     ${btn}
-    ${ghost}
+    ${parent}
 `
 export const P = styled.p`
     font-size: 14px;
