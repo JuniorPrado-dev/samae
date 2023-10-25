@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const RadioQuestion = ({ question, options, selectedOption, onChange }) => {
   return (
@@ -12,10 +12,10 @@ export const RadioQuestion = ({ question, options, selectedOption, onChange }) =
             checked={selectedOption === option}
             onChange={onChange}
           />
-            {option} <br />
+          {option}<br/>
         </label>
       ))}
-      <br />
     </div>
   );
 };
+

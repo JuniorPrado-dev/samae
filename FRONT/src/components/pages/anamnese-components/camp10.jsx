@@ -13,11 +13,15 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
                 selectedOption={watcher.watcher22}
                 onChange={(e) => alter('watcher22', e.target.value)}
             />
-            <label>    
-                Faz acompanhamento clínico com alguém? Quem?
-                <br />
-                <input type="text" name='q32' onChange={onChange} value={form.q32} />
-            </label><br />   
+            {watcher.watcher22 === 'Sim' && (
+                <div>       
+                    <label>    
+                    Faz acompanhamento clínico com alguém? Quem?
+                    <br />
+                    <input type="text" name='q31' onChange={onChange} value={form.q31} />
+                    </label><br />         
+                </div>
+            )} 
             <RadioQuestion
                 question="O aluno necessita de acompanhamento emocional especializado?"
                 options={['Sim', 'Não']}
@@ -27,7 +31,7 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
             <h2>
                 Outras ocorrências?
             </h2>
-            <input type="text" name='q34' onChange={onChange} value={form.q34} />
+            <input type="text" name='q32' onChange={onChange} value={form.q32} />
         </div>
     </main>
   )

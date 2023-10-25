@@ -29,14 +29,18 @@ export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion})
             </label><br />
             <RadioQuestion
                 question="Qual o estado civil dos pais?"
-                options={['Casados', 'Separados', 'Separados com nova estrutura familiar']}
+                options={['Casados', 'Separados']}
                 selectedOption={watcher.watcher2}
                 onChange={(e) => alter('watcher2', e.target.value)}
             />
-            <label>    
-                Como a criança se posiciona com relação a essa situação?
-            <input type="text" name='q6' onChange={onChange} value={form.q6} />
-            </label><br />
+            {watcher.watcher2 === 'Separados' && (
+                <div>
+                    <label>    
+                        Como a criança se posiciona com relação a essa situação?
+                    <input type="text" name='q6' onChange={onChange} value={form.q6} />
+                    </label><br />
+                </div>
+            )}
             <label>    
                 Com quem a criança mora?
             <input type="text" name='q7' onChange={onChange} value={form.q7} />
@@ -59,18 +63,20 @@ export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion})
                 selectedOption={watcher.watcher3}
                 onChange={(e) => alter('watcher3', e.target.value)}
             />
+            {watcher.watcher3 === 'Adoção' && (
             <RadioQuestion
                 question="A criança é ciente da adoção?"
                 options={['Sim', 'Não']}
                 selectedOption={watcher.watcher4}
                 onChange={(e) => alter('watcher4', e.target.value)}
-            />
+            />)}
+            {watcher.watcher4 === 'Sim' && (
             <div>
                 <label>
-                    Como a criança se posiciona com relação a situação?
+                    Como a criança se posiciona com relação a essa situação?
                     <input type="text" name='q11' onChange={onChange} value={form.q11} />
                 </label> <br />
-            </div>
+            </div>)}
         </div>
     </main>
   )

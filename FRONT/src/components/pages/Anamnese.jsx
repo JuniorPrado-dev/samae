@@ -51,29 +51,29 @@ export const Anamnese = () => {
 
     //ajuda a marcar somente um radio
     const [watcher, setWatcher] = useState({
-        wacther1: '',
-        wacther2: '',
-        wacther3: '',
-        wacther4: '',
-        wacther5: '',
-        wacther6: '',
-        wacther7: '',
-        wacther8: '',
-        wacther9: '',
-        wacther10: '',
-        wacther11: '',
-        wacther12: '',
-        wacther13: '',
-        wacther14: '',
-        wacther15: '',
-        wacther16: '',
-        wacther17: '',
-        wacther18: '',
-        wacther19: '',
-        wacther20: '',
-        wacther21: '',
-        wacther22: '',
-        wacther23: '',
+        watcher1: '',
+        watcher2: '',
+        watcher3: '',
+        watcher4: '',
+        watcher5: '',
+        watcher6: '',
+        watcher7: '',
+        watcher8: '',
+        watcher9: '',
+        watcher10: '',
+        watcher11: '',
+        watcher12: '',
+        watcher13: '',
+        watcher14: '',
+        watcher15: '',
+        watcher16: '',
+        watcher17: '',
+        watcher18: '',
+        watcher19: '',
+        watcher20: '',
+        watcher21: '',
+        watcher22: '',
+        watcher23: '',
     })
 
     const alter = (fieldName, value) => {
@@ -109,15 +109,13 @@ export const Anamnese = () => {
         q30: "",
         q31: "",
         q32: "",
-        q33: "",
     })
-
     //chama e organiza tudo para mandar para a api
     function send(e) {
         e.preventDefault()
         const aluno = {
             nome: form.c1,
-            sexo: watcher.wacther1.toString(),
+            sexo: watcher.watcher1,
             nascimento: form.c2,
 
             d_n1: form.q1,
@@ -125,22 +123,22 @@ export const Anamnese = () => {
             d_n3: form.q3,
             d_n4: form.q4,
             d_n5: form.q5,
-            d_n6: watcher.wacther2.toString(),
+            d_n6: watcher.watcher2,
             d_n7: form.q6,
             d_n8: form.q7,
             d_n9: form.q8,
             d_n10: form.q9,
             d_n11: form.q10,
-            d_n12: watcher.wacther3.toString(),
-            d_n13: watcher.wacther4.toString(),
+            d_n12: watcher.watcher3,
+            d_n13: watcher.watcher4,
             d_n14: form.q11,
 
             h_n1: form.q12,
             h_n2: form.q13,
-            h_n3: watcher.wacther5.toString(),
+            h_n3: watcher.watcher5,
             h_n4: form.q14,
             h_n5: form.q15,
-            h_n6: watcher.wacther6.toString(),
+            h_n6: watcher.watcher6,
             h_n7: form.q16,
             h_n8: form.q17,
             h_n9: form.q18,
@@ -149,17 +147,17 @@ export const Anamnese = () => {
             h_n12: form.q21,
             h_n13: form.q22,
 
-            am_n1: watcher.wacther7.toString(),
-            am_n2: watcher.wacther8.toString(),
-            am_n3: watcher.wacther9.toString(),
+            am_n1: watcher.watcher7,
+            am_n2: watcher.watcher8,
+            am_n3: watcher.watcher9,
 
-            ap_n1: watcher.wacther10.toString(),
+            ap_n1: watcher.watcher10,
             ap_n2: form.q23,
-            ap_n3: watcher.wacther11.toString(),
+            ap_n3: watcher.watcher11,
             ap_n4: form.q24,
-            ap_n5: watcher.wacther12.toString(),
+            ap_n5: watcher.watcher12,
             ap_n6: form.q25,
-            ap_n7: watcher.wacther13.toString(),
+            ap_n7: watcher.watcher13,
             ap_n8: form.q26,
 
             ae_n1: checkboxes.checkbox1.toString(),
@@ -169,14 +167,14 @@ export const Anamnese = () => {
             ae_n5: checkboxes.checkbox5.toString(),
             ae_n6: checkboxes.checkbox6.toString(),
 
-            s_n1: watcher.wacther14.toString(),
-            s_n2: watcher.wacther15.toString(),
-            s_n3: watcher.wacther16.toString(),
-            s_n4: watcher.wacther17.toString(),
-            s_n5: watcher.wacther18.toString(),
-            s_n6: watcher.wacther19.toString(),
-            s_n7: watcher.wacther20.toString(),
-            s_n8: watcher.wacther21.toString(),
+            s_n1: watcher.watcher14,
+            s_n2: watcher.watcher15,
+            s_n3: watcher.watcher16,
+            s_n4: watcher.watcher17,
+            s_n5: watcher.watcher18,
+            s_n6: watcher.watcher19,
+            s_n7: watcher.watcher20,
+            s_n8: watcher.watcher21,
 
             asp_n1: checkboxes.checkbox7.toString(),
             asp_n2: checkboxes.checkbox8.toString(),
@@ -194,19 +192,18 @@ export const Anamnese = () => {
             dc_n2: form.q29,
             dc_n3: form.q30,
 
-            sd_n1: watcher.wacther22.toString(),
+            sd_n1: watcher.watcher22,
             sd_n2: form.q31,
-            sd_n3: form.q32,
-            sd_n4: watcher.wacther23.toString(),
-            sd_n5: form.q33,
-            sd_n6: form.q34,
+            sd_n3: watcher.watcher23,
+            sd_n4: form.q32,
         }
+
+        console.log(aluno);
 
         //conecta api e front
         axios.post('http://localhost:3003/sign-up-student', aluno)
             .then(function (response) {
                 console.log(response);
-                alert(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -216,14 +213,13 @@ export const Anamnese = () => {
     const cards = [
         <Cabecalho
             form={form}
-            onChange={onChange}
             alter={alter}
-            RadioQuestion={RadioQuestion}
             watcher={watcher}
+            onChange={onChange} 
         />,
         <DadosFamiliares
             form={form}
-            onChange={onChange}
+            onChange={onChange} 
             alter={alter}
             RadioQuestion={RadioQuestion}
             watcher={watcher}

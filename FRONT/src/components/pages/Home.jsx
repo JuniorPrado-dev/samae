@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const Home  = () => {
+export const Home = () => {
   const [watcher, setWatcher] = useState({
     watcher1: '',
     watcher2: '',
@@ -14,41 +14,54 @@ export const Home  = () => {
     }));
   };
 
-  const RadioQuestion = ({ question, options, selectedOption, onChange }) => {
+  const RadioQuestion = ({ question, options, selectedOption, change }) => {
     return (
       <div>
         <p>{question}</p>
         {options.map((option, index) => (
           <label key={index}>
-            {option}
             <input
               type="radio"
               value={option}
               checked={selectedOption === option}
-              onChange={onChange}
+              onChange={change}
             />
+            {option}
           </label>
         ))}
       </div>
     );
   };
-  console.log(RadioQuestion.onChange);
+
+
+  function send(e) {
+    e.preventDefault()
+    const aluno = {
+        fruta1: watcher.watcher1,
+        fruta2: watcher.watcher2,
+    }
+    console.log(aluno);
+  }
 
   return (
     <div>
+      <form onSubmit={send}>
       <RadioQuestion
         question="Você gosta de frutas?"
         options={['Sim', 'Não']}
         selectedOption={watcher.watcher1}
-        onChange={(e) => alter('watcher1', e.target.value)}
+        change={(e) => alter('watcher1', e.target.value)}
       />
-      <RadioQuestion
-        question="Você pratica esportes regularmente?"
-        options={['Sim', 'Não']}
-        selectedOption={watcher.watcher2}
-        onChange={(e) => alter('watcher2', e.target.value)}
-      />
-      {/* ... outras perguntas ... */}
+      {watcher.watcher1 === 'Sim' && (
+        <RadioQuestion
+          question="Você pratica esportes re'gularmente?"
+          options={['Sim', 'Não']}
+          selectedOption={watcher.watcher2}
+          change={(e) => alter('watcher2', e.target.value)}
+        />
+      )}
+      <button type='submit'>enviar</button>
+      </form>
     </div>
   );
 };

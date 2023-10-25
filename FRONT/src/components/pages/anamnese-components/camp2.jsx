@@ -21,10 +21,14 @@ export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}
                 selectedOption={watcher.watcher5}
                 onChange={(e) => alter('watcher5', e.target.value)}
             />
-            <label>    
-                Qual dificuldade seria?
-            <input type="text" name='q14' onChange={onChange} value={form.q14} />
-            </label><br />
+            {watcher.watcher5 === 'Sim' && (
+                <div>
+                    <label>    
+                        Qual dificuldade seria?
+                    <input type="text" name='q14' onChange={onChange} value={form.q14} />
+                    </label><br />        
+                </div>
+            )}
             <label>    
                 Nota-se dificuldade em aprendizagem?
             <input type="text" name='q15' onChange={onChange} value={form.q15} />
@@ -35,10 +39,15 @@ export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}
                 selectedOption={watcher.watcher6}
                 onChange={(e) => alter('watcher6', e.target.value)}
             />
-            <label>    
-                Quem seria esse profissional?
-            <input type="text" name='q16' onChange={onChange} value={form.q16} />
-            </label><br />
+            
+            {watcher.watcher6 === 'Sim' && (
+                <div>
+                    <label>    
+                        Quem seria esse profissional?
+                    <input type="text" name='q16' onChange={onChange} value={form.q16} />
+                    </label><br />
+                </div>
+            )}
             <label>    
                 Faz acompanhamento com um profissional específico?
             <input type="text" name='q17' onChange={onChange} value={form.q17} />

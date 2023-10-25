@@ -1,6 +1,7 @@
-import React from 'react'; // Certifique-se de importar o React se não estiver importado
+import React from 'react'; 
+import { RadioQuestion } from '../../radio-question/radioQ';
 
-export const Cabecalho = ({form, onChange, alter, watcher, RadioQuestion}) => {
+export const Cabecalho = ({form, alter, watcher,onChange}) => {
   return (
     <main>
         <h1>
