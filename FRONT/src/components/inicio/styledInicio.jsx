@@ -29,6 +29,11 @@ const btn = css`
     transition: transform 80ms ease-in;
     cursor: pointer;
 
+    @media (max-width: 550px){
+        padding: 1em 1.5em;
+        font-size: 10px;
+    }
+
     &:active {
         transform: scale(0.95);
     }
@@ -44,9 +49,9 @@ const teacher = css`
     transition: 500ms;
     z-index: 1;
     position: relative;
+    overflow: hidden;
 
     &:hover{
-        background: transparent;
         color: #fff;
         transition: 500ms;
     }
@@ -54,16 +59,14 @@ const teacher = css`
     &:after {
         position: absolute;
         border-radius: 20px;
+        border-color: #fff;
         content: "";
         width: 100%;
         height: 0;
         top: 0;
         left: 0;
         z-index: -1;
-        background-color: #2b3460;
-        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5);
-        7px 7px 20px 0px rgba(0,0,0,.1),
-        4px 4px 5px 0px rgba(0,0,0,.1);
+        background: linear-gradient(to top, #2b3460, #1D5D9B);
         transition: all 0.3s ease;
     }
 
@@ -75,16 +78,40 @@ const teacher = css`
 
 `
 const parent = css`
-    background: linear-gradient(to top, #2b3460, #1D5D9B); 
-    border-color: #2b3460;
-    border-top: 1px solid #1D5D9B;
+    background: linear-gradient(to top, #2b3460, #1D5D9B, #3876BF); 
     color: #fff;
+    border-color: #fff;
     transition: 500ms;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
 
     &:hover{
-        background: transparent;
         color: #2b3460;
         transition: 500ms;
+        border: 1px solid #2b3460;
+    }
+
+    &:after {
+        position: absolute;
+        border-radius: 20px;
+        content: "";
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: #fff;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5);
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        transition: all 0.3s ease;
+    }
+
+    &:hover:after {
+        top: auto;
+        bottom: 0;
+        height: 100%;
     }
 `
 const overlay = css`
@@ -130,6 +157,14 @@ export const PanelActive = css`
 	z-index: 5;
 	animation: show 0.6s;
 `
+export const returnBtn = css`
+    height: 50px;
+    padding: 0 13px;
+    border: none;
+    border-radius: 30px;
+    position: relative;
+    top: 20%;
+`
 
 //styled
 export const Main = styled.main`
@@ -137,6 +172,38 @@ export const Main = styled.main`
     align-items: center;
     height: 100vh;
     width: 100vw;
+`
+export const Top = styled.div`
+    position: relative;
+    top: 35%;
+    height: 100vh;
+    transition: 1s;
+`
+export const Bottom = styled.div`
+    position: relative;
+    top: 60%;
+    height: 100%;
+    width: 100%;
+    transition: 1s;
+`
+export const BntReturn = styled.button`
+    ${returnBtn}
+    background: linear-gradient(to top, #2b3460, #1D5D9B);
+
+    &:active{
+        background: linear-gradient(to bottom, #2b3460, #1D5D9B);
+    }
+`
+export const BntBlue = styled.button`
+    ${returnBtn}
+    background: linear-gradient(to top, #2b3460, #1D5D9B);
+
+    &:active{
+        background: linear-gradient(to bottom, #2b3460, #1D5D9B);
+    }
+`
+export const ImgReturn = styled.img`
+    height: 60%;
 `
 export const H1 = styled.div`
     font-weight: bold;
@@ -156,6 +223,21 @@ export const Container = styled.div`
     width: 50vw;
     transform: translateX(50%);
     
+    @media (max-width: 800px){
+        margin-left: -30vw;
+        height: 80%;      
+        width: 80%; 
+        border-radius: 0;     
+    }
+    
+    @media (max-width: 550px){
+        margin-left: -50vw;
+        height: 100%;      
+        width: 100%; 
+        border-radius: 0;     
+    }
+
+    
 `
 export const FormAndIn = styled.div`
     ${formContainer}
@@ -165,11 +247,11 @@ export const FormAndUp = styled.div`
     ${formContainer}
     ${signUp}
 `
-export const Teacher = styled.div`
+export const Teacher = styled.button`
     ${btn}
     ${teacher}
 `
-export const Parent = styled.div`
+export const Parent = styled.button`
     ${btn}
     ${parent}
 `
@@ -205,9 +287,6 @@ export const Input = styled.input`
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
-`
-export const Overlay = styled.div`
-    ${overlay}
 `
 export const OverlayContainer = styled.div`
     position: absolute;

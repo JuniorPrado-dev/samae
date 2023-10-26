@@ -10,6 +10,7 @@ export const Nav = styled.nav `
     justify-content: space-between;
     position: sticky;
     top: 0;
+    
     @media (max-width: 550px){
         flex-direction: column;
         align-items: flex-start;
