@@ -61,9 +61,14 @@ export const AtitudesSocias = ({form, onChange, checkboxes, handleCheckBoxChange
                     onChange={handleCheckBoxChange}
                 />
             </label>
-            <label>    
-            <input type="text" name='q27' onChange={onChange} value={form.q27} />
-            </label><br />
+            {checkboxes.checkbox12 === true && (
+                <div>       
+                    <label>    
+                    <input type="text" name='q27' onChange={onChange} value={form.q27} />
+                    </label><br />
+                </div>
+            )}
+            
         </div>
     </main>
   )

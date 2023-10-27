@@ -84,6 +84,7 @@ export const Triagem = () => {
         setWatcher(e.target.value)
     }
 
+    //gerador de id automático
     const generateUniqueId = () => {
         const length = 9;
         let result = '';
@@ -94,14 +95,12 @@ export const Triagem = () => {
         }
         return result;
       };
-    
-      const [uniqueId, setUniqueId] = useState(generateUniqueId());
 
     //chama e organiza tudo para mandar para a api
     function send(e) {
         e.preventDefault()
         const aluno = {
-            idTriagem: uniqueId,
+            idTriagem: generateUniqueId(),
             idAluno: form.nome,
             dataTriagem: form.data,
             idProfessor: form.professor,
@@ -187,7 +186,6 @@ export const Triagem = () => {
             checkboxes={checkboxes}
             handleCheckBoxChange={handleCheckBoxChange}
         />,
-        // Novo card com o botão "Enviar"
         <div>
             <Cabecalho
                 form={form}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DadosFamiliares = ({form, onChange, alter}) => {
+export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
     <main>
         <h2>
@@ -27,20 +27,20 @@ export const DadosFamiliares = ({form, onChange, alter}) => {
                 Posição do aluno no bloco familiar:
             <input type="text" name='q5' onChange={onChange} value={form.q5} />
             </label><br />
-            <label>
-                Qual o estado civil dos pais?   
-                <br />     
-                    <input type="radio" name="alter" onChange={alter} value="Casados" />
-                    <label htmlFor="triagem" className="alter">Casados</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Separados" />
-                    <label htmlFor="triagem" className="alter">Separados</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="SeparadosCF" />
-                    <label htmlFor="triagem" className="alter">Separados com nova estrutura familiar</label><br />
-            </label><br />
-            <label>    
-                Como a criança se posiciona com relação a essa situação?
-            <input type="text" name='q6' onChange={onChange} value={form.q6} />
-            </label><br />
+            <RadioQuestion
+                question="Qual o estado civil dos pais?"
+                options={['Casados', 'Separados']}
+                selectedOption={watcher.watcher2}
+                onChange={(e) => alter('watcher2', e.target.value)}
+            />
+            {watcher.watcher2 === 'Separados' && (
+                <div>
+                    <label>    
+                        Como a criança se posiciona com relação a essa situação?
+                    <input type="text" name='q6' onChange={onChange} value={form.q6} />
+                    </label><br />
+                </div>
+            )}
             <label>    
                 Com quem a criança mora?
             <input type="text" name='q7' onChange={onChange} value={form.q7} />
@@ -57,26 +57,26 @@ export const DadosFamiliares = ({form, onChange, alter}) => {
                 A quem recorrer caso haja a necessidade da presença do responsável?
             <input type="text" name='q10' onChange={onChange} value={form.q10} />
             </label><br />
-            <label>
-                Qual o estado civil dos pais?     
-                <br />   
-                    <input type="radio" name="alter" onChange={alter} value="Biológico" />
-                    <label htmlFor="triagem" className="alter">Biológico</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Adotivo" />
-                    <label htmlFor="triagem" className="alter">Adotivo</label><br />
-            </label><br />
-            <label>
-                A criança é ciente da adoção?   
-                <br />     
-                    <input type="radio" name="alter" onChange={alter} value="Sim1" />
-                    <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não1" />
-                    <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
-            <label>
-                Como a criança se posiciona com relação a situação?
-                <input type="text" name='q11' onChange={onChange} value={form.q11} />
-            </label> <br />
+            <RadioQuestion
+                question="Como se estabeleceu o vínculo familiar com a criança?"
+                options={['Biologicamente', 'Adoção']}
+                selectedOption={watcher.watcher3}
+                onChange={(e) => alter('watcher3', e.target.value)}
+            />
+            {watcher.watcher3 === 'Adoção' && (
+            <RadioQuestion
+                question="A criança é ciente da adoção?"
+                options={['Sim', 'Não']}
+                selectedOption={watcher.watcher4}
+                onChange={(e) => alter('watcher4', e.target.value)}
+            />)}
+            {watcher.watcher4 === 'Sim' && (
+            <div>
+                <label>
+                    Como a criança se posiciona com relação a essa situação?
+                    <input type="text" name='q11' onChange={onChange} value={form.q11} />
+                </label> <br />
+            </div>)}
         </div>
     </main>
   )

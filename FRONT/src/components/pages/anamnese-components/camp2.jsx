@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const HistoricoEscolar = ({form, onChange, alter}) => {
+export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
     <main>
         <h2>
@@ -15,34 +15,39 @@ export const HistoricoEscolar = ({form, onChange, alter}) => {
                 De quem recebe apoio pedagógico em casa?
                 <input type="text" name='q13' onChange={onChange} value={form.q13} />
             </label><br />
-            <label>    
-                Apresenta dificuldade na fala?    
-                <br />    
-                    <input type="radio" name="alter" onChange={alter} value="Sim2" />
-                    <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não2" />
-                    <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
-            <label>    
-                Qual dificuldade seria?
-            <input type="text" name='q14' onChange={onChange} value={form.q14} />
-            </label><br />
+            <RadioQuestion
+                question="Apresenta dificuldade na fala?"
+                options={['Sim', 'Não']}
+                selectedOption={watcher.watcher5}
+                onChange={(e) => alter('watcher5', e.target.value)}
+            />
+            {watcher.watcher5 === 'Sim' && (
+                <div>
+                    <label>    
+                        Qual dificuldade seria?
+                    <input type="text" name='q14' onChange={onChange} value={form.q14} />
+                    </label><br />        
+                </div>
+            )}
             <label>    
                 Nota-se dificuldade em aprendizagem?
             <input type="text" name='q15' onChange={onChange} value={form.q15} />
             </label><br />
-            <label>    
-                A dificuldade de aprendizado foi avaliada por um profissional?      
-                <br /> 
-                    <input type="radio" name="alter" onChange={alter} value="Sim3" />
-                    <label htmlFor="triagem" className="alter">Sim</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Não3" />
-                    <label htmlFor="triagem" className="alter">Não</label><br />
-            </label><br />
-            <label>    
-                Quem seria esse profissional?
-            <input type="text" name='q16' onChange={onChange} value={form.q16} />
-            </label><br />
+            <RadioQuestion
+                question="A dificuldade de aprendizado foi avaliada por um profissional?"
+                options={['Sim', 'Não']}
+                selectedOption={watcher.watcher6}
+                onChange={(e) => alter('watcher6', e.target.value)}
+            />
+            
+            {watcher.watcher6 === 'Sim' && (
+                <div>
+                    <label>    
+                        Quem seria esse profissional?
+                    <input type="text" name='q16' onChange={onChange} value={form.q16} />
+                    </label><br />
+                </div>
+            )}
             <label>    
                 Faz acompanhamento com um profissional específico?
             <input type="text" name='q17' onChange={onChange} value={form.q17} />
