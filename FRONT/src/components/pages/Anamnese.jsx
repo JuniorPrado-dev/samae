@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Search } from '../Search-bar/Search';
-import { Lista, Name } from '../Search-bar/styled';
 import { useForm } from '../../hooks/useForm';
 import axios from "axios";
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
@@ -20,9 +18,7 @@ import { Saúde } from './anamnese-components/camp10';
 import { RadioQuestion } from '../radio-question/radioQ';
 
 export const Anamnese = () => {
-    const [results, setResults] = useState([]);
-
-    //ajuda a marcar somente um checkbox
+    //armazenando checkboxes
     const [checkboxes, setCheckboxes] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -49,156 +45,148 @@ export const Anamnese = () => {
         });
     };
 
-    //ajuda a marcar somente um radio
-    const [watcher, setWatcher] = useState({
-        watcher1: '',
-        watcher2: '',
-        watcher3: '',
-        watcher4: '',
-        watcher5: '',
-        watcher6: '',
-        watcher7: '',
-        watcher8: '',
-        watcher9: '',
-        watcher10: '',
-        watcher11: '',
-        watcher12: '',
-        watcher13: '',
-        watcher14: '',
-        watcher15: '',
-        watcher16: '',
-        watcher17: '',
-        watcher18: '',
-        watcher19: '',
-        watcher20: '',
-        watcher21: '',
-        watcher22: '',
-        watcher23: '',
-    })
+    //armazenando radios
+    const [radioq, setRadioq] = useState({})
 
     const alter = (fieldName, value) => {
-        setWatcher((prevWatchers) => ({
-            ...prevWatchers,
+        setRadioq((prevradioqs) => ({
+            ...prevradioqs,
             [fieldName]: value,
         }));
     };
 
-    //armazenando no back elementos de texto e numero
-    const [form, onChange, resetState] = useForm({
-        c1: "",
-        c2: "",
-        q1: "",
-        q2: "",
-        q3: "",
-        q4: "",
-        q5: "",
-        q6: "",
-        q7: "",
-        q8: "",
-        q9: "",
-        q10: "",
-        q21: "",
-        q22: "",
-        q23: "",
-        q24: "",
-        q25: "",
-        q26: "",
-        q27: "",
-        q28: "",
-        q29: "",
-        q30: "",
-        q31: "",
-        q32: "",
-    })
-    //chama e organiza tudo para mandar para a api
+    //armazenando no back elementos de texto, numero e datas
+    const [form, onChange, resetState] = useForm({c1: "", c2: "", q1: "", q2: "", q3: "", q4: "", q5: "", q6: "", q7: "", q8: "", q9: "", q10: "", q21: "", q22: "", q23: "", q24: "", q25: "", q26: "", q27: "", q28: "", q29: "", q30: "", q31: "", q32: ""})
+    
+    //organizando dados em objetos a fim de enviar à api
+    const dadosFamiliares = {};
+    const historicoEscolar = {};
+    const aspectosMotores = {};
+    const aspectosPerceptivos = {};
+    const aspectosEmocionais = {};
+    const sociabilidade = {};
+    const atitudesSocias = {};
+    const sono = {};
+    const diciplinação = {};
+    const saúde = {};
+
+    const updateCategory = (category, fieldName, value) => {
+        category[fieldName] = value;
+    };
+    
     function send(e) {
         e.preventDefault()
         const aluno = {
             nome: form.c1,
-            sexo: watcher.watcher1,
+            sexo: radioq.radioq1,
             nascimento: form.c2,
 
-            d_n1: form.q1,
-            d_n2: form.q2,
-            d_n3: form.q3,
-            d_n4: form.q4,
-            d_n5: form.q5,
-            d_n6: watcher.watcher2,
-            d_n7: form.q6,
-            d_n8: form.q7,
-            d_n9: form.q8,
-            d_n10: form.q9,
-            d_n11: form.q10,
-            d_n12: watcher.watcher3,
-            d_n13: watcher.watcher4,
-            d_n14: form.q11,
+            dadosFamiliares:{ 
+                q1: form.q1.value,
+                q2: form.q2.value,
+                q3: form.q3.value,
+                q4: form.q4.value,
+                q5: form.q5.value,
+                q6: radioq.radioq2.value,
+                q7: form.q6.value,
+                q8: form.q7.value,
+                q9: form.q8.value,
+                q10: form.q9.value,
+                q11: form.q10.value,
+                q12: radioq.radioq3.value,
+                q13: radioq.radioq4.value,
+                q14: form.q11.value
+            },
+    
+            historicoEscolar: {
+                q1: form.q12.value,
+                q2: form.q13.value,
+                q3: radioq.radioq5.value,
+                q4: form.q14.value,
+                q5: form.q15.value,
+                q6: radioq.radioq6.value,
+                q7: form.q16.value,
+                q8: form.q17.value,
+                q9: form.q18.value,
+                q10: form.q19.value,
+                q11: form.q20.value,
+                q12: form.q21.value,
+                q13: form.q22.value,
+            },
+    
+            aspectosMotores: {
+                q1: radioq.radioq7.value,
+                q2: radioq.radioq8.value,
+                q3: radioq.radioq9.value,
+            },
+    
+            aspectosPerceptivos: {
+                q1: radioq.radioq10.value,
+                q2: form.q23.value,
+                q3: radioq.radioq11.value,
+                q4: form.q24.value,
+                q5: radioq.radioq12.value,
+                q6: form.q25.value,
+                q7: radioq.radioq13.value,
+                q8: form.q26.value,
+            },
+    
+            aspectosEmocionais: {
+                q1: checkboxes.checkbox1.checked.toString(),
+                q2: checkboxes.checkbox2.checked.toString(),
+                q3: checkboxes.checkbox3.checked.toString(),
+                q4: checkboxes.checkbox4.checked.toString(),
+                q5: checkboxes.checkbox5.checked.toString(),
+                q6: checkboxes.checkbox6.checked.toString(),
+            },
 
-            h_n1: form.q12,
-            h_n2: form.q13,
-            h_n3: watcher.watcher5,
-            h_n4: form.q14,
-            h_n5: form.q15,
-            h_n6: watcher.watcher6,
-            h_n7: form.q16,
-            h_n8: form.q17,
-            h_n9: form.q18,
-            h_n10: form.q19,
-            h_n11: form.q20,
-            h_n12: form.q21,
-            h_n13: form.q22,
-
-            am_n1: watcher.watcher7,
-            am_n2: watcher.watcher8,
-            am_n3: watcher.watcher9,
-
-            ap_n1: watcher.watcher10,
-            ap_n2: form.q23,
-            ap_n3: watcher.watcher11,
-            ap_n4: form.q24,
-            ap_n5: watcher.watcher12,
-            ap_n6: form.q25,
-            ap_n7: watcher.watcher13,
-            ap_n8: form.q26,
-
-            ae_n1: checkboxes.checkbox1.toString(),
-            ae_n2: checkboxes.checkbox2.toString(),
-            ae_n3: checkboxes.checkbox3.toString(),
-            ae_n4: checkboxes.checkbox4.toString(),
-            ae_n5: checkboxes.checkbox5.toString(),
-            ae_n6: checkboxes.checkbox6.toString(),
-
-            s_n1: watcher.watcher14,
-            s_n2: watcher.watcher15,
-            s_n3: watcher.watcher16,
-            s_n4: watcher.watcher17,
-            s_n5: watcher.watcher18,
-            s_n6: watcher.watcher19,
-            s_n7: watcher.watcher20,
-            s_n8: watcher.watcher21,
-
-            asp_n1: checkboxes.checkbox7.toString(),
-            asp_n2: checkboxes.checkbox8.toString(),
-            asp_n3: checkboxes.checkbox9.toString(),
-            asp_n4: checkboxes.checkbox10.toString(),
-            asp_n5: checkboxes.checkbox11.toString(),
-            asp_n6: checkboxes.checkbox12.toString(),
-            asp_n7: form.q27,
-
-            sn_n1: checkboxes.checkbox13.toString(),
-            sn_n2: checkboxes.checkbox14.toString(),
-            sn_n3: checkboxes.checkbox15.toString(),
-
-            dc_n1: form.q28,
-            dc_n2: form.q29,
-            dc_n3: form.q30,
-
-            sd_n1: watcher.watcher22,
-            sd_n2: form.q31,
-            sd_n3: watcher.watcher23,
-            sd_n4: form.q32,
+            sociabilidade: {
+                q1: radioq.radioq14.value,
+                q2: radioq.radioq15.value,
+                q3: radioq.radioq16.value,
+                q4: radioq.radioq17.value,
+                q5: radioq.radioq18.value,
+                q6: radioq.radioq19.value,
+                q7: radioq.radioq20.value,
+                q8: radioq.radioq21.value,
+            },
+            atitudesSocias: {
+                q1: checkboxes.checkbox7.checked.toString(),
+                q2: checkboxes.checkbox8.checked.toString(),
+                q3: checkboxes.checkbox9.checked.toString(),
+                q4: checkboxes.checkbox10.checked.toString(),
+                q5: checkboxes.checkbox11.checked.toString(),
+                q6: checkboxes.checkbox12.checked.toString(),
+                q7: form.q27.value,
+            },
+            sono: {
+                q1: checkboxes.checkbox13.checked.toString(),
+                q2: checkboxes.checkbox14.checked.toString(),
+                q3: checkboxes.checkbox15.checked.toString(),
+            },
+            diciplinação: {
+                q1: form.q28.value,
+                q2: form.q29.value,
+                q3: form.q30.value,
+            },
+            saúde: {
+                q1: radioq.radioq22.value,
+                q2: form.q31.value,
+                q3: radioq.radioq23.value,
+                q4: form.q32.value,
+            },
         }
-
-        console.log(aluno);
+        
+        updateCategory(dadosFamiliares, 'aluno', aluno.dadosFamiliares);
+        updateCategory(historicoEscolar, 'aluno', aluno.historicoEscolar);
+        updateCategory(aspectosMotores, 'aluno', aluno.aspectosMotores);
+        updateCategory(aspectosPerceptivos, 'aluno', aluno.aspectosPerceptivos);
+        updateCategory(aspectosEmocionais, 'aluno', aluno.aspectosEmocionais);
+        updateCategory(sociabilidade, 'aluno', aluno.sociabilidade);
+        updateCategory(atitudesSocias, 'aluno', aluno.atitudesSocias);
+        updateCategory(sono, 'aluno', aluno.sono);
+        updateCategory(diciplinação, 'aluno', aluno.diciplinação);
+        updateCategory(saúde, 'aluno', aluno.saúde);
 
         //conecta api e front
         axios.post('http://localhost:3003/sign-up-student', aluno)
@@ -210,135 +198,33 @@ export const Anamnese = () => {
             });
     }
 
+    //array de cards
     const cards = [
-        <Cabecalho
-            form={form}
-            alter={alter}
-            watcher={watcher}
-            onChange={onChange} 
-        />,
-        <DadosFamiliares
-            form={form}
-            onChange={onChange} 
-            alter={alter}
-            RadioQuestion={RadioQuestion}
-            watcher={watcher}
-        />,
-        <HistoricoEscolar
-            form={form}
-            onChange={onChange}
-            alter={alter}
-            RadioQuestion={RadioQuestion}
-            watcher={watcher}
-        />,
-        <AspectosMotores
-            alter={alter}
-            RadioQuestion={RadioQuestion}
-            watcher={watcher}
-        />,
-        <AspectosPerceptivos
-            form={form}
-            onChange={onChange}
-            alter={alter}
-            RadioQuestion={RadioQuestion}
-            watcher={watcher}
-        />,
-        <AspectosEmocionais
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-        />,
-        <Sociabilidade
-            alter={alter}
-            RadioQuestion={RadioQuestion}
-            watcher={watcher}
-        />,
-        <AtitudesSocias
-            form={form}
-            onChange={onChange}
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-        />,
-        <Sono
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-        />,
-        <Disciplinação
-            form={form}
-            onChange={onChange}
-        />,
-        <Saúde
-            form={form}
-            onChange={onChange}
-            alter={alter}
-            RadioQuestion={RadioQuestion}
-            watcher={watcher}
-        />,
+        <Cabecalho form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
+        <DadosFamiliares form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
+        <HistoricoEscolar form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
+        <AspectosMotores alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
+        <AspectosPerceptivos form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
+        <AspectosEmocionais checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />,
+        <Sociabilidade alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
+        <AtitudesSocias form={form} onChange={onChange} checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />,
+        <Sono checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />,
+        <Disciplinação form={form} onChange={onChange} />,
+        <Saúde form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />,
 
-        // Novo card com o botão "Enviar"
+        // Novo card de revisão com o botão "Enviar"
         <div>
-            <Cabecalho
-                form={form}
-                onChange={onChange}
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
-            <DadosFamiliares
-                form={form}
-                onChange={onChange}
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
-            <HistoricoEscolar
-                form={form}
-                onChange={onChange}
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
-            <AspectosMotores
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
-            <AspectosPerceptivos
-                form={form}
-                onChange={onChange}
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
-            <AspectosEmocionais
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />
-            <Sociabilidade
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
-            <AtitudesSocias
-                form={form}
-                onChange={onChange}
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />
-            <Sono
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />
-            <Disciplinação
-                form={form}
-                onChange={onChange}
-            />
-            <Saúde
-                form={form}
-                onChange={onChange}
-                alter={alter}
-                RadioQuestion={RadioQuestion}
-                watcher={watcher}
-            />
+            <Cabecalho form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
+            <DadosFamiliares form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
+            <HistoricoEscolar form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
+            <AspectosMotores alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
+            <AspectosPerceptivos form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
+            <AspectosEmocionais checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />
+            <Sociabilidade alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
+            <AtitudesSocias form={form} onChange={onChange} checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />
+            <Sono checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />
+            <Disciplinação form={form} onChange={onChange} />
+            <Saúde form={form} onChange={onChange} alter={alter} RadioQuestion={RadioQuestion} radioq={radioq} />
 
             <DivButton>
                 <Enviar type="submit">Enviar</Enviar>
@@ -364,14 +250,6 @@ export const Anamnese = () => {
 
     return (
         <MainTriagem>
-            <div>
-                <Search setResults={setResults} />
-                <Lista>
-                    {results.map((user) => (
-                        <Name key={user.id}>{user.name}</Name>
-                    ))}
-                </Lista>
-            </div>
             <form onSubmit={send}>
                 <div>
                     {currentCard}

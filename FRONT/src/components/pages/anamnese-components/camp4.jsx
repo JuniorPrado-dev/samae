@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AspectosPerceptivos = ({form, onChange, alter, watcher, RadioQuestion}) => {
+export const AspectosPerceptivos = ({form, onChange, alter, radioq, RadioQuestion}) => {
   return (
     <main>
         <h2>
@@ -10,10 +10,10 @@ export const AspectosPerceptivos = ({form, onChange, alter, watcher, RadioQuesti
             <RadioQuestion
                 question="Apresenta alguma dificuldade para enxergar?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher10}
-                onChange={(e) => alter('watcher10', e.target.value)}
+                selectedOption={radioq.radioq10}
+                onChange={(e) => alter('radioq10', e.target.value)}
             />
-            {watcher.watcher10 === 'Sim' && (
+            {radioq.radioq10 === 'Sim' && (
                 <div>       
                     <label>    
                         Exemplo
@@ -24,10 +24,10 @@ export const AspectosPerceptivos = ({form, onChange, alter, watcher, RadioQuesti
             <RadioQuestion
                 question="Aparenta ter dificuldades para ouvir?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher11}
-                onChange={(e) => alter('watcher11', e.target.value)}
+                selectedOption={radioq.radioq11}
+                onChange={(e) => alter('radioq11', e.target.value)}
             />
-            {watcher.watcher11 === 'Sim' && (
+            {radioq.radioq11 === 'Sim' && (
                 <div>     
                     <label>    
                         Exemplo
@@ -38,10 +38,10 @@ export const AspectosPerceptivos = ({form, onChange, alter, watcher, RadioQuesti
             <RadioQuestion
                 question="É desatento?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher12}
-                onChange={(e) => alter('watcher12', e.target.value)}
+                selectedOption={radioq.radioq12}
+                onChange={(e) => alter('radioq12', e.target.value)}
             />
-            {watcher.watcher12 === 'Sim' && (
+            {radioq.radioq12 === 'Sim' && (
                 <div>       
                     <label>    
                         Exemplo
@@ -52,10 +52,10 @@ export const AspectosPerceptivos = ({form, onChange, alter, watcher, RadioQuesti
             <RadioQuestion
                 question="É agitado?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher13}
-                onChange={(e) => alter('watcher13', e.target.value)}
+                selectedOption={radioq.radioq13}
+                onChange={(e) => alter('radioq13', e.target.value)}
             />
-            {watcher.watcher13 === 'Sim' && (
+            {radioq.radioq13 === 'Sim' && (
                 <div>       
                     <label>    
                         Exemplo

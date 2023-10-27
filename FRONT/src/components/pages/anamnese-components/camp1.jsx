@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion}) => {
+export const DadosFamiliares = ({form, onChange, alter, radioq, RadioQuestion}) => {
   return (
     <main>
         <h2>
@@ -30,10 +30,10 @@ export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion})
             <RadioQuestion
                 question="Qual o estado civil dos pais?"
                 options={['Casados', 'Separados']}
-                selectedOption={watcher.watcher2}
-                onChange={(e) => alter('watcher2', e.target.value)}
+                selectedOption={radioq.radioq2}
+                onChange={(e) => alter('radioq2', e.target.value)}
             />
-            {watcher.watcher2 === 'Separados' && (
+            {radioq.radioq2 === 'Separados' && (
                 <div>
                     <label>    
                         Como a criança se posiciona com relação a essa situação?
@@ -60,17 +60,17 @@ export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion})
             <RadioQuestion
                 question="Como se estabeleceu o vínculo familiar com a criança?"
                 options={['Biologicamente', 'Adoção']}
-                selectedOption={watcher.watcher3}
-                onChange={(e) => alter('watcher3', e.target.value)}
+                selectedOption={radioq.radioq3}
+                onChange={(e) => alter('radioq3', e.target.value)}
             />
-            {watcher.watcher3 === 'Adoção' && (
+            {radioq.radioq3 === 'Adoção' && (
             <RadioQuestion
                 question="A criança é ciente da adoção?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher4}
-                onChange={(e) => alter('watcher4', e.target.value)}
+                selectedOption={radioq.radioq4}
+                onChange={(e) => alter('radioq4', e.target.value)}
             />)}
-            {watcher.watcher4 === 'Sim' && (
+            {radioq.radioq4 === 'Sim' && (
             <div>
                 <label>
                     Como a criança se posiciona com relação a essa situação?

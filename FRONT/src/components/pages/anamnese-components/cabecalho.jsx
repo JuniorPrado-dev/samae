@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { RadioQuestion } from '../../radio-question/radioQ';
 
-export const Cabecalho = ({form, alter, watcher,onChange}) => {
+export const Cabecalho = ({form, alter, radioq,onChange}) => {
   return (
     <main>
         <h1>
@@ -15,8 +15,8 @@ export const Cabecalho = ({form, alter, watcher,onChange}) => {
             <RadioQuestion
                 question="Gênero"
                 options={['Masculino', 'Feminino']}
-                selectedOption={watcher.watcher1}
-                onChange={(e) => alter('watcher1', e.target.value)}
+                selectedOption={radioq.radioq1}
+                onChange={(e) => alter('radioq1', e.target.value)}
             />
             <label>    
                 Data de Nascimento
