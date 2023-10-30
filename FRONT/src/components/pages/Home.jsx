@@ -1,27 +1,67 @@
 import React, { useState } from 'react';
 
 export const Home = () => {
-  const generateUniqueId = () => {
-    const length = 9;
-    let result = '';
-    const characters = '0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  const [watcher, setWatcher] = useState({
+    watcher1: '',
+    watcher2: '',
+    // Adicione mais campos de watcher conforme necessário
+  });
+
+  const alter = (fieldName, value) => {
+    setWatcher((prevWatchers) => ({
+      ...prevWatchers,
+      [fieldName]: value,
+    }));
+  };
+
+  const RadioQuestion = ({ question, options, selectedOption, change }) => {
+    return (
+      <div>
+        <p>{question}</p>
+        {options.map((option, index) => (
+          <label key={index}>
+            <input
+              type="radio"
+              value={option}
+              checked={selectedOption === option}
+              onChange={change}
+            />
+            {option}
+          </label>
+        ))}
+      </div>
+    );
+  };
+
+
+  function send(e) {
+    e.preventDefault()
+    const aluno = {
+        fruta1: watcher.watcher1,
+        fruta2: watcher.watcher2,
     }
-    return result;
-  };
-
-  const [uniqueId, setUniqueId] = useState(generateUniqueId());
-
-  const handleClick = () => {
-    setUniqueId(generateUniqueId());
-  };
+    console.log(aluno);
+  }
 
   return (
     <div>
-      <p>ID gerado: {uniqueId}</p>
-      <button onClick={handleClick}>Gerar Novo ID</button>
+      <form onSubmit={send}>
+      <RadioQuestion
+        question="Você gosta de frutas?"
+        options={['Sim', 'Não']}
+        selectedOption={watcher.watcher1}
+        change={(e) => alter('watcher1', e.target.value)}
+      />
+      {watcher.watcher1 === 'Sim' && (
+        <RadioQuestion
+          question="Você pratica esportes re'gularmente?"
+          options={['Sim', 'Não']}
+          selectedOption={watcher.watcher2}
+          change={(e) => alter('watcher2', e.target.value)}
+        />
+      )}
+      <button type='submit'>enviar</button>
+      </form>
     </div>
   );
 };
