@@ -164,6 +164,7 @@ export const returnBtn = css`
     border-radius: 30px;
     position: relative;
     top: 20%;
+    cursor: pointer;
 `
 
 //styled
@@ -196,10 +197,10 @@ export const BntReturn = styled.button`
 `
 export const BntBlue = styled.button`
     ${returnBtn}
-    background: linear-gradient(to top, #2b3460, #1D5D9B);
+    background: linear-gradient(to bottom, #fff, lightgray);
 
     &:active{
-        background: linear-gradient(to bottom, #2b3460, #1D5D9B);
+        background: linear-gradient(to top, #fff, lightgray);
     }
 `
 export const ImgReturn = styled.img`
