@@ -1,11 +1,13 @@
 //imports essenciais
-import express, { Request, Response } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import connection from "../database/connection"
+import jwt from 'jsonwebtoken';
+
 
 //função de listagem
 export async function getTeacher(req:Request, res:Response){
     const id = req.query.id;
-    console.log(id)
+    
     if (!id) {
        return res.send("Informe o Id")
     }
@@ -19,25 +21,34 @@ export async function getTeacher(req:Request, res:Response){
 }
 
 //função de login do professor
-export async function loginTeacher(req:Request, res:Response){
+export async function loginTeacher(req: Request, res: Response) {
+  try {
+    const { email, senha } = req.body;
+  
 
-  try{
-    const {email, senha} = req.body;
-
-    if(!email || !senha){
+    if (!email || !senha) {
       return res.send("Informe todos os campos obrigatórios");
     }
-    const loginprof = await connection('tbprofessor').where('email', email).where('senha', senha);
-        if(loginprof.length < 1) {
-          return res.send("Seu login foi negado")
-        }else{
-          return res.send("Login feito com sucesso!")
-        }
-      }catch (error) {
-        return res.send("erro no servidor");
-      }
 
+    const professor = await connection('tbprofessor').where('email', email).first();
+
+    if (!professor) {
+      return res.send("Email não está registrado");
+    }
+
+    if (professor.senha !== senha) {
+      return res.send("Senha incorreta");
+    } else {
+      const payload = { userId: professor.id, username: professor.nome };
+      const token = jwt.sign(payload, 'segredo', { expiresIn: '1h' });
+  
+      return res.json({ token });
+    }
+  } catch (error) {
+    return res.send("Erro no servidor");
+  }
 }
+
 
 //função do formulário de cadastro
 export async function postSignUpTeacher (req:Request, res:Response){
@@ -89,5 +100,27 @@ export async function postSignUpTeacher (req:Request, res:Response){
       return res.send("erro no servidor")
     }
    }
-   
+
+//verificar o token
+
+
+export function authenticateToken(req: Request, res: Response, next: NextFunction) {
+  
+  const token = req.headers.authorization;
+
+  if (!token) {
+    return res.status(401).json({ message: 'Token não fornecido' });
+  }
+
+  jwt.verify(token, 'seu-segredo', (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: 'Token inválido' });
+    }
+    next();
+  });
+}
+
+
+
+
 

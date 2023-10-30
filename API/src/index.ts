@@ -1,10 +1,11 @@
 //imports essenciais
-import express, { Request, Response } from "express";
+import express, { Request, Response} from "express";
 import connection from "./database/connection";
 import { getTeacher } from "./endpoints/teacher";
 import { postSignUpTeacher } from "./endpoints/teacher";
 import {loginTeacher} from "./endpoints/teacher";
 import { postAgendTeacher } from "./endpoints/teacher";
+import {authenticateToken} from "./endpoints/teacher";
 import { getStudents } from "./endpoints/student";
 import { postSignUpStudent } from "./endpoints/student";
 import {triagemStudent} from "./endpoints/student";
@@ -18,8 +19,9 @@ app.use(cors()) //express usar o cors
 app.use(express.json()) //express usar o json
 
 
+
 //teacher endpoints
-app.get("/teacher", getTeacher) //listar professor específico
+app.get("/teacher", getTeacher, authenticateToken) //listar professor específico
 app.post("/sign-up-teacher", postSignUpTeacher) //enviar do front para o bd
 app.post("/login-teacher", loginTeacher) // login do professor
 app.post("/post-agend-teacher", postAgendTeacher) //guardar os dados da agenda
