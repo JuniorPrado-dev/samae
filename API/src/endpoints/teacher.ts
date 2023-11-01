@@ -102,10 +102,7 @@ export async function postSignUpTeacher (req:Request, res:Response){
    }
 
 //verificar o token
-
-
-export function authenticateToken(req: Request, res: Response, next: NextFunction) {
-  
+/*export function authenticateToken(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization;
 
   if (!token) {
@@ -116,9 +113,10 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
     if (err) {
       return res.status(403).json({ message: 'Token inválido' });
     }
+    req.user = user;
     next();
   });
-}
+}*/
 
 
 

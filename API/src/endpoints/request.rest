@@ -1,6 +1,7 @@
-POST http://localhost:3000/teacher
+POST http://localhost:3003/login-teacher
 Content-Type: application/json
 
 {
-    "id" : 1
+    "email" : "mdmdmdm@gmail.com",
+    "senha" : "132132bcd"
 }
