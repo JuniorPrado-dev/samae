@@ -3,7 +3,7 @@ import { Search } from '../Search-bar/Search';
 import { Lista, Name } from '../Search-bar/styled';
 import { useForm } from '../../hooks/useForm';
 import axios from "axios";
-import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
+import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton, Title } from './styled';
 import Back from '../../img/anterior.png';
 import Next from '../../img/proximo.png';
 import { Cabecalho } from './anamnese-components/cabecalho';
@@ -364,6 +364,7 @@ export const Anamnese = () => {
 
     return (
         <MainTriagem>
+            <Title>Anamnese de Aluno</Title>
             <div>
                 <Search setResults={setResults} />
                 <Lista>

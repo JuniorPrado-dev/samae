@@ -1,4 +1,5 @@
-import { Label, Fieldset, Text, Legend, Input, Btns, Insert, Reset, Main, Gender, Date, Form } from './form_style'
+import { Radio } from '../radio-question/styled'
+import { Label, Fieldset, Legend, Input, Btns, Insert, Reset, Main, Date, Form } from './form_style'
 
 export default function Cadastrar({form, onChange, mudaGender, send, cancel}) {
 
@@ -12,9 +13,9 @@ export default function Cadastrar({form, onChange, mudaGender, send, cancel}) {
         <Label htmlFor="date">Data de Nascimento:</Label><br />
         <Date type="date" name="date" id='date' onChange={onChange} value={form.date} /><br />
         <Label htmlFor="gender">Gênero:</Label><br />
-        <Gender type="radio" name="gender" id='gender' onChange={mudaGender} value="Masculino" />
+        <Radio type="radio" name="gender" id='gender' onChange={mudaGender} value="Masculino" />
         <Label htmlFor="gender" className="gender">Masculino</Label><br />
-        <Gender type="radio" name="gender" id='gender2' onChange={mudaGender} value="Feminino" />
+        <Radio type="radio" name="gender" id='gender2' onChange={mudaGender} value="Feminino" />
         <Label htmlFor="gender" className="gender">Feminino</Label><br />
         <Label htmlFor="parent">Responsável:</Label><br />
         <Input type="text" name="parent" id='parent' onChange={onChange} value={form.parent} /><br />

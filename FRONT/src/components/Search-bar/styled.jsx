@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const CardPesquisa = styled.div`
     margin: auto;
+    margin-left: 0;
     margin-top: 20px;
-    padding: 0;
     text-align: center;
-    width: 80%;
+    padding: 0;
+    width: 100%;
     height: 30px;
     transition: 800ms;
     background-color: transparent;
@@ -21,14 +22,14 @@ export const Barra = styled.input`
     font-size: 12px;
     height: 32px;
     padding: 4px 8px;
-    width: 60%;
+    width: 80%;
     border-radius: 5px 20px 20px 5px;
     transition: 800ms;
     background-color: #fefefe;
 
     &:focus {
         outline: none;
-        width: 90%;
+        width: 100%;
         transition: 800ms;
     }
 `
@@ -47,8 +48,7 @@ export const Lista = styled.ul`
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 50%;
-    background-color: #FEFEFE;
+    width: 100%;
     border-radius: 5px;
     -webkit-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 14px 36px -23px rgba(0,0,0,0.75);
@@ -62,3 +62,4 @@ export const Name = styled.li`
     margin: 3px;
     list-style-type: none;
 `
+//anamnese

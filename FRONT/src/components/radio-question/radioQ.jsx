@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Radio } from './styled';
 
 export const RadioQuestion = ({ question, options, selectedOption, onChange }) => {
   return (
@@ -6,7 +7,7 @@ export const RadioQuestion = ({ question, options, selectedOption, onChange }) =
       <p>{question}</p>
       {options.map((option, index) => (
         <label key={index}>
-          <input
+          <Radio
             type="radio"
             value={option}
             checked={selectedOption === option}
