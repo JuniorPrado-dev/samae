@@ -6,7 +6,7 @@ import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
 import { LoginResponsavel } from './components/login/loginParent';
-import { InicioMobile } from './components/inicio/Mobile';
+import { InicioMobile } from './components/mobile/Mobile';
 
 function App() {
 
@@ -45,9 +45,9 @@ function App() {
 
   return (
     //telaLogin
-    system
+    //system
     //responsavel
-    //mobile
+    mobile
   )
 
 }

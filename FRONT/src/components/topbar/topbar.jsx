@@ -3,7 +3,6 @@ import './topbarcss';
 import {Div, ButtonHide, Line, Img}from './topbarcss';
 import Logo from '../../img/samae_logo.png';
 
-
 function Onclick () {
     const nav = document.querySelector('#nav');
     const buttonHide = document.querySelector('#hide');
