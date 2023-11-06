@@ -5,7 +5,6 @@ import connection from "../database/connection"
 //função de listagem
 export async function getTeacher(req:Request, res:Response){
     const id = req.query.id;
-    console.log(id)
     if (!id) {
        return res.send("Informe o Id")
     }
@@ -89,5 +88,19 @@ export async function postSignUpTeacher (req:Request, res:Response){
       return res.send("erro no servidor")
     }
    }
-   
+
+//função de carregar agenda
+export async function loadAgender (req:Request, res:Response) {
+    const id = req.query.id;
+    if (!id) {
+       return res.send("Informe o Id")
+    }
+
+    const agenda = await connection('tbagenda').where('id_agenda', id)
+    if (agenda.length < 1) {
+       return res.send("Error")
+    }else{
+       return res.send(agenda)
+    }
+}  
 
