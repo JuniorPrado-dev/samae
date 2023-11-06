@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useForm } from '../../hooks/useForm';
 import axios from "axios";
+import { useForm } from '../../hooks/useForm';
 import { Cabecalho } from './triagem-components/cabecalho';
 import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
@@ -191,7 +191,6 @@ export const Triagem = () => {
         axios.post('http://localhost:3003/triagem-student', aluno)
             .then(function (response) {
                 console.log(response);
-                alert("gay")
             })
             .catch(function (error) {
                 console.log(error);
