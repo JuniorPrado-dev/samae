@@ -26,20 +26,22 @@ export const P = styled.p`
     margin: 10px;
     font-family: 'REM', sans-serif;
 `
+export const Nav = styled.nav`
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
+`
 export const Button = styled.button`
     margin: 10px 0;
-    padding: 15px 45px;
+    padding: 15px 30px;
+    text-align: center;
     font-weight: bold;
-    font-size: 16px;
-    width: 100%;
     border-radius: 30px;
     border: 2px solid #2b3460;
     color: #2b3460;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
     cursor: pointer;
 `
 //redirecionamento
-export const Redirect = styled.main`
-
+export const Redirect = styled.div`
+    display: none;
 `
