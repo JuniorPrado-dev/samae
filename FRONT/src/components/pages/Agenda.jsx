@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import axios from 'axios';
 import './styled.jsx';
-import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, Item, BtnDelete } from './styled.jsx';
+import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, Item, BtnDelete, Title } from './styled.jsx';
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { Legend } from '../form-student/form_style.jsx';
@@ -145,7 +145,7 @@ export const Agenda = () => {
 
     return (
         <Main>
-            <Legend className={"shopping__title"}>Agenda</Legend>
+            <Title className={"shopping__title"}>Agenda</Title>
             <div className={"shopping"}>
                 <ul className={"shopping__checklist"}>
                 {task.map((fetchedTasks) => (
