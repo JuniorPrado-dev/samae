@@ -7,9 +7,10 @@ import { Legend } from '../form-student/form_style.jsx';
 import Reset from '../../img/excluir.png';
 import Lixeira from '../../img/lixeira.png';
 import Student from '../../img/add.png';
+import { useProtectedPage } from './hooks/useProtectedPage.js';
 
-export const Agenda = () => {
-
+export const Agenda = ({ token }) => {
+    useProtectedPage(token);
     //const newItem1 = new Date().toISOString()
     //const newItemDate = `${newItem1.slice(8,10)}/${newItem1.slice(5,7)}/${newItem1.slice(0,4)}`
 
