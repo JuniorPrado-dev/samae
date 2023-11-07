@@ -1,26 +1,25 @@
 import React from 'react'; 
 import { RadioQuestion } from '../../radio-question/radioQ';
+import { Aluno } from '../styled';
+import { Date } from '../../form-student/form_style';
 
-export const Cabecalho = ({form, alter, radioq,onChange}) => {
+export const Cabecalho = ({form, alter, watcher,onChange}) => {
   return (
     <main>
-        <h1>
-            Anamnese de Aluno
-        </h1>
         <div>
             <label>    
                 Aluno
-                <input type="text" name='c1' onChange={onChange} value={form.c1} />
-            </label><br />
+                <Aluno type="text" name='c1' onChange={onChange} value={form.c1} />
+            </label><br /><br />
             <RadioQuestion
                 question="Gênero"
                 options={['Masculino', 'Feminino']}
-                selectedOption={radioq.radioq1}
-                onChange={(e) => alter('radioq1', e.target.value)}
-            />
+                selectedOption={watcher.watcher1}
+                onChange={(e) => alter('watcher1', e.target.value)}
+            /><br/>
             <label>    
                 Data de Nascimento
-                <input type="date" name='c2' onChange={onChange} value={form.c2} />
+                <Date type="date" name='c2' onChange={onChange} value={form.c2} />
             </label><br />
         </div>
     </main>

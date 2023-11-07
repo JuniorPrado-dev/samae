@@ -213,10 +213,14 @@ export const DeleteCard = styled.button`
 export const InserirAluno = styled.li`
     padding: 1%;
     margin: auto;
-    margin-top: 20vh;
+    margin-bottom: 20vh;
     width: 60%;
     text-align: center;
     border-radius: 5px;
+
+    @media (max-width: 550px){
+        width: 90vw;
+    }
 
 `
 export const Adicionar = styled.li`
@@ -323,4 +327,100 @@ export const DivButton = styled.button`
     width: 100%;
     border: none;
     background: transparent;
+`
+
+//anamnese
+export const Title = styled.h1`
+    margin: auto;
+    margin-top: -60px;
+    padding: 8px 15px;
+    text-align: center;
+    width: 60%;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+    color: #fff;
+
+    @media (max-width: 1200px){
+        margin-top: -50px;
+    }
+
+    @media (max-width: 800px){
+        margin-top: -40px;
+        width: 80%;
+    }
+
+    @media (max-width: 500px){
+        margin-top: -30px;
+        width: 80%;
+    }
+`
+export const Aluno = styled.input`
+    margin: 5px;
+    padding: 2px;
+    border: 1px solid #B9B4C7;
+    width: 90%;
+
+    @media (max-width: 800px){
+        width: 75%;
+    }
+
+    &:hover{
+        border: 1px solid gray;
+    }
+
+    &:focus{
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 2px solid #2b3467;
+        border-top: none;
+        background: linear-gradient(to top, #DCDCDC, transparent);
+    }
+
+    &::placeholder{
+        font-size: 15x;
+        color: #B9B4C7;
+    }
+    `
+export const Data = styled.input`
+    margin-bottom: 3px;
+    padding-bottom: 0;
+    border: transparent;
+    border-bottom: 2px solid gray;
+    width: 50%;
+
+    @media (max-width: 800px){
+        width: 75%;
+    }
+
+    &:hover{
+        border-bottom: 2px solid #1d5d9b;
+    }
+
+    &:focus{
+        outline: 0;
+        border-bottom: 2px solid #2b3467;
+    }
+
+    &::placeholder{
+        font-size: 15x;
+        color: #B9B4C7;
+    }
+    
+`
+export const Check = styled.input`
+    all: unset;
+    appearance: none;
+    margin-right: 3px;
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    display: inline-block; 
+    background: #cbd1d8;
+    
+    &:checked {
+        background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+        border-radius: 10px;
+
+    }
 `

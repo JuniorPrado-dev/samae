@@ -11,21 +11,6 @@ import Student from '../../img/add.png';
 
 export const Agenda = () => {
 
-    // Carrega a agenda do dia ao entrar na página
-    useEffect(() => {
-        const fetchAgenda = async () => {
-            try {
-                const response = await axios.get('/load-agender');
-                const fetchedTasks = response.data; // Suponha que o retorno da API seja um array de tarefas
-                setTask(fetchedTasks); // Atualiza o estado da tarefa com os dados buscados da API
-            } catch (error) {
-                console.error('Erro ao buscar agenda:', error);
-            }
-        };
-        fetchAgenda();
-    }, []);
-
-    
     const [close, setClose] = useState(false);
     const [open, setOpen] = useState(true);
     
@@ -38,6 +23,20 @@ export const Agenda = () => {
         },
     ]);
     
+    // Carrega a agenda do dia ao entrar na página
+    useEffect(() => {
+        const fetchAgenda = async () => {
+            try {
+                const response = await axios.get('/load-agender');
+                const fetchedTasks = response.data; 
+                setTask(fetchedTasks); 
+            } catch (error) {
+                console.error('Erro ao buscar agenda:', error);
+            }
+        };
+        fetchAgenda();
+    }, []);
+
     // Definir o id de agenda como uma referência
     const agendaId = useRef(generateId(99));
     
