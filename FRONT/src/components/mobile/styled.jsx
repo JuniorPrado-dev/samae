@@ -1,16 +1,26 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Main = styled.main`
+const main = css`
     display: flex;
     padding: 5vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(to top, #2b3460, #1D5D9B);
-    color: #fff;
     height: 100vh;
     width: 100%;
+`
+export const Main = styled.main`
+    ${main}
+    background: linear-gradient(to top, #2b3460, #1D5D9B);
+    color: #fff;
+`
+export const MainLogin = styled.main`
+    ${main}
+    background-color: #fefefe;
+    color: black;
+    height: 80vh;
+    border-radius: 10px;
 `
 export const LogoSamae = styled.img`
     margin-bottom: 10px;
@@ -38,10 +48,21 @@ export const Button = styled.button`
     font-weight: bold;
     border-radius: 30px;
     border: 2px solid #2b3460;
+    background-color: #fefefe;
     color: #2b3460;
     cursor: pointer;
 `
 //redirecionamento
 export const Redirect = styled.div`
     display: none;
+`
+export const Back = styled.button`
+    border-radius: 20px;
+    border: 1px solid #1D5D9B;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    background: linear-gradient(to top, #2b3460, #1D5D9B);
+    text-transform: uppercase;
+    color: #fff;
 `

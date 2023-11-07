@@ -12,6 +12,13 @@ export function InicioMobile() {
         logTeacher.style.display = "flex"
         welcome.style.display = "none"
     }
+    function OnclickParent() {
+        const logParent = document.querySelector('#parent')
+        const welcome = document.querySelector('#welcome')
+    
+        logParent.style.display = "flex"
+        welcome.style.display = "none"
+    }
 
     return (
 
@@ -26,7 +33,7 @@ export function InicioMobile() {
                         Professor(a)
                     </Button>
 
-                    <Button>
+                    <Button onClick={OnclickParent}>
                         Responsável
                     </Button>
             </Nav>
