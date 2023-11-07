@@ -1,4 +1,5 @@
-import { Back, MainLogin, P } from "./styled";
+import { Back, ImgBack, MainLogin, P } from "./styled";
+import Anterior from '../../img/back.png'
 
 export function LogProfessor() {
 
@@ -17,7 +18,8 @@ export function LogProfessor() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vero voluptate illum, perspiciatis repudiandae accusamus sunt mollitia error voluptatum ad libero et esse sapiente beatae quam, tempore fugit sed quia.
             </P>
                 <Back onClick={Voltar}>
-                    Voltar
+                <ImgBack src={Anterior}/>
+                    <p>Voltar</p>
                 </Back>
                 </div>    
         </MainLogin>

@@ -1,4 +1,5 @@
-import { Back, MainLogin, P } from "./styled";
+import { Back, ImgBack, MainLogin, P } from "./styled";
+import Anterior from '../../img/back.png'
 
 export function LogResponsavel() {
     function Voltar() {
@@ -16,7 +17,8 @@ export function LogResponsavel() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat dolorem, ipsa laboriosam libero perspiciatis perferendis delectus ipsam, laborum in, praesentium facilis officia optio nulla ut commodi voluptatum adipisci corrupti.
                 </P>
                 <Back onClick={Voltar}>
-                    Voltar
+                    <ImgBack src={Anterior}/>
+                    <p>Voltar</p>
                 </Back>
             </div>
         </MainLogin>

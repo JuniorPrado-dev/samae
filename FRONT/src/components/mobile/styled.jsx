@@ -57,12 +57,20 @@ export const Redirect = styled.div`
     display: none;
 `
 export const Back = styled.button`
-    border-radius: 20px;
+    display: flex;
+    margin: auto;
+    border-radius: 30px;
     border: 1px solid #1D5D9B;
     font-size: 12px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 12px 50px;
+    padding-right: 35px;
     background: linear-gradient(to top, #2b3460, #1D5D9B);
-    text-transform: uppercase;
     color: #fff;
+`
+export const ImgBack = styled.img`
+    margin-left: -30px;
+    margin-right: 15px;
+    margin-bottom: -2px;
+    height: 20px;
 `

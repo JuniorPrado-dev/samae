@@ -1,5 +1,4 @@
 import { Container, Teacher, Main, P, PanelLeft, PanelRight, Parent, Top, Bottom, BntReturn, ImgReturn, BntBlue } from "./styledInicio";
-import './styled.css'
 import Return from '../../img/return.png';
 import ReturnBlue from '../../img/returnBlue.png';
 
