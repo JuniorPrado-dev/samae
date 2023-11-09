@@ -4,30 +4,21 @@ import connection from "../database/connection"
 
 //função de listagem
 export async function getStudents(req:Request, res:Response){
-    const id = req.query.id
-    console.log(id)
-    if (!id) {
-       return res.send("Informe o Id")
-    }
+    /*const id_professor = req.body  
 
-    const aluno = await connection('tbaluno_anamnese').where('id_aluno', id)
+    if (!id_professor) {
+       return res.send("Você não tem permissão para acessar esses dados")
+    }*/
+
+    const aluno = await connection('tbaluno_anamnese') //.where('id_professor', id_professor)
     if (aluno.length < 1) {
-       return res.send('aluno não encontrado')
+       return res.send('Não há nenhum aluno registrado')
     }else{
-       return res.send(aluno[0].nome)
+       return res.send(aluno)
     }
 }
 
-//função de listagem GERAL
-export async function allStudents (req:Request, res:Response){
-  const aluno = await connection('tbaluno_anamnese') 
-  if (aluno.length < 1) {
-    return res.send("a tabela está vazia")
-  }else{
-    return res.send(aluno);
-  }
 
-}
 
 //função do formulário de anamnese
 export async function postSignUpStudent (req:Request, res:Response){

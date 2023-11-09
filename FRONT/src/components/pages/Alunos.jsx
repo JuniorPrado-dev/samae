@@ -18,7 +18,7 @@ export const Alunos = () => {
     useEffect(() => {
         const fetcheAlunos = async () => {
             try {
-                const response = await axios.get('all-students');
+                const response = await axios.get('get-students');
                 const fetchedItens = response.data;
                 setItens(fetchedItens);
             } catch (error) {
