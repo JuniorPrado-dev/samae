@@ -3,7 +3,8 @@ import express, { Request, Response } from "express";
 import connection from "./database/connection";
 import { getTeacher, postSignUpTeacher, loginTeacher } from "./endpoints/teacher";
 import { postAgendTeacher, getAgendTeacher, putAgendTeacher, deleteAgendTeacher } from "./endpoints/agend";
-import { getStudents, postSignUpStudent, triagemStudent } from "./endpoints/student";
+import { getStudents, postSignUpStudent, getAnamnese, putAnamnese, deleteAnamnese} from "./endpoints/student";
+import { triagemStudent } from "./endpoints/triagem"
 import { getParents } from "./endpoints/parents";
 import cors from "cors";
 
@@ -28,6 +29,11 @@ app.delete("/delete-agend-teacher", deleteAgendTeacher) // deletar um registro d
 //student endpoints
 app.get("/get-students", getStudents) //listar alunos
 app.post("/sign-up-student", postSignUpStudent) //registrar anamnese do aluno
+app.get("/get-anamnese", getAnamnese) //mostrar anamnese do aluno
+app.put("/put-anamnese", putAnamnese) //atualizar anamnese
+app.delete("/delete-anamnese", deleteAnamnese) //deletar registro de anamnese
+
+//triagem endpoints
 app.post("/triagem-student", triagemStudent) //registrar triagem do aluno 
 
 

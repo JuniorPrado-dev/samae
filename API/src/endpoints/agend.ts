@@ -10,7 +10,7 @@ export async function postAgendTeacher (req:Request, res:Response) {
         return res.send("Informe os dados obrigatórios")
       }
 
-    const ins = await connection('tbagenda').insert({
+    await connection('tbagenda').insert({
       id_professor, nome, hora, checkbox
     })
 

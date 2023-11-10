@@ -50,7 +50,7 @@ export async function postSignUpTeacher (req:Request, res:Response){
    
        const id_instituicao = idInstituicao;
 
-       const [id] = await connection('tbprofessor').insert({
+       await connection('tbprofessor').insert({
          nome,
          cpf,
          senha,
