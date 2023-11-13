@@ -1,11 +1,11 @@
 import React from 'react';
-import { Hour, InputTriagem } from '../styled';
-import { Fieldset, Legend} from '../../form-student/form_style';
+import { Hour, InputTriagem, Title } from '../styled';
+import { Fieldset } from '../../form-student/form_style';
 
 export const Cabecalho = ({ form, onChange }) => {
   return (
     <main>
-        <Legend>Triagem Psicopedagógica</Legend>
+        <Title>Triagem Psicopedagógica</Title>
       <Fieldset>
         <label>
           Aluno:

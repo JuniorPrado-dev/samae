@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Search } from '../Search-bar/Search';
-import { Lista, Name } from '../Search-bar/styled';
 import { useForm } from '../../hooks/useForm';
 import axios from "axios";
-import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
+import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton, Title } from './styled';
 import Back from '../../img/anterior.png';
 import Next from '../../img/proximo.png';
 import { Cabecalho } from './anamnese-components/cabecalho';
@@ -18,9 +16,11 @@ import { Sono } from './anamnese-components/camp8';
 import { Disciplinação } from './anamnese-components/camp9';
 import { Saúde } from './anamnese-components/camp10';
 import { RadioQuestion } from '../radio-question/radioQ';
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Anamnese = () => {
-    const [results, setResults] = useState([]);
+
+    useProtectedPage()
 
     //ajuda a marcar somente um checkbox
     const [checkboxes, setCheckboxes] = useState({
@@ -110,7 +110,16 @@ export const Anamnese = () => {
         q31: "",
         q32: "",
     })
-    //chama e organiza tudo para mandar para a api
+    
+    //organizando dados em objetos a fim de enviar à api
+    const cabecalho = {};
+    const dadosFamiliares = {};
+    const historicoEscolar = {};
+    const aspectosMotores = {};
+    const aspectosPerceptivos = {};
+    const aspectosEmocionais = {};
+    const sociabilidade = {};
+
     function send(e) {
         e.preventDefault()
         const aluno = {
@@ -364,14 +373,7 @@ export const Anamnese = () => {
 
     return (
         <MainTriagem>
-            <div>
-                <Search setResults={setResults} />
-                <Lista>
-                    {results.map((user) => (
-                        <Name key={user.id}>{user.name}</Name>
-                    ))}
-                </Lista>
-            </div>
+            <Title>Anamnese de Aluno</Title>
             <form onSubmit={send}>
                 <div>
                     {currentCard}

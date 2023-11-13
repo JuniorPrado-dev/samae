@@ -1,4 +1,5 @@
 import React from 'react';
+import { Data } from '../styled';
 
 export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
@@ -12,13 +13,13 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
                 options={['Sim', 'Não']}
                 selectedOption={watcher.watcher22}
                 onChange={(e) => alter('watcher22', e.target.value)}
-            />
+            /><br />
             {watcher.watcher22 === 'Sim' && (
                 <div>       
                     <label>    
                     Faz acompanhamento clínico com alguém? Quem?
                     <br />
-                    <input type="text" name='q31' onChange={onChange} value={form.q31} />
+                    <Data type="text" name='q31' onChange={onChange} value={form.q31} />
                     </label><br />         
                 </div>
             )} 
@@ -27,12 +28,12 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
                 options={['Sim', 'Não']}
                 selectedOption={watcher.watcher23}
                 onChange={(e) => alter('watcher23', e.target.value)}
-            />
+            /><br />
             <h2>
                 Outras ocorrências?
             </h2>
-            <input type="text" name='q32' onChange={onChange} value={form.q32} />
-        </div>
+            <Data type="text" name='q32' onChange={onChange} value={form.q32} />
+        </div><br />
     </main>
   )
 };

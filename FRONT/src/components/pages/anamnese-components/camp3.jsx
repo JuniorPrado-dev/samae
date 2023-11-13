@@ -12,20 +12,20 @@ export const AspectosMotores = ({alter, watcher, RadioQuestion}) => {
                 options={['Sim', 'Não']}
                 selectedOption={watcher.watcher7}
                 onChange={(e) => alter('watcher7', e.target.value)}
-            />  
+            /><br />  
             <RadioQuestion
                 question="Possui bom desempenho em educação física?"
                 options={['Sim', 'Não']}
                 selectedOption={watcher.watcher8}
                 onChange={(e) => alter('watcher8', e.target.value)}
-            />
+            /><br />
             <RadioQuestion
                 question="Apresenta interesse pela matéria?"
                 options={['Sim', 'Não']}
                 selectedOption={watcher.watcher9}
                 onChange={(e) => alter('watcher9', e.target.value)}
-            />   
-        </div>
+            /><br />   
+        </div><br />
     </main>
   )
 };

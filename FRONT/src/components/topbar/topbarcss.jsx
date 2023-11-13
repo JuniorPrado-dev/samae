@@ -35,3 +35,28 @@ export const Img= styled.img `
     margin-bottom: 25px;
     height: 60px;
 `;
+export const BtnEntrar = styled.button`
+    margin: 10px 40%;
+    padding: 7px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background: transparent;
+    color: #dcdcdc;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    transition: 500ms;
+    position: relative;
+    left: 42vw;
+    bottom: 10vh;
+    
+    &:hover{
+        color: #fefefe;
+        font-size: 17px;
+        transition: 500ms;
+    }
+
+    &:active{
+        background: #2b3467;
+    }
+`
