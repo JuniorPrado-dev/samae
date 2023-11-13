@@ -2,9 +2,9 @@
 import express, { Request, Response } from "express";
 import connection from "./database/connection";
 import { getTeacher, postSignUpTeacher, loginTeacher } from "./endpoints/teacher";
-import { postAgendTeacher, getAgendTeacher, putAgendTeacher, deleteAgendTeacher } from "./endpoints/agend";
-import { getStudents, postSignUpStudent, getAnamnese, putAnamnese, deleteAnamnese} from "./endpoints/student";
-import { triagemStudent } from "./endpoints/triagem"
+import { postAgend, getAgend, putAgend, deleteAgend } from "./endpoints/agend";
+import { getStudents, postAnamnese, getAnamnese, putAnamnese, deleteAnamnese} from "./endpoints/student";
+import { postTriagem, getTriagem, putTriagem, deleteTriagem } from "./endpoints/triagem"
 import { getParents } from "./endpoints/parents";
 import cors from "cors";
 
@@ -20,21 +20,24 @@ app.post("/sign-up-teacher", postSignUpTeacher) //cadastrar um novo professor
 app.post("/login-teacher", loginTeacher) // login do professor
 
 //agend endpoints
-app.get("/get-agend-teacher", getAgendTeacher) // listar todos os registros da agenda
-app.post("/post-agend-teacher", postAgendTeacher) //guardar os dados da agenda
-app.put("/put-agend-teacher", putAgendTeacher) //atualizar um registro da agenda
-app.delete("/delete-agend-teacher", deleteAgendTeacher) // deletar um registro da agenda
+app.get("/get-agend", getAgend) // listar todos os registros da agenda
+app.post("/post-agend", postAgend) //guardar os dados da agenda
+app.put("/put-agend", putAgend) //atualizar um registro da agenda
+app.delete("/delete-agend", deleteAgend) // deletar um registro da agenda
 
 
-//student endpoints
+//student and anamnese endpoints
 app.get("/get-students", getStudents) //listar alunos
-app.post("/sign-up-student", postSignUpStudent) //registrar anamnese do aluno
+app.post("/post-anamnese", postAnamnese) //registrar anamnese do aluno
 app.get("/get-anamnese", getAnamnese) //mostrar anamnese do aluno
 app.put("/put-anamnese", putAnamnese) //atualizar anamnese
 app.delete("/delete-anamnese", deleteAnamnese) //deletar registro de anamnese
 
 //triagem endpoints
-app.post("/triagem-student", triagemStudent) //registrar triagem do aluno 
+app.post("/triagem-student", postTriagem) //registrar triagem do aluno 
+app.get("/get-triagem", getTriagem) //mostrar triagem do aluno
+app.put("/put-triagem", putTriagem) //atualizar triagem
+app.delete("/delete-triagem", deleteTriagem) //deletar registro de triagem
 
 
 //parents endpoints

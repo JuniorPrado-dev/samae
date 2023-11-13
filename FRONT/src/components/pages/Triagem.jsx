@@ -188,7 +188,7 @@ export const Triagem = () => {
         updateCategory(matematica, 'aluno', aluno.matematica);
 
         //conecta api e front
-        axios.post('http://localhost:3003/triagem-student', aluno)
+        axios.post('http://localhost:3003/post-triagem', aluno)
             .then(function (response) {
                 console.log(response);
             })

@@ -21,7 +21,7 @@ export async function getStudents(req:Request, res:Response){
 
 
 //função de registro do formulário de anamnese
-export async function postSignUpStudent (req:Request, res:Response){
+export async function postAnamnese (req:Request, res:Response){
    try {
       const { nome, sexo, nascimento} = req.body;
       const {d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14} = req.body;

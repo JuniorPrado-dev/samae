@@ -27,7 +27,7 @@ export const Agenda = () => {
     useEffect(() => {
         const fetchAgenda = async () => {
             try {
-                const response = await axios.get('/load-agender');
+                const response = await axios.get('/load-agend');
                 const fetchedTasks = response.data; 
                 setTask(fetchedTasks); 
             } catch (error) {

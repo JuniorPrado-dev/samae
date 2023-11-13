@@ -198,7 +198,7 @@ export const Anamnese = () => {
         console.log(aluno);
 
         //conecta api e front
-        axios.post('http://localhost:3003/sign-up-student', aluno)
+        axios.post('http://localhost:3003/post-anamnese', aluno)
             .then(function (response) {
                 console.log(response);
             })

@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import connection from "../database/connection"
 
 //função para inserir na agenda
-export async function postAgendTeacher (req:Request, res:Response) {
+export async function postAgend (req:Request, res:Response) {
     try{
       const {id_professor, nome, hora, checkbox} = req.body
 
@@ -23,7 +23,7 @@ export async function postAgendTeacher (req:Request, res:Response) {
    }
 
    //função para listar a agenda
-   export async function getAgendTeacher (req:Request, res:Response) {
+   export async function getAgend (req:Request, res:Response) {
     try{
       const id_professor = req.query.id_professor
 
@@ -40,10 +40,10 @@ export async function postAgendTeacher (req:Request, res:Response) {
    }
 
    // Função para atualizar um registro na agenda
-export async function putAgendTeacher(req: Request, res: Response) {
+export async function putAgend(req: Request, res: Response) {
   try {
     const { id_professor, nome, hora, checkbox } = req.body;
-    const id_agenda = req.params.id_agenda;
+    const id_agenda = req.params.id;
 
     if (!id_professor || !nome || !hora || !checkbox) {
       return res.send("Informe os dados obrigatórios");
@@ -64,9 +64,9 @@ export async function putAgendTeacher(req: Request, res: Response) {
 }
 
 // Função para deletar um registro na agenda
-export async function deleteAgendTeacher(req: Request, res: Response) {
+export async function deleteAgend(req: Request, res: Response) {
   try {
-    const id_agenda = req.params.id_agenda; 
+    const id_agenda = req.params.id; 
 
     const deleteResult = await connection('tbagenda')
       .where('id_agenda', id_agenda)
