@@ -1,7 +1,7 @@
 //imports essenciais
 import express, { Request, Response } from "express";
 import connection from "./database/connection";
-import { getTeacher, postSignUpTeacher, loginTeacher } from "./endpoints/teacher";
+import { getTeacher, postTeacher, loginTeacher, putTeacher, deleteTeacher } from "./endpoints/teacher";
 import { postAgend, getAgend, putAgend, deleteAgend } from "./endpoints/agend";
 import { getStudents, postAnamnese, getAnamnese, putAnamnese, deleteAnamnese} from "./endpoints/student";
 import { postTriagem, getTriagem, putTriagem, deleteTriagem } from "./endpoints/triagem"
@@ -16,8 +16,10 @@ app.use(express.json()) //express usar o json
 
 //teacher endpoints
 app.get("/teacher", getTeacher) //listar professor específico
-app.post("/sign-up-teacher", postSignUpTeacher) //cadastrar um novo professor
+app.post("/sign-up-teacher", postTeacher) //cadastrar um novo professor
 app.post("/login-teacher", loginTeacher) // login do professor
+app.put("/put-teacher", putTeacher) // alterar o registro de um professor
+app.delete("/delete-teacher", deleteTeacher) //deletar um registro de professor
 
 //agend endpoints
 app.get("/get-agend", getAgend) // listar todos os registros da agenda

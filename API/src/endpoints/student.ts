@@ -2,6 +2,7 @@
 import express, { Request, Response} from "express";
 import connection from "../database/connection"
 
+
 //função de listagem do aluno
 export async function getStudents(req:Request, res:Response){
     /*const id_professor = req.body  
@@ -33,12 +34,8 @@ export async function postAnamnese (req:Request, res:Response){
       const {asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7} = req.body;
       const {sn_n1, sn_n2, sn_n3} = req.body;
       const {dc_n1, dc_n2, dc_n3} = req.body;
-      const {sd_n1, sd_n2, sd_n3, sd_n4} = req.body;  
-      
+      const {sd_n1, sd_n2, sd_n3, sd_n4} = req.body; 
 
-
-   console.log(req.body);
-   
 
   
       if (!nome || !sexo || !nascimento || !d_n1 || !d_n2 || !d_n3 || !d_n4 || !d_n5 || !d_n6 || !d_n7 || !d_n8 || !d_n9 || !d_n10 || !d_n11 || !d_n12 || !d_n13 || !d_n14 || !h_n1 || !h_n2 || !h_n3 || !h_n4 || !h_n5 || !h_n6 || !h_n7 || !h_n8 || !h_n9 || !h_n10 || !h_n11 || !h_n12 || !h_n13 || !am_n1 || !am_n2 || !am_n3 || !ap_n1 || !ap_n2 || !ap_n3 || !ap_n4 || !ap_n5 || !ap_n6 || !ap_n7 || !ap_n8 || !ae_n1 || !ae_n2 || !ae_n3 || !ae_n4 || !ae_n5 || !ae_n6 || !s_n1 || !s_n2 || !s_n3 || !s_n4 || !s_n5 || !s_n6 || !s_n7 || !s_n8 || !asp_n1 || !asp_n2 || !asp_n3 || !asp_n4 || !asp_n5 || !asp_n6 || !asp_n7 || !sn_n1 || !sn_n2 || !sn_n3 || !dc_n1 || !dc_n2 || !dc_n3 || !sd_n1 || !sd_n2 || !sd_n3 || !sd_n4 ) {

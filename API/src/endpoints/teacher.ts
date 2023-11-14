@@ -40,7 +40,7 @@ export async function loginTeacher(req:Request, res:Response){
 }
 
 //função do formulário de cadastro
-export async function postSignUpTeacher (req:Request, res:Response){
+export async function postTeacher (req:Request, res:Response){
      try {
        const { nome, cpf, senha, nascimento, email, telefone, idInstituicao, sexo } = req.body;
    
@@ -67,6 +67,70 @@ export async function postSignUpTeacher (req:Request, res:Response){
        return res.send("Erro interno do servidor");
      }
    }
+
+
+   
+//função para alterar o registro de um professor
+export async function putTeacher(req: Request, res: Response) {
+  try {
+    const { id_professor } = req.params;
+    const { nome, cpf, senha, nascimento, email, telefone, idInstituicao, sexo } = req.body;
+
+    if (!id_professor || !nome || !cpf || !senha || !nascimento || !email || !telefone || !idInstituicao || !sexo) {
+      return res.status(400).send("Informe todos os campos obrigatórios");
+    }
+
+    const id_instituicao = idInstituicao;
+
+    // Verifica se o professor com o ID fornecido existe antes de tentar atualizar
+    const professorExistente = await connection('tbprofessor').where('id_professor', id_professor).first();
+
+    if (!professorExistente) {
+      return res.status(404).send("Professor não encontrado");
+    }
+
+    await connection('tbprofessor').where('id_professor', id_professor).update({
+      nome,
+      cpf,
+      senha,
+      nascimento,
+      email,
+      telefone,
+      id_instituicao,
+      sexo,
+    });
+
+    return res.send("Os dados foram atualizados com sucesso!");
+  } catch (error) {
+    console.error(error);
+    return res.send("Erro interno do servidor");
+  }
+}
+
+
+
+//função para deletar registro de um professor
+export async function deleteTeacher(req: Request, res: Response) {
+  try {
+    const { id_professor } = req.params; 
+
+
+    // Verifica se o professor com o ID fornecido existe antes de tentar excluir
+    const professorExistente = await connection('tbprofessor').where('id_professor', id_professor).first();
+
+    if (!professorExistente) {
+      return res.send("Professor não encontrado");
+    }
+
+    await connection('tbprofessor').where('id_professor', id_professor).del();
+
+    return res.send("O professor foi excluído com sucesso!");
+  } catch (error) {
+    console.error(error);
+    return res.send("Erro interno do servidor");
+  }
+}
+
 
 
    
