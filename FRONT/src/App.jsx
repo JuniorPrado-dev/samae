@@ -1,11 +1,12 @@
 import './App.css';
 import axios from "axios";
+import { useMediaQuery } from 'react-responsive';
 import { Navbar } from './components/Navbar/Navbar';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
-import { LoginP } from './components/login/loginTeacher';
+import { LoginResponsavel } from './components/login/loginParent';
 import { InicioMobile } from './components/mobile/Mobile';
 
 function App() {
@@ -23,12 +24,8 @@ function App() {
       console.error(error);
     })
 
-    const telaLogin = <div id="pagLogin">
-      <TelaInicial/>
-    </div>
-
     const system = <div className='App'>
-    <Link to="/login-teacher"></Link>
+
     <Topbar/>
     <Navbar />
     <Routes>
@@ -37,16 +34,26 @@ function App() {
       <Route path="/Triagem" element={<Triagem />} />
       <Route path="/Alunos" element={<Alunos />} />
       <Route path="/Anamnese" element={<Anamnese />} />
-      <Route path="/login-teacher" element={<LoginP/>} />
     </Routes>
     </div>
-  
-    const mobile = <InicioMobile/>
+    
+    const responsavel = <LoginResponsavel/>
 
+    const ReturnLogin = () => {
+      const desktopLaptop = useMediaQuery({ minDeviceWidth: 600 });
+      const isMobile = useMediaQuery({ maxDeviceWidth: 600 });
+    
+      return (
+        <div>
+          {desktopLaptop && <TelaInicial/>}
+          {isMobile && <InicioMobile />}
+        </div>
+      );
+    };
   return (
-    //telaLogin
-    //mobile
-    system
+    //system
+    //responsavel
+    <ReturnLogin/>
   )
 
 }
