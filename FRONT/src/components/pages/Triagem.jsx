@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useForm } from '../../hooks/useForm';
 import axios from "axios";
+import { useForm } from '../../hooks/useForm';
 import { Cabecalho } from './triagem-components/cabecalho';
 import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
@@ -8,6 +8,7 @@ import { Hc } from './triagem-components/hc';
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
 import Back from '../../img/anterior.png'
 import Next from '../../img/proximo.png'
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Triagem = () => {
 
@@ -15,7 +16,10 @@ export const Triagem = () => {
     const date = `${newItem1.slice(8,10)}/${newItem1.slice(5,7)}/${newItem1.slice(0,4)}`
     */
 
-    //atribui um valor inicial e monitora as checkbox
+    //armazenando checkbox
+
+    useProtectedPage()
+    
     const [checkboxes, setCheckboxes] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -58,7 +62,6 @@ export const Triagem = () => {
         checkbox39: false,
     });
 
-    //armazena um array de valores das checkbox
     const handleCheckBoxChange = (event) => {
         const { name, checked } = event.target;
         setCheckboxes({
@@ -67,7 +70,7 @@ export const Triagem = () => {
         });
     };
 
-    //armazenando no back elementos de texto e numero
+    //armazenando elementos de texto, data, hora, numero
     const [form, onChange, resetState] = useForm({
         nome: '',
         data: '',
@@ -77,12 +80,15 @@ export const Triagem = () => {
         escNum: ''
     })
 
-    const [watcher, setWatcher] = useState('')
+    //armazenando radios
+    const [radioq, setRadioq] = useState({})
 
-    //ajuda a marcar somente um radio
-    const alter = (e) => {
-        setWatcher(e.target.value)
-    }
+    const alter = (fieldName, value) => {
+        setRadioq((prevradioqs) => ({
+            ...prevradioqs,
+            [fieldName]: value,
+        }));
+    };
 
     //gerador de id automático
     const generateUniqueId = () => {
@@ -91,75 +97,104 @@ export const Triagem = () => {
         const characters = '0123456789';
         const charactersLength = characters.length;
         for (let i = 0; i < length; i++) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         return result;
-      };
+    };
 
-    //chama e organiza tudo para mandar para a api
+    //organizando dados em objetos a fim de enviar à api
+    const cabecalho = {};
+    const hc = {};
+    const leituraEscritaN1 = {};
+    const leituraEscritaN2 = {};
+    const leituraEscritaN3 = {};
+    const leituraEscritaN4 = {};
+    const matematica = {};
+
     function send(e) {
         e.preventDefault()
         const aluno = {
             idTriagem: generateUniqueId(),
-            idAluno: form.nome,
-            dataTriagem: form.data,
-            idProfessor: form.professor,
-            psicopedagogo: form.psicopedagogo,
+            
+            cabecalho: {
+                q1: form.nome.value,
+                q2: form.data.value,
+                q3: form.professor.value,
+                q4: form.psicopedagogo.value,
+            },
+            hc: {
+                q1: checkboxes.checkbox1.toString(),
+                q2: checkboxes.checkbox2.toString(),
+                q3: checkboxes.checkbox3.toString(),
+            },
 
-            n1_n1: checkboxes.checkbox1.toString(),
-            n1_n2: checkboxes.checkbox2.toString(),
-            n1_n3: checkboxes.checkbox3.toString(),
+            leituraEscritaN1: {
+                q1: checkboxes.checkbox4.toString(),
+                q2: checkboxes.checkbox5.toString(),
+                q3: checkboxes.checkbox6.toString(),
+                q4: checkboxes.checkbox7.toString(),
+            },
 
-            n2_n1: checkboxes.checkbox4.toString(),
-            n2_n2: checkboxes.checkbox5.toString(),
-            n2_n3: checkboxes.checkbox6.toString(),
-            n2_n4: checkboxes.checkbox7.toString(),
+            leituraEscritaN2: {
+                q1: checkboxes.checkbox8.toString(),
+                q2: checkboxes.checkbox9.toString(),
+                q3: checkboxes.checkbox10.toString(),
+            },
 
-            n3_n1: checkboxes.checkbox8.toString(),
-            n3_n2: checkboxes.checkbox9.toString(),
-            n3_n3: checkboxes.checkbox10.toString(),
+            leituraEscritaN3: {
+                q1: checkboxes.checkbox11.toString(),
+                q2: checkboxes.checkbox12.toString(),
+                q3: checkboxes.checkbox13.toString(),
+                q4: checkboxes.checkbox14.toString(),
+                q5: checkboxes.checkbox15.toString(),
+                q6: radioq.radioq1.value,
+            },
 
-            n4_n1: checkboxes.checkbox11.toString(),
-            n4_n2: checkboxes.checkbox12.toString(),
-            n4_n3: checkboxes.checkbox13.toString(),
-            n4_n4: checkboxes.checkbox14.toString(),
-            n4_n5: checkboxes.checkbox15.toString(),
-            n4_n6: watcher,
+            leituraEscritaN4: {
+                q1: checkboxes.checkbox16.toString(),
+                q2: checkboxes.checkbox17.toString(),
+                q3: form.recNum.value,
+                q4: form.escNum.value,
+                q5: checkboxes.checkbox18.toString(),
+                q6: checkboxes.checkbox19.toString(),
+                q7: checkboxes.checkbox20.toString(),
+                q8: checkboxes.checkbox21.toString(),
+                q9: checkboxes.checkbox22.toString(),
+                q10: checkboxes.checkbox23.toString(),
+                q11: checkboxes.checkbox24.toString(),
+            },
 
-            mt_n1: checkboxes.checkbox16.toString(),
-            mt_n2: checkboxes.checkbox17.toString(),
-            mt_n3: form.recNum,
-            mt_n4: form.escNum,
-            mt_n5: checkboxes.checkbox18.toString(),
-            mt_n6: checkboxes.checkbox19.toString(),
-            mt_n7: checkboxes.checkbox20.toString(),
-            mt_n8: checkboxes.checkbox21.toString(),
-            mt_n9: checkboxes.checkbox22.toString(),
-            mt_n10: checkboxes.checkbox23.toString(),
-            mt_n11: checkboxes.checkbox24.toString(),
-
-            hc_n1: checkboxes.checkbox25.toString(),
-            hc_n2: checkboxes.checkbox26.toString(),
-            hc_n3: checkboxes.checkbox27.toString(),
-            hc_n4: checkboxes.checkbox28.toString(),
-            hc_n5: checkboxes.checkbox29.toString(),
-            hc_n6: checkboxes.checkbox30.toString(),
-            hc_n7: checkboxes.checkbox31.toString(),
-            hc_n8: checkboxes.checkbox32.toString(),
-            hc_n9: checkboxes.checkbox33.toString(),
-            hc_n10: checkboxes.checkbox34.toString(),
-            hc_n11: checkboxes.checkbox35.toString(),
-            hc_n12: checkboxes.checkbox36.toString(),
-            hc_n13: checkboxes.checkbox37.toString(),
-            hc_n14: checkboxes.checkbox38.toString(),
-            hc_n15: checkboxes.checkbox39.toString(),
+            matematica: {
+                q1: checkboxes.checkbox25.toString(),
+                q2: checkboxes.checkbox26.toString(),
+                q3: checkboxes.checkbox27.toString(),
+                q4: checkboxes.checkbox28.toString(),
+                q5: checkboxes.checkbox29.toString(),
+                q6: checkboxes.checkbox30.toString(),
+                q7: checkboxes.checkbox31.toString(),
+                q8: checkboxes.checkbox32.toString(),
+                q9: checkboxes.checkbox33.toString(),
+                q10: checkboxes.checkbox34.toString(),
+                q11: checkboxes.checkbox35.toString(),
+                q12: checkboxes.checkbox36.toString(),
+                q13: checkboxes.checkbox37.toString(),
+                q14: checkboxes.checkbox38.toString(),
+                q15: checkboxes.checkbox39.toString(),
+            },
         }
+
+        updateCategory(cabecalho, 'aluno', aluno.cabecalho);
+        updateCategory(hc, 'aluno', aluno.hc);
+        updateCategory(leituraEscritaN1, 'aluno', aluno.leituraEscritaN1);
+        updateCategory(leituraEscritaN2, 'aluno', aluno.leituraEscritaN2);
+        updateCategory(leituraEscritaN3, 'aluno', aluno.leituraEscritaN3);
+        updateCategory(leituraEscritaN4, 'aluno', aluno.leituraEscritaN4);
+        updateCategory(matematica, 'aluno', aluno.matematica);
 
         //conecta api e front
         axios.post('http://localhost:3003/triagem-student', aluno)
             .then(function (response) {
                 console.log(response);
-                alert(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -167,45 +202,15 @@ export const Triagem = () => {
     }
 
     const cards = [
-        <Cabecalho
-            form={form}
-            onChange={onChange}
-        />,
-        <LeituraEscrita
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-            alter={alter}
-        />,
-        <Matematica
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-            onChange={onChange}
-            form={form}
-        />,
-        <Hc
-            checkboxes={checkboxes}
-            handleCheckBoxChange={handleCheckBoxChange}
-        />,
+        <Cabecalho form={form} onChange={onChange} />,
+        <LeituraEscrita checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} alter={alter} />,
+        <Matematica checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} onChange={onChange} form={form} />,
+        <Hc checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />,
         <div>
-            <Cabecalho
-                form={form}
-                onChange={onChange}
-            />
-            <LeituraEscrita
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-                alter={alter}
-            />
-            <Matematica
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-                onChange={onChange}
-                form={form}
-            />
-            <Hc
-                checkboxes={checkboxes}
-                handleCheckBoxChange={handleCheckBoxChange}
-            />
+            <Cabecalho form={form} onChange={onChange} />
+            <LeituraEscrita checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} alter={alter} />
+            <Matematica checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} onChange={onChange} form={form} />
+            <Hc checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />
             <DivButton>
                 <Enviar type="submit">Enviar</Enviar>
             </DivButton>
@@ -244,7 +249,7 @@ export const Triagem = () => {
                         <Proximo onClick={handleNextCard}>
                             <ImgCard src={Next} />
                         </Proximo>
-                        
+
                     )}
                 </Cards>
             </form>

@@ -1,10 +1,13 @@
 import './App.css';
 import axios from "axios";
+import { useMediaQuery } from 'react-responsive';
 import { Navbar } from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
+import { LoginResponsavel } from './components/login/loginParent';
+import { InicioMobile } from './components/mobile/Mobile';
 
 function App() {
 
@@ -21,11 +24,8 @@ function App() {
       console.error(error);
     })
 
-    const telaLogin = <div id="pagLogin">
-      <TelaInicial/>
-    </div>
-
     const system = <div className='App'>
+
     <Topbar/>
     <Navbar />
     <Routes>
@@ -36,10 +36,24 @@ function App() {
       <Route path="/Anamnese" element={<Anamnese />} />
     </Routes>
     </div>
+    
+    const responsavel = <LoginResponsavel/>
 
+    const ReturnLogin = () => {
+      const desktopLaptop = useMediaQuery({ minDeviceWidth: 600 });
+      const isMobile = useMediaQuery({ maxDeviceWidth: 600 });
+    
+      return (
+        <div>
+          {desktopLaptop && <TelaInicial/>}
+          {isMobile && <InicioMobile />}
+        </div>
+      );
+    };
   return (
-    //telaLogin
-    system
+    //system
+    //responsavel
+    <ReturnLogin/>
   )
 
 }
