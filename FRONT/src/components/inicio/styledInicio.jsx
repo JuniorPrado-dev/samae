@@ -231,7 +231,7 @@ export const Container = styled.div`
         border-radius: 0;     
     }
     
-    @media (max-width: 550px){
+    @media (max-width: 700px){
         margin-left: -50vw;
         height: 100%;      
         width: 100%; 
