@@ -1,6 +1,7 @@
 //imports essenciais
 import express, { Request, Response} from "express";
 import connection from "../database/connection"
+const multer = require('multer');
 
 
 //função de listagem do aluno
@@ -289,4 +290,36 @@ export async function getAnamnese(req: Request, res: Response) {
   }
 }
 
+/*
+export async function imageUpload (req: Request, res: Response) {
+  try{
+    const storage = multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, 'uploads/'); // pasta onde as imagens serão armazenadas temporariamente
+      },
+      filename: (req, file, cb) => {
+        cb(null, file.originalname);
+      },
+    });
+    
+    const upload = multer({ storage: storage });
+
+    const { filename } = req.file;
+    const { descricao } = req.body;
+
+    if(!filename || !descricao) {
+      return res.send('Informe todos os dados obrigatórios');
+    }
+
+    await connection('tbimagem_anamnese').insert({
+      filename, descricao
+    })
+
+    return res.send('Os dados foram enviados com sucesso');
+
+  }catch(error){
+    console.error(error);
+    return res.send('Erro interno do servidor');
+  }
+}
 
