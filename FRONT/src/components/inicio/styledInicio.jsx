@@ -219,26 +219,23 @@ export const Container = styled.div`
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
         0 10px 10px rgba(0,0,0,0.22);
     position: relative;
+    left: -10%;
     overflow: hidden;
     height: 70%;
-    width: 50vw;
+    width: 60%;
     transform: translateX(50%);
     
     @media (max-width: 800px){
-        margin-left: -30vw;
+        margin-left: -20vw;
         height: 80%;      
-        width: 80%; 
-        border-radius: 0;     
+        width: 80%;     
     }
     
     @media (max-width: 700px){
         margin-left: -50vw;
         height: 100%;      
-        width: 100%; 
-        border-radius: 0;     
+        width: 100%;      
     }
-
-    
 `
 export const FormAndIn = styled.div`
     ${formContainer}

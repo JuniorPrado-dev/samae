@@ -1,14 +1,8 @@
-import { Body, Btn, Fieldset, Input, Label, Legend } from "./parentStyled";
-
+import { Btn, Input, Label } from "./parentStyled";
 
 export function LoginResponsavel() {
 
     return (
-        <Body>
-            <Fieldset>
-                <Legend>
-                    Acessar conta
-                </Legend>
                 <form>
                     <Label htmlFor="cpf" id="cpf">CPF:</Label><br />
                     <Input type="number" name="cpf" placeholder="Digite seu CPF"/><br />
@@ -16,7 +10,5 @@ export function LoginResponsavel() {
                     <Input type="password" name="password" placeholder="Digite sua senha"/><br />
                     <Btn type="button">Entrar</Btn>
                 </form>
-            </Fieldset>
-        </Body>
     )
 }
