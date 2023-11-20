@@ -1,5 +1,6 @@
-import { Back, ImgBack, MainLogin, P } from "./styled";
+import { Back, ImgBack, MainLogin } from "./styled";
 import Anterior from '../../img/back.png'
+import {  LoginProfessor } from "../login/loginTeacher";
 
 export function LogProfessor() {
 
@@ -14,14 +15,11 @@ export function LogProfessor() {
     return (
         <MainLogin>
             <div id="teacher">
-            <P>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia vero voluptate illum, perspiciatis repudiandae accusamus sunt mollitia error voluptatum ad libero et esse sapiente beatae quam, tempore fugit sed quia.
-            </P>
+            <LoginProfessor/>
                 <Back onClick={Voltar}>
-                <ImgBack src={Anterior}/>
-                    <p>Voltar</p>
+                    <ImgBack src={Anterior}/>
                 </Back>
-                </div>    
+            </div>
         </MainLogin>
     )
 }

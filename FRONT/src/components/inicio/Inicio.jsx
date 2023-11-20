@@ -2,6 +2,7 @@ import { Container, Teacher, Main, P, PanelLeft, PanelRight, Parent, Top, Bottom
 import Return from '../../img/return.png';
 import ReturnBlue from '../../img/returnBlue.png';
 import { LoginResponsavel } from "../login/loginParent";
+import { LoginProfessor } from "../login/loginTeacher";
 
 function OnclickTeacher() {
     const logTeacher = document.querySelector('#topTeacher')
@@ -47,7 +48,7 @@ export function TelaInicial() {
                             <Teacher className="ghost" id="signIn" onClick={OnclickTeacher}>Professor</Teacher>
                             </Top>
                             <Bottom id="bottomTeacher">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi ipsa ea voluptatibus sapiente, nulla veritatis provident nisi impedit, exercitationem laboriosam a modi amet excepturi. Repellendus rerum voluptate assumenda nihil amet.</p>
+                                <LoginProfessor/>
                                 <BntBlue onClick={OnClickReturnTeacher}>
                                     <ImgReturn src={ReturnBlue}/>
                                 </BntBlue>

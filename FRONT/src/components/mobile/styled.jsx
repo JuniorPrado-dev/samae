@@ -20,6 +20,7 @@ export const MainLogin = styled.main`
     background-color: #fefefe;
     color: black;
     height: 80vh;
+    width: 80vw;
     border-radius: 10px;
 `
 export const LogoSamae = styled.img`
@@ -28,13 +29,16 @@ export const LogoSamae = styled.img`
     height: 80px;
 `
 export const H1 = styled.h1`
+    margin-top: 20px;
     font-family: 'REM', sans-serif;
     font-size: 20px;
     font-weight: bold;
 `
 export const P = styled.p`
-    margin: 10px;
+    margin: 15px;
     font-family: 'REM', sans-serif;
+    font-size: 12px;
+    font-weight: normal;   
 `
 export const Nav = styled.nav`
     display: inline-flex;
@@ -42,35 +46,37 @@ export const Nav = styled.nav`
     width: 100%;
 `
 export const Button = styled.button`
-    margin: 10px 0;
-    padding: 15px 30px;
+    margin: 20px auto;
+    padding: 12px 25px;
     text-align: center;
+    text-transform: uppercase;
     font-weight: bold;
+    font-size: 14px;
     border-radius: 30px;
-    border: 2px solid #2b3460;
+    border: 2px solid #fefefe;
     background-color: #fefefe;
     color: #2b3460;
     cursor: pointer;
+    text-transform: uppercase;
 `
 //redirecionamento
 export const Redirect = styled.div`
     display: none;
 `
 export const Back = styled.button`
-    display: flex;
     margin: auto;
-    border-radius: 30px;
+    border-radius: 50px;
     border: 1px solid #1D5D9B;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 50px;
-    padding-right: 35px;
+    text-transform: uppercase;
+    padding: 7px 10px;
     background: linear-gradient(to top, #2b3460, #1D5D9B);
     color: #fff;
+    position: relative;
+    top: -47vh;
+    left: -33vw;
 `
 export const ImgBack = styled.img`
-    margin-left: -30px;
-    margin-right: 15px;
-    margin-bottom: -2px;
-    height: 20px;
+    margin-left: -1px;
+    margin-bottom: -1px;
+    height: 16px;
 `

@@ -114,21 +114,6 @@ const parent = css`
         height: 100%;
     }
 `
-const overlay = css`
-    background: #FF416C;
-    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 0 0;
-	color: #FFFFFF;
-	position: relative;
-	left: -100%;
-	height: 100%;
-	width: 200%;
-  	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-`
 const overlayPanel = css`
     position: absolute;
     display: flex;
@@ -142,6 +127,7 @@ const overlayPanel = css`
 	width: 50%;
 	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
+    overflow: hidden;
 `
 const overlayLeft = css`
     left: 0;
@@ -232,9 +218,10 @@ export const Container = styled.div`
     }
     
     @media (max-width: 700px){
-        margin-left: -50vw;
+        margin-left: -40vw;
         height: 100%;      
-        width: 100%;      
+        width: 100%;  
+        border-radius: 0;    
     }
 `
 export const FormAndIn = styled.div`
