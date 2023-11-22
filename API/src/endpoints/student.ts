@@ -1,7 +1,9 @@
 //imports essenciais
 import express, { Request, Response} from "express";
 import connection from "../database/connection"
-const multer = require('multer');
+import multer, { Multer } from 'multer';
+
+
 
 
 //função de listagem do aluno
@@ -19,6 +21,25 @@ export async function getStudents(req:Request, res:Response){
        return res.send(aluno)
     }
 }
+
+//função para deletar um aluno
+export async function deleteStudent(req: Request, res: Response) {
+    const id_aluno = req.params.id;
+
+    try {
+        const deletedRows = await connection('tbaluno_anamnese').where('id_aluno', id_aluno).del();
+
+        if (deletedRows > 0) {
+            return res.send(`Aluno com ID ${id_aluno} foi excluído com sucesso.`);
+        } else {
+            return res.status(404).send(`Aluno com ID ${id_aluno} não encontrado.`);
+        }
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Erro interno do servidor');
+    }
+}
+
 
 
 
@@ -131,7 +152,7 @@ export async function postAnamnese (req:Request, res:Response){
 //função para alterar/atualizar os dados da anamnese
 export async function putAnamnese(req: Request, res: Response) {
   try {
-      const id_aluno = req.params.id_aluno;
+      const id_aluno = req.params.id;
       const { nome, sexo, nascimento} = req.body;
       const {d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14} = req.body;
       const {h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13} = req.body;
@@ -219,7 +240,7 @@ export async function putAnamnese(req: Request, res: Response) {
 
 export async function deleteAnamnese(req: Request, res: Response) {
   try {
-    const id_aluno = req.params.id_aluno;
+    const id_aluno = req.params.id;
 
   
     await connection('tbaluno_anamnese').where('id_aluno', id_aluno).del();
@@ -257,7 +278,7 @@ export async function deleteAnamnese(req: Request, res: Response) {
 
 export async function getAnamnese(req: Request, res: Response) {
   try {
-    const id_aluno = req.params.id_aluno; 
+    const id_aluno = req.params.id; 
 
     const anamneseData = await connection('tbaluno_anamnese').where('id_aluno', id_aluno).first();
 
@@ -290,8 +311,10 @@ export async function getAnamnese(req: Request, res: Response) {
   }
 }
 
-/*
-export async function imageUpload (req: Request, res: Response) {
+
+
+ 
+export async function imageTest (req: Request, res: Response) {
   try{
     const storage = multer.diskStorage({
       destination: (req, file, cb) => {
@@ -301,25 +324,27 @@ export async function imageUpload (req: Request, res: Response) {
         cb(null, file.originalname);
       },
     });
-    
-    const upload = multer({ storage: storage });
 
-    const { filename } = req.file;
+    const upload = multer({ storage: storage });
+    
+  
+
+    const { filename } = req.file || { filename: undefined }; ;
     const { descricao } = req.body;
 
-    if(!filename || !descricao) {
-      return res.send('Informe todos os dados obrigatórios');
+    if (!filename || !descricao) {
+      return res.send('Informe todos os campos obrigatórios')
     }
 
     await connection('tbimagem_anamnese').insert({
       filename, descricao
     })
 
-    return res.send('Os dados foram enviados com sucesso');
+    return res.send('Os dados foram enviados com sucesso!')
+    
 
-  }catch(error){
+  }catch (error) {
     console.error(error);
-    return res.send('Erro interno do servidor');
+    return res.send ('Erro interno do servidor');
   }
 }
-

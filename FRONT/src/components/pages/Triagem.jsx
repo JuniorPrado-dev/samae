@@ -118,35 +118,36 @@ export const Triagem = () => {
                 q3: form.professor.value,
                 q4: form.psicopedagogo.value,
             },
-            hc: {
+            leituraEscritaN1: { 
                 q1: checkboxes.checkbox1.toString(),
                 q2: checkboxes.checkbox2.toString(),
                 q3: checkboxes.checkbox3.toString(),
             },
 
-            leituraEscritaN1: {
+            leituraEscritaN2: { 
                 q1: checkboxes.checkbox4.toString(),
                 q2: checkboxes.checkbox5.toString(),
                 q3: checkboxes.checkbox6.toString(),
                 q4: checkboxes.checkbox7.toString(),
             },
 
-            leituraEscritaN2: {
+            leituraEscritaN3: {
                 q1: checkboxes.checkbox8.toString(),
                 q2: checkboxes.checkbox9.toString(),
                 q3: checkboxes.checkbox10.toString(),
             },
 
-            leituraEscritaN3: {
+            leituraEscritaN4: {
                 q1: checkboxes.checkbox11.toString(),
                 q2: checkboxes.checkbox12.toString(),
                 q3: checkboxes.checkbox13.toString(),
                 q4: checkboxes.checkbox14.toString(),
                 q5: checkboxes.checkbox15.toString(),
                 q6: radioq.radioq1.value,
+                
             },
 
-            leituraEscritaN4: {
+            matematica: { 
                 q1: checkboxes.checkbox16.toString(),
                 q2: checkboxes.checkbox17.toString(),
                 q3: form.recNum.value,
@@ -160,7 +161,7 @@ export const Triagem = () => {
                 q11: checkboxes.checkbox24.toString(),
             },
 
-            matematica: {
+            hc: { 
                 q1: checkboxes.checkbox25.toString(),
                 q2: checkboxes.checkbox26.toString(),
                 q3: checkboxes.checkbox27.toString(),
