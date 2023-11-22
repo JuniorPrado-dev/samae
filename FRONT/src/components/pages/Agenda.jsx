@@ -1,108 +1,164 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import axios from 'axios';
 import './styled.jsx';
-import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, Item, BtnDelete } from './styled.jsx';
+import { AddTask, Icon, Main, Li, Checkbox, BtnNone, IconX, Text, Hour, Submit, Item, BtnDelete, Title } from './styled.jsx';
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
-import { Legend } from '../form-student/form_style.jsx';
 import Reset from '../../img/excluir.png';
 import Lixeira from '../../img/lixeira.png';
 import Student from '../../img/add.png';
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Agenda = () => {
 
-    //const newItem1 = new Date().toISOString()
-    //const newItemDate = `${newItem1.slice(8,10)}/${newItem1.slice(5,7)}/${newItem1.slice(0,4)}`
+    useProtectedPage()
 
-    const [watcher, setWatch] = useState(false)
-    const [watcher2, setWatch2] = useState(true)
+    const [close, setClose] = useState(false);
+    const [open, setOpen] = useState(true);
+    
+    const [task, setTask] = useState([
+        {
+            id: 777,
+            checked: false,
+            nome: "Butter",
+            hora: "17:00"
+        },
+    ]);
+    
+    // Carrega a agenda do dia ao entrar na página
+    useEffect(() => {
+        const fetchAgenda = async () => {
+            try {
+                const response = await axios.get("http://localhost:3003/get-agend-teacher");
+                const fetchedTasks = response.data; 
+                setTask(fetchedTasks); 
+            } catch (error) {
+                console.error('Erro ao buscar agenda:', error);
+            }
+        };
+        fetchAgenda();
+    }, []);
+
+    // Definir o id de agenda como uma referência
+    const agendaId = useRef(generateId(99));
+    
+    function handleCheckboxChange(itemId) {
+        const newAgendas = task.map((item) => {
+            if (item.id === itemId) {
+                return { ...item, checked: !item.checked };
+            }
+            return item;
+        });
+        setTask(newAgendas);
+    }
     
     const [form, onChange, resetState] = useForm({
         name: "",
         hour: ""
-    })
+    });
 
-    const [itens, setItens] = useState([
-        {
-            nome: "Butter",
-            hora: "17:00"
-        },
-    ])
+    function addTask() {
+        setClose(true);
+        setOpen(false);
+    }
+    
+    function cancel() {
+        resetState();
+        setClose(false);
+        setOpen(true);
+    }
 
-    //Noticação
-    function verificaHorario(itens, currentTime) {
-        for (let item of itens) {
+    // Gerador de ID automático para o item
+    function generateId(max) {
+        return Math.floor(Math.random() * max) + 1;
+    }
+    
+    // Adiciona novo item
+    function post(e) {
+        e.preventDefault();
+
+        const newTask = {
+            id: generateId(999),
+            checked: false,
+            nome: form.name,
+            hora: form.hour
+        };
+
+        const newAgenda = {
+            id: agendaId.current,
+            newAgenda: [...task, newTask],
+        };
+        
+        setTask(newAgenda.newAgenda);
+        resetState();
+        setClose(false);
+        setOpen(true);
+        
+        // Conecte a API e o front-end
+        axios.post("http://localhost:3003/post-agend-teacher", newAgenda)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    //Deleta item
+    function deleteTask(item) {
+        const filterArray = task.filter((i) => i.id !== item.id);
+        setTask(filterArray);
+    }
+
+    //Notifica caso o horário de um campo seja o horário atual
+    function verificaHorario(task, currentTime) {
+        for (let item of task) {
             if (item.hora == currentTime) {
                 if (!("Notification" in window)) {
                     alert("Este navegador não suporta notificações.");
                 } else if (Notification.permission === "granted") {
-                        const notification = new Notification("Hora do Atendimento!", {
-                            body: item.nome + " está esperando por você.",
-                        });
-                    } else if (Notification.permission !== "denied") {
-                        Notification.requestPermission().then((permission) => {
-                            if (permission === "granted") {
-                                const notification = new Notification("Título da Notificação", {
-                                    body: "Este é o corpo da notificação.",
-                                });
-                            }
-                        });
-                    }
+                    const notification = new Notification("Hora do Atendimento!", {
+                        body: item.nome + " está esperando por você.",
+                    });
+                } else if (Notification.permission !== "denied") {
+                    Notification.requestPermission().then((permission) => {
+                        if (permission === "granted") {
+                            const notification = new Notification("Título da Notificação", {
+                                body: "Este é o corpo da notificação.",
+                            });
+                        }
+                    });
+                }
             }
         }
     }
 
-    //Verificação de tempo atual a cada minuto
-    setTimeout(()=>{
+    //Verificação o horário atual
+    setTimeout(() => {
         const currentDate = new Date();
         const hour = currentDate.getHours();
         const minutes = currentDate.getMinutes();
         const time = hour + ":" + minutes;
-       
-        verificaHorario(itens, time);
-    }, 60000)
 
-    function addTask() {
-        setWatch(true)
-        setWatch2(false)
-    }
-
-    function cancel() {
-        resetState()
-        setWatch(false)
-        setWatch2(true)
-    }
-
-    function post(){
-        const newItem ={
-            nome: form.name,
-            hora: form.hour
-        }
-        const newList = [...itens, newItem]
-        setItens(newList)
-        resetState()
-        setWatch(false)
-        setWatch2(true)
-    }
-
-    function deleteTask(item) {
-        const filterArray = itens.filter((i, index) => i !== item);
-        setItens(filterArray)
-    }
+        verificaHorario(task, time);
+    }, 3000)
 
     return (
         <Main>
-            
-                <Legend className={"shopping__title"}>Agenda</Legend>
+            <Title className={"shopping__title"}>Agenda</Title>
             <div className={"shopping"}>
                 <ul className={"shopping__checklist"}>
-                    {itens.map((item, index) => <Li key={index}>
-                        <Checkbox type="checkbox" id='check'/>
-                        <Item>{item.nome} às {item.hora}</Item>
-                        <BtnDelete type='button' onClick={() => deleteTask(item)}>
+                {task.map((fetchedTasks) => (
+                    <Li key={fetchedTasks.id}>
+                        <Checkbox type="checkbox" checked={fetchedTasks.checked} id={`check-${fetchedTasks.id}`} onChange={() => handleCheckboxChange(fetchedTasks.id)} />
+                        <label htmlFor={`check-${fetchedTasks.id}`}>ID: {fetchedTasks.id} | {fetchedTasks.nome} às {fetchedTasks.hora}</label>
+                        <BtnDelete type='button' onClick={() => deleteTask(fetchedTasks)}>
                             <IconX src={Lixeira} />
                         </BtnDelete>
-                    </Li>)}
-                    {watcher &&
+                    </Li>
+                ))}
+
+                {close &&
                     <>
                         <Li>
                             <Text type="text" id="name" name="name" onChange={onChange} value={form.name} placeholder='Digite o nome do aluno' />
@@ -111,18 +167,17 @@ export const Agenda = () => {
                                 <IconX src={Reset} />
                             </BtnNone>
                         </Li>
-                            <Submit type='submit' onClick={post}>Enviar</Submit>
+                        <Submit type='submit' onClick={post}>Enviar</Submit>
                     </>
-                    }
+                }
                 </ul>
-                
-                {watcher2 &&
+
+                {open &&
                     <AddTask onClick={addTask} type='button'>
-                        <Icon src={Student}/>
+                        <Icon src={Student} />
                     </AddTask>
                 }
             </div>
-            
         </Main>
     )
 }

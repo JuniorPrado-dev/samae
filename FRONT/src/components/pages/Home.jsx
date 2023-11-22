@@ -1,27 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Search } from '../Search-bar/Search';
+import { Lista, Name } from '../Search-bar/styled';
 
 export const Home = () => {
-  const generateUniqueId = () => {
-    const length = 9;
-    let result = '';
-    const characters = '0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-  };
-
-  const [uniqueId, setUniqueId] = useState(generateUniqueId());
-
-  const handleClick = () => {
-    setUniqueId(generateUniqueId());
-  };
-
+  
+  const [results, setResults] = useState ([]);
+  
   return (
     <div>
-      <p>ID gerado: {uniqueId}</p>
-      <button onClick={handleClick}>Gerar Novo ID</button>
+      <Search setResults={setResults} />
+        <Lista>
+          {results.map((user) => (
+            <Name key={user.id}>{user.name}</Name>
+          ))}
+        </Lista>
     </div>
   );
 };

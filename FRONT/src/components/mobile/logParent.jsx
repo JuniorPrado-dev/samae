@@ -17,6 +17,7 @@ export function LogResponsavel() {
                 <LoginResponsavel/>
                 <Back onClick={Voltar}>
                     <ImgBack src={Anterior}/>
+
                 </Back>
             </div>
         </MainLogin>

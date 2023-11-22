@@ -20,6 +20,7 @@ export function LogProfessor() {
                     <ImgBack src={Anterior}/>
                 </Back>
             </div>
+
         </MainLogin>
     )
 }

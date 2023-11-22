@@ -1,19 +1,34 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import Cadastrar  from '../form-student/form_student';
 import { MainAluno, AlunoImg, CardAluno, Text , Icon, IconX, Adicionar, AddTask, DeleteCard, InserirAluno } from './styled';
 import Student from '../../img/add.png';
 import Trash from '../../img/lixeira.png';
-
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Alunos = () => {
     
+    useProtectedPage()
+
     const [watcher, setWatch] = useState(false)
     const [watcher2, setWatch2] = useState(true)
 
     
     const [itens, setItens] = useState([])
+
+    // Carrega os alunos
+    useEffect(() => {
+        const fetcheAlunos = async () => {
+            try {
+                const response = await axios.get('all-students');
+                const fetchedItens = response.data;
+                setItens(fetchedItens);
+            } catch (error) {
+                console.error('Erro ao buscar alunos:', error);
+            }
+        };
+        fetcheAlunos();
+    }, []);
 
     function addTask(){
         setWatch(true)    
@@ -27,7 +42,7 @@ export const Alunos = () => {
     }
 
     function deleteTask(item) {
-        const filterArray = itens.filter((i, index) => i !== item);
+        const filterArray = itens.filter((i) => i !== item);
         setItens(filterArray)
     }
 
@@ -78,11 +93,11 @@ return (
     <main>
         <div>
             <MainAluno>  
-                {itens.map( (item, index) =>
-                    <CardAluno key = { index }>
-                        <p>{item.nome}</p>
-                        <AlunoImg src={item.imagem} />
-                        <DeleteCard type='button' onClick={()=>deleteTask(item)}>
+                {itens.map( (fetchedItens) =>
+                    <CardAluno key = { fetchedItens.id }>
+                        <p>{fetchedItens.nome}</p>
+                        <AlunoImg src={fetchedItens.imagem} />
+                        <DeleteCard type='button' onClick={()=>deleteTask(fetchedItens)}>
                         <IconX src={Trash} />
                         </DeleteCard>
                     </CardAluno>) }

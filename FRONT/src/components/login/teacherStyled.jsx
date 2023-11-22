@@ -17,6 +17,7 @@ export const Input = styled.input`
 
     &:hover{
         border-bottom: 2px solid #1597bb;
+
     }
 
     &:focus{
@@ -51,6 +52,7 @@ export const Btn = styled.button`
     }
 
     &:active{
+
         background: linear-gradient(to bottom, #2b3467, #1597bb);
     }
 
