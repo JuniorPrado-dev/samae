@@ -19,10 +19,7 @@ import { RadioQuestion } from '../radio-question/radioQ';
 import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Anamnese = () => {
-
-    useProtectedPage()
-
-    //ajuda a marcar somente um checkbox
+  
     const [checkboxes, setCheckboxes] = useState({
         checkbox1: false,
         checkbox2: false,

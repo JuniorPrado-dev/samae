@@ -1,6 +1,8 @@
 import { Container, Teacher, Main, P, PanelLeft, PanelRight, Parent, Top, Bottom, BntReturn, ImgReturn, BntBlue } from "./styledInicio";
 import Return from '../../img/return.png';
 import ReturnBlue from '../../img/returnBlue.png';
+import { LoginResponsavel } from "../login/loginParent";
+import { LoginProfessor } from "../login/loginTeacher";
 
 function OnclickTeacher() {
     const logTeacher = document.querySelector('#topTeacher')
@@ -39,7 +41,6 @@ export function TelaInicial() {
     return (
         <Main>
             <Container class="container" id="container">
-                    <div class="overlay">
                         <PanelLeft className="overlay-left">
                             <Top id="topTeacher">
                             <h1>Olá, professor(a)!</h1>
@@ -47,7 +48,7 @@ export function TelaInicial() {
                             <Teacher className="ghost" id="signIn" onClick={OnclickTeacher}>Professor</Teacher>
                             </Top>
                             <Bottom id="bottomTeacher">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi ipsa ea voluptatibus sapiente, nulla veritatis provident nisi impedit, exercitationem laboriosam a modi amet excepturi. Repellendus rerum voluptate assumenda nihil amet.</p>
+                                <LoginProfessor/>
                                 <BntBlue onClick={OnClickReturnTeacher}>
                                     <ImgReturn src={ReturnBlue}/>
                                 </BntBlue>
@@ -60,13 +61,12 @@ export function TelaInicial() {
                             <Parent className="ghost" id="signUp" onClick={OnclickParent}>Responsáveis</Parent>
                             </Top>
                             <Bottom id="bottomParent">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, doloremque, pariatur sit ipsa praesentium eos cupiditate molestiae soluta necessitatibus deleniti beatae quibusdam quisquam, perspiciatis quos ab tempora libero iste in.</p>
+                                <LoginResponsavel/>
                                 <BntReturn onClick={OnClickReturnParent}>
                                     <ImgReturn src={Return}/>
                                 </BntReturn>
                             </Bottom>
                         </PanelRight>
-                    </div>
             </Container>
 
         </Main>

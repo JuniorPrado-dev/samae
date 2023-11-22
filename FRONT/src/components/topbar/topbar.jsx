@@ -5,7 +5,8 @@ import Logo from '../../img/samae_logo.png';
 import { LoginP } from '../login/loginTeacher';
 import { Link } from 'react-router-dom';
 
-function Onclick() {
+function Onclick () {
+
     const nav = document.querySelector('#nav');
     const buttonHide = document.querySelector('#hide');
 

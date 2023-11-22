@@ -8,7 +8,6 @@ import Triage from '../../img/triagem.png';
 import Alunos from '../../img/alunos.png';
 import Anm from '../../img/anamnese.png';
 
-
 export const Navbar = () => {
     return (
         <>

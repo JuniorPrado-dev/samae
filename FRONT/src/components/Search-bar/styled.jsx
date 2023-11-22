@@ -1,18 +1,12 @@
 import styled from "styled-components";
 
 export const CardPesquisa = styled.div`
-    margin: auto;
     margin-top: 20px;
     padding: 0;
-    text-align: center;
-    width: 80%;
+    width: 100%;
     height: 30px;
     transition: 800ms;
     background-color: transparent;
-
-    @media (max-width: 550px){
-        width: 100%;
-    }
 `
 
 export const Barra = styled.input`
@@ -21,15 +15,16 @@ export const Barra = styled.input`
     font-size: 12px;
     height: 32px;
     padding: 4px 8px;
-    width: 60%;
+    padding-left: o;
+    width: 70%;
     border-radius: 5px 20px 20px 5px;
     transition: 800ms;
     background-color: #fefefe;
 
     &:focus {
         outline: none;
-        width: 90%;
-        transition: 800ms;
+        width: 100%;
+        transition: 1000ms;
     }
 `
 
