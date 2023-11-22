@@ -1,9 +1,10 @@
 import React from 'react';
-import { Check } from '../styled';
+import { Check, Margin } from '../styled';
 
 export const Sono = ({ checkboxes, handleCheckBoxChange }) => {
     return (
         <main>
+            <Margin>
             <h2>
                 8. Sono
             </h2>
@@ -36,6 +37,7 @@ export const Sono = ({ checkboxes, handleCheckBoxChange }) => {
                     Hipersonia
                 </label><br />
             </div><br />
+            </Margin>
         </main>
     )
 };

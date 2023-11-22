@@ -284,6 +284,7 @@ export const InputTriagem = styled.input`
     margin-bottom: 10px;
     padding: 3px;
     border: 1px solid #B9B4C7;
+    border-radius: 5px;
 
     &:hover{
        border: 1px solid gray;
@@ -294,7 +295,8 @@ export const InputTriagem = styled.input`
         border: 1px solid transparent;
         border-bottom: 2px solid #2b3467;
         border-top: none;
-        background: linear-gradient(to top, #DCDCDC, transparent);
+        -webkit-box-shadow: inset 0px -9px 36px -30px #000000; 
+        box-shadow: inset 0px -9px 36px -30px #000000;
     }
 `
 export const Enviar = styled.button`
@@ -333,6 +335,7 @@ export const DivButton = styled.button`
 export const Title = styled.h1`
     margin: auto;
     margin-top: -60px;
+    margin-bottom: 20px;
     padding: 8px 15px;
     text-align: center;
     width: 60%;
@@ -355,11 +358,15 @@ export const Title = styled.h1`
         width: 80%;
     }
 `
+export const Margin = styled.div`
+    margin-top: 20px;
+`
 export const Aluno = styled.input`
     margin: 5px;
     padding: 2px;
-    border: 1px solid #B9B4C7;
     width: 90%;
+    border: 1px solid #B9B4C7;
+    border-radius: 5px;
 
     @media (max-width: 800px){
         width: 75%;
@@ -374,17 +381,25 @@ export const Aluno = styled.input`
         border: 1px solid transparent;
         border-bottom: 2px solid #2b3467;
         border-top: none;
-        background: linear-gradient(to top, #DCDCDC, transparent);
+        -webkit-box-shadow: inset 0px -9px 36px -30px #000000; 
+        box-shadow: inset 0px -9px 36px -30px #000000;
     }
 
     &::placeholder{
         font-size: 15x;
         color: #B9B4C7;
     }
-    `
+`
+export const Exemplo = styled.p`
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    color: #3E6D9C;
+`
 export const Data = styled.input`
     margin-bottom: 3px;
     padding-bottom: 0;
+    padding-left: 5px;  
     border: transparent;
     border-bottom: 2px solid gray;
     width: 50%;
@@ -422,5 +437,24 @@ export const Check = styled.input`
         background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
         border-radius: 10px;
 
+    }
+`
+export const Number = styled.input`
+    margin-left: 3px;
+    padding: 0px 2px;
+    width: 80px;
+    border: 1px solid gray;
+    border-bottom: 2px solid gray;
+    border-radius: 5px;
+    outline: none;
+
+    &:hover{
+        border: 1px solid #1d5d9b;
+        border-bottom: 2px solid #1d5d9b;
+    }
+
+    &:focus{
+        border: 1px solid #2b3467;
+        border-bottom: 2px solid #2b3467;
     }
 `

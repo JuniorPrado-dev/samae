@@ -1,9 +1,10 @@
 import React from 'react';
-import { Data } from '../styled';
+import { Data, Margin } from '../styled';
 
 export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
     <main>
+        <Margin>
         <h2>
                 1. Dados Familiar
         </h2>
@@ -79,6 +80,7 @@ export const DadosFamiliares = ({form, onChange, alter, watcher, RadioQuestion})
                 </label> <br />
             </div>)}
         </div><br />
+        </Margin>
     </main>
   )
 };

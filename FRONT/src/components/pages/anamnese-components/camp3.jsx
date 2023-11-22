@@ -1,8 +1,10 @@
 import React from 'react';
+import { Margin } from '../styled';
 
 export const AspectosMotores = ({alter, watcher, RadioQuestion}) => {
   return (
     <main>
+        <Margin>
         <h2>
                 3. Aspectos Motores
         </h2>
@@ -26,6 +28,7 @@ export const AspectosMotores = ({alter, watcher, RadioQuestion}) => {
                 onChange={(e) => alter('watcher9', e.target.value)}
             /><br />   
         </div><br />
+        </Margin>
     </main>
   )
 };

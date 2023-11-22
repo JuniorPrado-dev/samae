@@ -1,9 +1,10 @@
 import React from 'react';
-import { Data } from '../styled';
+import { Data, Margin } from '../styled';
 
 export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
     <main>
+        <Margin>
         <h2>
                 10. Saúde
         </h2>
@@ -34,6 +35,7 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
             </h2>
             <Data type="text" name='q32' onChange={onChange} value={form.q32} />
         </div><br />
+        </Margin>
     </main>
   )
 };

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Check, Data } from '../styled';
+import { Check, Data, Margin } from '../styled';
 
 export const AtitudesSocias = ({ form, onChange, checkboxes, handleCheckBoxChange }) => {
     return (
         <main>
+            <Margin>
             <h2>
-                7. Atitudes socias predominantes
+                7. Atitudes sociais predominantes
             </h2>
             <div>
                 <label>
@@ -71,6 +72,7 @@ export const AtitudesSocias = ({ form, onChange, checkboxes, handleCheckBoxChang
                 )}
 
             </div><br />
+            </Margin>
         </main>
     )
 };

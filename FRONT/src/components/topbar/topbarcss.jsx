@@ -7,8 +7,6 @@ export const Div = styled.div `
     height: 15%;
     background-color: #2b3467; 
     background-image: linear-gradient(to right, #2b3467, #1D5D9B);
-    
-
 `;
 export const ButtonHide= styled.button `
     margin: 10px 5px;
@@ -19,6 +17,10 @@ export const ButtonHide= styled.button `
     width: 40px;
     border: none;
     border-radius: 5px;
+
+    &:active{
+        background-image: linear-gradient(to top, #2b3467, #1D5D9B);
+    }
     
 `;
 

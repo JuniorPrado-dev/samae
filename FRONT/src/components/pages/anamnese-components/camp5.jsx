@@ -1,9 +1,10 @@
 import React from 'react';
-import { Check } from '../styled';
+import { Check, Margin } from '../styled';
 
 export const AspectosEmocionais = ({ checkboxes, handleCheckBoxChange }) => {
     return (
         <main>
+            <Margin>
             <h2>
                 5. Aspectos Emocionais
             </h2>
@@ -63,6 +64,7 @@ export const AspectosEmocionais = ({ checkboxes, handleCheckBoxChange }) => {
                     Intolerante
                 </label><br />
             </div><br />
+            </Margin>
         </main>
     )
 };

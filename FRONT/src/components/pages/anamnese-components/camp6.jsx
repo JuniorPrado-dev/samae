@@ -1,8 +1,10 @@
 import React from 'react';
+import { Margin } from '../styled';
 
 export const Sociabilidade = ({alter, watcher, RadioQuestion}) => {
   return (
     <main>
+        <Margin>
         <h2>
                 6. Sociabilidade
         </h2>
@@ -63,6 +65,7 @@ export const Sociabilidade = ({alter, watcher, RadioQuestion}) => {
                 onChange={(e) => alter('watcher21', e.target.value)}
             />
         </div><br />
+        </Margin>
     </main>
   )
 };

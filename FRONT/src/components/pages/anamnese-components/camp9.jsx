@@ -1,9 +1,10 @@
 import React from 'react';
-import { Data } from '../styled';
+import { Data, Margin } from '../styled';
 
 export const Disciplinação = ({form, onChange}) => {
   return (
     <main>
+        <Margin>
         <h2>
                 9. Disciplinação
         </h2>
@@ -21,6 +22,7 @@ export const Disciplinação = ({form, onChange}) => {
             <Data type="text" name='q30' onChange={onChange} value={form.q30} />
             </label><br />
         </div><br />
+        </Margin>
     </main>
   )
 };

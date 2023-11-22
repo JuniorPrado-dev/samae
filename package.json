@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@types/cors": "^2.8.14"
+  },
+  "dependencies": {
+    "react-responsive": "^9.0.2"
   }
 }

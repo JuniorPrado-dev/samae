@@ -51,9 +51,9 @@ function App() {
       );
     };
   return (
-    //system
+    system
     //responsavel
-    <ReturnLogin/>
+    //<ReturnLogin/>
   )
 
 }

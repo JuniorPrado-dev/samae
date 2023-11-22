@@ -18,7 +18,7 @@ export const Triagem = () => {
 
     //armazenando checkbox
 
-    useProtectedPage()
+    //useProtectedPage()
     
     const [checkboxes, setCheckboxes] = useState({
         checkbox1: false,

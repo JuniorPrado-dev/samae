@@ -1,9 +1,10 @@
 import React from 'react';
-import { Data } from '../styled';
+import { Data, Margin } from '../styled';
 
 export const AspectosPerceptivos = ({ form, onChange, alter, watcher, RadioQuestion }) => {
     return (
         <main>
+            <Margin>
             <h2>
                 4. Aspectos Perceptivos
             </h2>
@@ -65,6 +66,7 @@ export const AspectosPerceptivos = ({ form, onChange, alter, watcher, RadioQuest
                     </div>
                 )}
             </div><br />
+            </Margin>
         </main>
     )
 };

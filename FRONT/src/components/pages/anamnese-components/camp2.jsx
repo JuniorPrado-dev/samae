@@ -1,11 +1,12 @@
 import React from 'react';
-import { Data } from '../styled';
+import { Data, Margin } from '../styled';
 
 export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}) => {
   return (
     <main>
+        <Margin>
         <h2>
-                2. Histórico Escolar
+            2. Histórico Escolar
         </h2>
         <div>
             <label>    
@@ -74,6 +75,7 @@ export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}
             <Data type="text" name='q22' onChange={onChange} value={form.q22} />
             </label><br />
         </div><br />
+        </Margin>
     </main>
   )
 };

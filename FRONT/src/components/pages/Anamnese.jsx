@@ -20,7 +20,7 @@ import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Anamnese = () => {
 
-    useProtectedPage()
+    //useProtectedPage()
 
     //ajuda a marcar somente um checkbox
     const [checkboxes, setCheckboxes] = useState({
