@@ -46,90 +46,157 @@ export async function deleteStudent(req: Request, res: Response) {
 //função de registro do formulário de anamnese
 export async function postAnamnese (req:Request, res:Response){
    try {
-      const { nome, sexo, nascimento} = req.body;
-      const {d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14} = req.body;
-      const {h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13} = req.body;
-      const { am_n1, am_n2, am_n3} = req.body;
-      const {ap_n1, ap_n2, ap_n3, ap_n4, ap_n5, ap_n6, ap_n7, ap_n8} = req.body;
-      const {ae_n1, ae_n2, ae_n3, ae_n4, ae_n5, ae_n6} = req.body;
-      const {s_n1, s_n2, s_n3, s_n4, s_n5, s_n6, s_n7, s_n8} = req.body;
-      const {asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7} = req.body;
-      const {sn_n1, sn_n2, sn_n3} = req.body;
-      const {dc_n1, dc_n2, dc_n3} = req.body;
-      const {sd_n1, sd_n2, sd_n3, sd_n4} = req.body; 
-
-
-  
-      if (!nome || !sexo || !nascimento || !d_n1 || !d_n2 || !d_n3 || !d_n4 || !d_n5 || !d_n6 || !d_n7 || !d_n8 || !d_n9 || !d_n10 || !d_n11 || !d_n12 || !d_n13 || !d_n14 || !h_n1 || !h_n2 || !h_n3 || !h_n4 || !h_n5 || !h_n6 || !h_n7 || !h_n8 || !h_n9 || !h_n10 || !h_n11 || !h_n12 || !h_n13 || !am_n1 || !am_n2 || !am_n3 || !ap_n1 || !ap_n2 || !ap_n3 || !ap_n4 || !ap_n5 || !ap_n6 || !ap_n7 || !ap_n8 || !ae_n1 || !ae_n2 || !ae_n3 || !ae_n4 || !ae_n5 || !ae_n6 || !s_n1 || !s_n2 || !s_n3 || !s_n4 || !s_n5 || !s_n6 || !s_n7 || !s_n8 || !asp_n1 || !asp_n2 || !asp_n3 || !asp_n4 || !asp_n5 || !asp_n6 || !asp_n7 || !sn_n1 || !sn_n2 || !sn_n3 || !dc_n1 || !dc_n2 || !dc_n3 || !sd_n1 || !sd_n2 || !sd_n3 || !sd_n4 ) {
-        return res.send('Informe todos os campos obrigatórios');
-      } 
-  
-      const id = await connection('tbaluno_anamnese').insert({
-        nome,
-        sexo,
-        nascimento,
-      })
-
-     
-     
+      const { alunoAnamnese,
+         aspectosMotores,
+         aspectosPerceptivos,
+         atitudesAnamnese,
+         dadosAnamnese,
+         historicoAnamnese,          
+         aspectosEmocionais,
+         sociabilidadeAnamnese,
+         sonoAnamnese,
+         discAnamnese,
+         saudeAnamnese} = req.body;
       
-      const id_aluno = id[0];
+  
+      if( !alunoAnamnese ||
+          !aspectosMotores ||
+          !aspectosPerceptivos ||
+          !atitudesAnamnese ||
+          !dadosAnamnese ||
+          !historicoAnamnese ||
+          !aspectosEmocionais ||
+          !sociabilidadeAnamnese ||
+          !sonoAnamnese ||
+          !discAnamnese ||
+          !saudeAnamnese) {
+            return res.send('Informe todos os dados obrigatórios')
+         }
+  
+      
     
 
 
-       await connection('tbaspectos_motores_anamnese').insert({
-        id_aluno, 
-        am_n1,
-        am_n2,
-        am_n3,
-       });
+       
+ const id = await connection('tbaluno_anamnese').insert({
+  q1: alunoAnamnese.q1,
+  q2: alunoAnamnese.q2,
+  q3: alunoAnamnese.q3,
+});
+
+const idAluno = id[0];
 
 
-       await connection('tbaspectos_perceptivos_anamnese').insert({
-        id_aluno, ap_n1, ap_n2, ap_n3, ap_n4, ap_n5, ap_n6, ap_n7, ap_n8,
-       });
+await connection('tbaspectos_motores_anamnese').insert({
+  id_aluno: idAluno,
+  q1: aspectosMotores.q1,
+  q2: aspectosMotores.q2,
+  q3: aspectosMotores.q3,
+});
 
 
-       await connection('tbatitudes_anamnese').insert({
-        id_aluno, asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7,
-       });
+await connection('tbaspectos_perceptivos_anamnese').insert({
+  id_aluno: idAluno,
+  q1: aspectosPerceptivos.q1,
+  q2: aspectosPerceptivos.q2,
+  q3: aspectosPerceptivos.q3,
+  q4: aspectosPerceptivos.q4,
+  q5: aspectosPerceptivos.q5,
+  q6: aspectosPerceptivos.q6,
+  q7: aspectosPerceptivos.q7,
+  q8: aspectosPerceptivos.q8,
+});
+
+await connection('tbatitudes_anamnese').insert({
+  id_aluno: idAluno,
+  q1: atitudesAnamnese.q1,
+  q2: atitudesAnamnese.q2,
+  q3: atitudesAnamnese.q3,
+  q4: atitudesAnamnese.q4,
+  q5: atitudesAnamnese.q5,
+  q6: atitudesAnamnese.q6,
+  q7: atitudesAnamnese.q7,
+});
+
+await connection('tbdados_anamnese').insert({
+  id_aluno: idAluno,
+  q1: dadosAnamnese.q1,
+  q2: dadosAnamnese.q2,
+  q3: dadosAnamnese.q3,
+  q4: dadosAnamnese.q4,
+  q5: dadosAnamnese.q5,
+  q6: dadosAnamnese.q6,
+  q7: dadosAnamnese.q7,
+  q8: dadosAnamnese.q8,
+  q9: dadosAnamnese.q9,
+  q10: dadosAnamnese.q10,
+  q11: dadosAnamnese.q11,
+  q12: dadosAnamnese.q12,
+  q13: dadosAnamnese.q13,
+  q14: dadosAnamnese.q14,
+});
+
+await connection('tbhistorico_anamnese').insert({
+  id_aluno: idAluno,
+  q1: historicoAnamnese.q1,
+  q2: historicoAnamnese.q2,
+  q3: historicoAnamnese.q3,
+  q4: historicoAnamnese.q4,
+  q5: historicoAnamnese.q5,
+  q6: historicoAnamnese.q6,
+  q7: historicoAnamnese.q7,
+  q8: historicoAnamnese.q8,
+  q9: historicoAnamnese.q9,
+  q10: historicoAnamnese.q10,
+  q11: historicoAnamnese.q11,
+  q12: historicoAnamnese.q12,
+  q13: historicoAnamnese.q13,
+});
+
+await connection('tbaspectos_emocionais_anamnese').insert({
+  id_aluno: idAluno,
+  q1: aspectosEmocionais.q1,
+  q2: aspectosEmocionais.q2,
+  q3: aspectosEmocionais.q3,
+  q4: aspectosEmocionais.q4,
+  q5: aspectosEmocionais.q5,
+  q6: aspectosEmocionais.q6,
+});
+
+await connection('tbsociabilidade_anamnese').insert({
+  id_aluno: idAluno,
+  q1: sociabilidadeAnamnese.q1,
+  q2: sociabilidadeAnamnese.q2,
+  q3: sociabilidadeAnamnese.q3,
+  q4: sociabilidadeAnamnese.q4,
+  q5: sociabilidadeAnamnese.q5,
+  q6: sociabilidadeAnamnese.q6,
+  q7: sociabilidadeAnamnese.q7,
+  q8: sociabilidadeAnamnese.q8,
+});
+
+await connection('tbsono_anamnese').insert({
+  id_aluno: idAluno,
+  q1: sonoAnamnese.q1,
+  q2: sonoAnamnese.q2,
+  q3: sonoAnamnese.q3,
+});
 
 
-       await connection('tbdados_anamnese').insert({
-         id_aluno, d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14,
-      
-       });
+await connection('tbdisciplinação_anamnese').insert({
+  id_aluno: idAluno,
+  q1: discAnamnese.q1,
+  q2: discAnamnese.q2,
+  q3: discAnamnese.q3,
+});
 
-
-       await connection('tbhistorico_anamnese').insert({
-         id_aluno, h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13,
-      
-       });
-
-       await connection('tbaspectos_emocionais_anamnese').insert({
-        id_aluno, ae_n1, ae_n2, ae_n3, ae_n4, ae_n5, ae_n6,
-
-       })
-
-       await connection('tbsociabilidade_anamnese').insert({
-        id_aluno, s_n1, s_n2, s_n3, s_n4, s_n5, s_n6, s_n7, s_n8,
-        
-       })
-
-       await connection('tbsono_anamnese').insert({
-        id_aluno, sn_n1, sn_n2, sn_n3,
-        
-       })
-
-       await connection('tbdisciplinação_anamnese').insert({
-        id_aluno, dc_n1, dc_n2, dc_n3,
-        
-       })
-
-       await connection('tbsaude_anamnese').insert({
-        id_aluno, sd_n1, sd_n2, sd_n3, sd_n4,
-        
-       })
+await connection('tbsaude_anamnese').insert({
+  id_aluno: idAluno,
+  q1: saudeAnamnese.q1,
+  q2: saudeAnamnese.q2,
+  q3: saudeAnamnese.q3,
+  q4: saudeAnamnese.q4,
+});
 
 
   
@@ -152,79 +219,145 @@ export async function postAnamnese (req:Request, res:Response){
 //função para alterar/atualizar os dados da anamnese
 export async function putAnamnese(req: Request, res: Response) {
   try {
-      const id_aluno = req.params.id;
-      const { nome, sexo, nascimento} = req.body;
-      const {d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14} = req.body;
-      const {h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13} = req.body;
-      const { am_n1, am_n2, am_n3} = req.body;
-      const {ap_n1, ap_n2, ap_n3, ap_n4, ap_n5, ap_n6, ap_n7, ap_n8} = req.body;
-      const {ae_n1, ae_n2, ae_n3, ae_n4, ae_n5, ae_n6} = req.body;
-      const {s_n1, s_n2, s_n3, s_n4, s_n5, s_n6, s_n7, s_n8} = req.body;
-      const {asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7} = req.body;
-      const {sn_n1, sn_n2, sn_n3} = req.body;
-      const {dc_n1, dc_n2, dc_n3} = req.body;
-      const {sd_n1, sd_n2, sd_n3, sd_n4} = req.body;  
+    const { alunoAnamnese,
+      aspectosMotores,
+      aspectosPerceptivos,
+      atitudesAnamnese,
+      dadosAnamnese,
+      historicoAnamnese,          
+      aspectosEmocionais,
+      sociabilidadeAnamnese,
+      sonoAnamnese,
+      discAnamnese,
+      saudeAnamnese} = req.body;
+   
+     const id_aluno = req.params.id
+
+   if( !id_aluno ||
+       !alunoAnamnese ||
+       !aspectosMotores ||
+       !aspectosPerceptivos ||
+       !atitudesAnamnese ||
+       !dadosAnamnese ||
+       !historicoAnamnese ||
+       !aspectosEmocionais ||
+       !sociabilidadeAnamnese ||
+       !sonoAnamnese ||
+       !discAnamnese ||
+       !saudeAnamnese) {
+         return res.send('Informe todos os dados obrigatórios')
+      }
 
     
-    if (!id_aluno || !nome || !sexo || !nascimento || !d_n1 || !d_n2 || !d_n3 || !d_n4 || !d_n5 || !d_n6 || !d_n7 || !d_n8 || !d_n9 || !d_n10 || !d_n11 || !d_n12 || !d_n13 || !d_n14 || !h_n1 || !h_n2 || !h_n3 || !h_n4 || !h_n5 || !h_n6 || !h_n7 || !h_n8 || !h_n9 || !h_n10 || !h_n11 || !h_n12 || !h_n13 || !am_n1 || !am_n2 || !am_n3 || !ap_n1 || !ap_n2 || !ap_n3 || !ap_n4 || !ap_n5 || !ap_n6 || !ap_n7 || !ap_n8 || !ae_n1 || !ae_n2 || !ae_n3 || !ae_n4 || !ae_n5 || !ae_n6 || !s_n1 || !s_n2 || !s_n3 || !s_n4 || !s_n5 || !s_n6 || !s_n7 || !s_n8 || !asp_n1 || !asp_n2 || !asp_n3 || !asp_n4 || !asp_n5 || !asp_n6 || !asp_n7 || !sn_n1 || !sn_n2 || !sn_n3 || !dc_n1 || !dc_n2 || !dc_n3 || !sd_n1 || !sd_n2 || !sd_n3 || !sd_n4 ) {
-      return res.send('Informe todos os campos obrigatórios');
-    } 
-
+      await connection('tbaluno_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: alunoAnamnese.q1,
+        q2: alunoAnamnese.q2,
+        q3: alunoAnamnese.q3,
+      });
+      
+      
+      await connection('tbaspectos_motores_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: aspectosMotores.q1,
+        q2: aspectosMotores.q2,
+        q3: aspectosMotores.q3,
+      });
+      
+      
+      await connection('tbaspectos_perceptivos_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: aspectosPerceptivos.q1,
+        q2: aspectosPerceptivos.q2,
+        q3: aspectosPerceptivos.q3,
+        q4: aspectosPerceptivos.q4,
+        q5: aspectosPerceptivos.q5,
+        q6: aspectosPerceptivos.q6,
+        q7: aspectosPerceptivos.q7,
+        q8: aspectosPerceptivos.q8,
+      });
+      
+      await connection('tbatitudes_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: atitudesAnamnese.q1,
+        q2: atitudesAnamnese.q2,
+        q3: atitudesAnamnese.q3,
+        q4: atitudesAnamnese.q4,
+        q5: atitudesAnamnese.q5,
+        q6: atitudesAnamnese.q6,
+        q7: atitudesAnamnese.q7,
+      });
+      
+      await connection('tbdados_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: dadosAnamnese.q1,
+        q2: dadosAnamnese.q2,
+        q3: dadosAnamnese.q3,
+        q4: dadosAnamnese.q4,
+        q5: dadosAnamnese.q5,
+        q6: dadosAnamnese.q6,
+        q7: dadosAnamnese.q7,
+        q8: dadosAnamnese.q8,
+        q9: dadosAnamnese.q9,
+        q10: dadosAnamnese.q10,
+        q11: dadosAnamnese.q11,
+        q12: dadosAnamnese.q12,
+        q13: dadosAnamnese.q13,
+        q14: dadosAnamnese.q14,
+      });
+      
+      await connection('tbhistorico_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: historicoAnamnese.q1,
+        q2: historicoAnamnese.q2,
+        q3: historicoAnamnese.q3,
+        q4: historicoAnamnese.q4,
+        q5: historicoAnamnese.q5,
+        q6: historicoAnamnese.q6,
+        q7: historicoAnamnese.q7,
+        q8: historicoAnamnese.q8,
+        q9: historicoAnamnese.q9,
+        q10: historicoAnamnese.q10,
+        q11: historicoAnamnese.q11,
+        q12: historicoAnamnese.q12,
+        q13: historicoAnamnese.q13,
+      });
+      
+      await connection('tbaspectos_emocionais_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: aspectosEmocionais.q1,
+        q2: aspectosEmocionais.q2,
+        q3: aspectosEmocionais.q3,
+        q4: aspectosEmocionais.q4,
+        q5: aspectosEmocionais.q5,
+        q6: aspectosEmocionais.q6,
+      });
+      
+      await connection('tbsociabilidade_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: sociabilidadeAnamnese.q1,
+        q2: sociabilidadeAnamnese.q2,
+        q3: sociabilidadeAnamnese.q3,
+        q4: sociabilidadeAnamnese.q4,
+        q5: sociabilidadeAnamnese.q5,
+        q6: sociabilidadeAnamnese.q6,
+        q7: sociabilidadeAnamnese.q7,
+        q8: sociabilidadeAnamnese.q8,
+      });
+      
+      await connection('tbsono_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: sonoAnamnese.q1,
+        q2: sonoAnamnese.q2,
+        q3: sonoAnamnese.q3,
+      });
+      
+      
+      await connection('tbdisciplinação_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: discAnamnese.q1,
+        q2: discAnamnese.q2,
+        q3: discAnamnese.q3,
+      });
+      
+      await connection('tbsaude_anamnese').where(id_aluno, 'id_aluno').update({
+        q1: saudeAnamnese.q1,
+        q2: saudeAnamnese.q2,
+        q3: saudeAnamnese.q3,
+        q4: saudeAnamnese.q4,
+      });
     
-    await connection('tbaluno_anamnese').where('id_aluno', id_aluno).update({
-      nome,
-      sexo,
-      nascimento,
-    });
-
-     await connection('tbaspectos_motores_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, 
-      am_n1,
-      am_n2,
-      am_n3,
-     });
-
-
-     await connection('tbaspectos_perceptivos_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, ap_n1, ap_n2, ap_n3, ap_n4, ap_n5, ap_n6, ap_n7, ap_n8,
-     });
-
-
-     await connection('tbatitudes_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, asp_n1, asp_n2, asp_n3, asp_n4, asp_n5, asp_n6, asp_n7,
-     });
-
-
-     await connection('tbdados_anamnese').where('id_aluno', id_aluno).update({
-       id_aluno, d_n1, d_n2, d_n3, d_n4, d_n5, d_n6, d_n7, d_n8, d_n9, d_n10, d_n11, d_n12, d_n13, d_n14,
-     });
-
-
-     await connection('tbhistorico_anamnese').where('id_aluno', id_aluno).update({
-       id_aluno, h_n1, h_n2, h_n3, h_n4, h_n5, h_n6, h_n7, h_n8, h_n9, h_n10, h_n11, h_n12, h_n13,
-     });
-
-     await connection('tbaspectos_emocionais_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, ae_n1, ae_n2, ae_n3, ae_n4, ae_n5, ae_n6,
-     })
-
-     await connection('tbsociabilidade_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, s_n1, s_n2, s_n3, s_n4, s_n5, s_n6, s_n7, s_n8,
-     })
-
-     await connection('tbsono_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, sn_n1, sn_n2, sn_n3,
-     })
-
-     await connection('tbdisciplinação_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, dc_n1, dc_n2, dc_n3,
-     })
-
-     await connection('tbsaude_anamnese').where('id_aluno', id_aluno).update({
-      id_aluno, sd_n1, sd_n2, sd_n3, sd_n4,
-     })
-
-
+      
 
     return res.send('Os dados foram atualizados com sucesso!');
   } catch (error) {
@@ -280,7 +413,7 @@ export async function getAnamnese(req: Request, res: Response) {
   try {
     const id_aluno = req.params.id; 
 
-    const anamneseData = await connection('tbaluno_anamnese').where('id_aluno', id_aluno).first();
+    const alunoAnamnese = await connection('tbaluno_anamnese').where('id_aluno', id_aluno).first();
 
     const aspectosMotores = await connection('tbaspectos_motores_anamnese').where('id_aluno', id_aluno).first();
 
@@ -303,8 +436,8 @@ export async function getAnamnese(req: Request, res: Response) {
     const saudeAnamnese = await connection('tbsaude_anamnese').where('id_aluno', id_aluno).first();
     
 
-    return res.json({ anamneseData, aspectosMotores, aspectosPerceptivos, atitudesAnamnese, dadosAnamnese, historicoAnamnese,
-    aspectosEmocionais, sociabilidadeAnamnese, sonoAnamnese, discAnamnese, saudeAnamnese  });
+    return res.json({ alunoAnamnese, aspectosMotores, aspectosPerceptivos, atitudesAnamnese, dadosAnamnese, historicoAnamnese,
+    aspectosEmocionais, sociabilidadeAnamnese, sonoAnamnese, discAnamnese, saudeAnamnese });
   } catch (error) {
     console.error(error);
     return res.send('Erro interno do servidor');
