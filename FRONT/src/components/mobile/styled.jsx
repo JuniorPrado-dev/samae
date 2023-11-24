@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const main = css`
     display: flex;
     padding: 5vh;
+    padding-top: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -41,7 +42,9 @@ export const P = styled.p`
     font-weight: normal;   
 `
 export const Nav = styled.nav`
-    display: inline-flex;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
 `
@@ -58,26 +61,35 @@ export const Button = styled.button`
     color: #2b3460;
     cursor: pointer;
     text-transform: uppercase;
+
+    @media (max-width: 405px){
+        margin-bottom: 0;
+        width: 100%;
+    }
+`
+export const ImgFooter = styled.img`
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
 `
 //redirecionamento
 export const Redirect = styled.div`
     display: none;
 `
 export const Back = styled.button`
-    margin: auto;
+
     border-radius: 50px;
     border: 1px solid #1D5D9B;
     text-transform: uppercase;
     padding: 7px 10px;
     background: linear-gradient(to top, #2b3460, #1D5D9B);
     color: #fff;
-    position: relative;
-    top: -47vh;
-    left: -33vw;
+    position: absolute;
+    top: 8%;
+    left: 11%;
 `
 export const ImgBack = styled.img`
     margin-left: -1px;
     margin-bottom: -1px;
     height: 16px;
-
 `

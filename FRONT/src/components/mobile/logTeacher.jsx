@@ -7,9 +7,11 @@ export function LogProfessor() {
     function Voltar() {
         const logTeacher = document.querySelector('#teacher')
         const welcome = document.querySelector('#welcome')
+        const wave = document.querySelector('#wave')
     
         logTeacher.style.display = "none"
         welcome.style.display = "block"
+        wave.style.display = "block"
     }
 
     return (
