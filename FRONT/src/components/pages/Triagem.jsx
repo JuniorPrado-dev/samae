@@ -5,12 +5,13 @@ import { Cabecalho } from './triagem-components/cabecalho';
 import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
 import { Hc } from './triagem-components/hc';
-import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
+import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton} from './styled';
 import Back from '../../img/anterior.png'
 import Next from '../../img/proximo.png'
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Triagem = () => {
-
+    useProtectedPage()
     /*const item = new Date().toISOString()
     const date = `${newItem1.slice(8,10)}/${newItem1.slice(5,7)}/${newItem1.slice(0,4)}`
     */
@@ -232,7 +233,7 @@ export const Triagem = () => {
 
     return (
         <MainTriagem>
-            <form onSubmit={send}>
+                <form onSubmit={send}>
                 <div>
                     {currentCard}
                 </div>

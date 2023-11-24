@@ -1,11 +1,12 @@
 import './App.css';
 import axios from "axios";
 import { Navbar } from './components/Navbar/Navbar';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
-import { LoginP } from './components/login/loginTeacher';
+import { createGlobalStyle } from 'styled-components';
+import { LoginP } from "./../src/components/login/loginTeacher";
 
 function App() {
 
@@ -22,12 +23,16 @@ function App() {
       console.error(error);
     })
 
+  const GlobalStyle = createGlobalStyle`
+   @import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,300;0,700;1,300&display=swap');
+  `;
     const telaLogin = <div id="pagLogin">
       <TelaInicial/>
     </div>
 
     const system = <div className='App'>
-
+    <GlobalStyle />
+    <Link to="/login-teacher"></Link>
     <Topbar/>
     <Navbar />
     <Routes>
@@ -36,16 +41,14 @@ function App() {
       <Route path="/Triagem" element={<Triagem />} />
       <Route path="/Alunos" element={<Alunos />} />
       <Route path="/Anamnese" element={<Anamnese />} />
+      <Route path="/login-teacher" element={<LoginP/>} />
     </Routes>
     </div>
-    
-    const responsavel = <LoginP/>
 
   return (
     //telaLogin
-    //system
-    
-    responsavel
+    system
+    //responsavel
   )
 
 }

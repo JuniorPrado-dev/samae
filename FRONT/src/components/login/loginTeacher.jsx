@@ -5,6 +5,7 @@ import React, {useState} from "react";
 export function LoginP () {
     const [cpf_prof, setCpfProf]= useState ("");
     const [senha_prof, setSenhaProf]= useState ("");
+    window.localStorage.setItem("token", "STRING");
 
     
         const handleSubmit = (e) => {

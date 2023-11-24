@@ -1,13 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import Cadastrar  from '../form-student/form_student';
 import { MainAluno, AlunoImg, CardAluno, Text , Icon, IconX, Adicionar, AddTask, DeleteCard, InserirAluno } from './styled';
 import Student from '../../img/add.png';
 import Trash from '../../img/lixeira.png';
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 
 export const Alunos = () => {
+    useProtectedPage()
+
     
     const [watcher, setWatch] = useState(false)
     const [watcher2, setWatch2] = useState(true)

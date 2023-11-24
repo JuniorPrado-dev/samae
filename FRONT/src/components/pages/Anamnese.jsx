@@ -18,8 +18,10 @@ import { AtitudesSocias } from './anamnese-components/camp7';
 import { Sono } from './anamnese-components/camp8';
 import { Disciplinação } from './anamnese-components/camp9';
 import { Saúde } from './anamnese-components/camp10';
+import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Anamnese = () => {
+    useProtectedPage()
     const [results, setResults] = useState([]);
 
 
