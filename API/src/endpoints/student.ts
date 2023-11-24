@@ -79,9 +79,9 @@ export async function postAnamnese (req:Request, res:Response){
 
        
  const id = await connection('tbaluno_anamnese').insert({
-  q1: alunoAnamnese.q1,
-  q2: alunoAnamnese.q2,
-  q3: alunoAnamnese.q3,
+  nome: alunoAnamnese.q1,
+  sexo: alunoAnamnese.q2,
+  nascimento: alunoAnamnese.q3,
 });
 
 const idAluno = id[0];
@@ -250,9 +250,9 @@ export async function putAnamnese(req: Request, res: Response) {
 
     
       await connection('tbaluno_anamnese').where(id_aluno, 'id_aluno').update({
-        q1: alunoAnamnese.q1,
-        q2: alunoAnamnese.q2,
-        q3: alunoAnamnese.q3,
+        nome: alunoAnamnese.q1,
+        sexo: alunoAnamnese.q2,
+        nascimento: alunoAnamnese.q3,
       });
       
       

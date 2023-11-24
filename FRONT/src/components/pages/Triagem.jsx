@@ -143,7 +143,7 @@ export const Triagem = () => {
                 q3: checkboxes.checkbox13.toString(),
                 q4: checkboxes.checkbox14.toString(),
                 q5: checkboxes.checkbox15.toString(),
-                q6: radioq.radioq1.value,
+                q6: radioq.alter.value,
                 
             },
 

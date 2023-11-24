@@ -34,10 +34,10 @@ export async function postTriagem (req:Request ,res:Response) {
   
       await connection('tbtriagem').insert({
         id_triagem: idTriagem,
-        q1: cabecalho.q1,
-        q2: cabecalho.q2,
-        q3: cabecalho.q3,
-        q4: cabecalho.q4,
+        id_aluno: cabecalho.q1,
+        id_professor: cabecalho.q2,
+        data_triagem: cabecalho.q3,
+        psicopedagogo: cabecalho.q4,
         });
   
       await connection('triagem_n1').insert({
@@ -154,10 +154,10 @@ export async function putTriagem (req:Request ,res:Response) {
       
       
     await connection('tbtriagem').where(id_triagem, 'id_triagem').update({
-      q1: cabecalho.q1,
-      q2: cabecalho.q2,
-      q3: cabecalho.q3,
-      q4: cabecalho.q4,
+      id_aluno: cabecalho.q1,
+      id_professor: cabecalho.q2,
+      data_triagem: cabecalho.q3,
+      psicopedagogo: cabecalho.q4,
       });
 
     await connection('triagem_n1').where(id_triagem, 'id_triagem').update({ 
