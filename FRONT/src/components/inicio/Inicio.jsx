@@ -1,4 +1,4 @@
-import { Container, Teacher, Main, P, PanelLeft, PanelRight, Parent, Top, Bottom, BntReturn, ImgReturn, BntBlue } from "./styledInicio";
+import { Container, Teacher, Main, P, PanelLeft, PanelRight, Parent, Top, Bottom, BntReturn, ImgReturn, BntBlue, H1 } from "./styledInicio";
 import Return from '../../img/return.png';
 import ReturnBlue from '../../img/returnBlue.png';
 import { LoginResponsavel } from "../login/loginParent";
@@ -40,10 +40,10 @@ export function TelaInicial() {
 
     return (
         <Main>
-            <Container class="container" id="container">
+            <Container className="container" id="container">
                         <PanelLeft className="overlay-left">
                             <Top id="topTeacher">
-                            <h1>Olá, professor(a)!</h1>
+                            <H1>Olá, professor(a)!</H1>
                             <P>Clique no botão abaixo para entrar na sua conta</P>
                             <Teacher className="ghost" id="signIn" onClick={OnclickTeacher}>Professor</Teacher>
                             </Top>
@@ -56,7 +56,7 @@ export function TelaInicial() {
                         </PanelLeft>
                         <PanelRight className="overlay-right">
                             <Top id="topParent">
-                            <h1>Olá, responsável!</h1>
+                            <H1>Olá, responsável!</H1>
                             <P>Clique no botão abaixo para entrar na sua conta</P>
                             <Parent className="ghost" id="signUp" onClick={OnclickParent}>Responsáveis</Parent>
                             </Top>

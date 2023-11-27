@@ -62,7 +62,7 @@ export const Button = styled.button`
     cursor: pointer;
     text-transform: uppercase;
 
-    @media (max-width: 405px){
+    @media (max-width: 450px){
         margin-bottom: 0;
         width: 100%;
     }
