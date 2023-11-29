@@ -17,11 +17,9 @@ export const Main = styled.main`
         width: 90vw;
     }
 `
-
 export const Item = styled.p`
     margin-bottom: -4px;
 `
-
 export const Checkbox = styled.input`
     all: unset;
     margin-right: 5px;
@@ -40,7 +38,6 @@ export const Checkbox = styled.input`
         box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
     }
 `
-
 export const Li = styled.li`
     list-style-type: none;
     display: flex;
@@ -50,27 +47,27 @@ export const Li = styled.li`
     margin: 5px;
 `
 export const Text = styled.input`
-margin: 5px;
-padding: 5px;
-border: 1px solid #B9B4C7;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #B9B4C7;
 
-&:hover{
-    width: 250px;
-    border: 1px solid gray;
-}
+    &:hover{
+        width: 250px;
+        border: 1px solid gray;
+    }
 
-&:focus{
-    outline: 0;
-    border: 1px solid transparent;
-    border-bottom: 2px solid #2b3467;
-    border-top: none;
-    background: linear-gradient(to top, #DCDCDC, transparent);
-}
+    &:focus{
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 2px solid #2b3467;
+        border-top: none;
+        background: linear-gradient(to top, #DCDCDC, transparent);
+    }
 
-&::placeholder{
-    font-size: 15x;
-    color: #B9B4C7;
-}
+    &::placeholder{
+        font-size: 15x;
+        color: #B9B4C7;
+    }
 
 `
 export const Hour = styled.input`
@@ -81,22 +78,22 @@ export const Hour = styled.input`
     font-size: 14px;
     color: lightgray;
 
-&:hover{
-    border: 1px solid gray;
-}
+    &:hover{
+        border: 1px solid gray;
+    }
 
-&:focus{
-    outline: 0;
-    border: 1px solid transparent;
-    border-bottom: 2px solid #2b3467;
-    border-top: none;
-    background: linear-gradient(to top, #DCDCDC, transparent);
-}
+    &:focus{
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 2px solid #2b3467;
+        border-top: none;
+        background: linear-gradient(to top, #DCDCDC, transparent);
+    }
 
-&::placeholder{
-    font-size: 15x;
-    color: #B9B4C7;
-}
+    &::placeholder{
+        font-size: 15x;
+        color: #B9B4C7;
+    }
 `
 export const Submit = styled.button`
     margin: 5px;
@@ -118,7 +115,6 @@ export const Submit = styled.button`
         background-image: linear-gradient(to top, #2b3467, #1D5D9B);   
     }
 `
-
 export const Icon = styled.img`
     height: 25px;
 `
@@ -144,7 +140,6 @@ export const BtnNone = styled.button`
     background-color: transparent;
     margin-bottom: -5px;
 `
-
 export const AddTask = styled.button`
     height: 50px;
     margin-top: 10px;
@@ -194,7 +189,6 @@ export const CardAluno = styled.li`
         transition: 300ms;
     }
 `
-
 export const DeleteCard = styled.button`
     margin-top: 30%;
     padding: 6px 10px;
@@ -209,7 +203,6 @@ export const DeleteCard = styled.button`
         transition: 250ms;
     }
 `
-
 export const InserirAluno = styled.li`
     padding: 1%;
     margin: auto;
@@ -284,6 +277,7 @@ export const InputTriagem = styled.input`
     margin-bottom: 10px;
     padding: 3px;
     border: 1px solid #B9B4C7;
+    border-radius: 5px;
 
     &:hover{
        border: 1px solid gray;
@@ -294,7 +288,8 @@ export const InputTriagem = styled.input`
         border: 1px solid transparent;
         border-bottom: 2px solid #2b3467;
         border-top: none;
-        background: linear-gradient(to top, #DCDCDC, transparent);
+        -webkit-box-shadow: inset 0px -9px 36px -30px #000000; 
+        box-shadow: inset 0px -9px 36px -30px #000000;
     }
 `
 export const Enviar = styled.button`
@@ -311,13 +306,11 @@ export const Enviar = styled.button`
         transition: 250ms;
         color: #fefefe;
         font-size: 18px;
-      }
-      &:focus {
+    }
+
+    &:focus {
         background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
-
-      }
-    
-
+    }
 `
 export const DivButton = styled.button`
     margin-bottom: -37px; 
@@ -333,6 +326,7 @@ export const DivButton = styled.button`
 export const Title = styled.h1`
     margin: auto;
     margin-top: -60px;
+    margin-bottom: 20px;
     padding: 8px 15px;
     text-align: center;
     width: 60%;
@@ -359,6 +353,7 @@ export const Aluno = styled.input`
     margin: 5px;
     padding: 2px;
     border: 1px solid #B9B4C7;
+    border-radius: 5px;
     width: 90%;
 
     @media (max-width: 800px){
@@ -374,14 +369,21 @@ export const Aluno = styled.input`
         border: 1px solid transparent;
         border-bottom: 2px solid #2b3467;
         border-top: none;
-        background: linear-gradient(to top, #DCDCDC, transparent);
+        -webkit-box-shadow: inset 0px -9px 36px -30px #000000; 
+        box-shadow: inset 0px -9px 36px -30px #000000;
     }
 
     &::placeholder{
         font-size: 15x;
         color: #B9B4C7;
     }
-    `
+`
+export const Exemplo = styled.p`
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    color: #3E6D9C;
+`
 export const Data = styled.input`
     margin-bottom: 3px;
     padding-bottom: 0;
@@ -422,5 +424,24 @@ export const Check = styled.input`
         background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
         border-radius: 10px;
 
+    }
+`
+export const Number = styled.input`
+    margin-left: 3px;
+    padding: 0px 2px;
+    width: 80px;
+    border: 1px solid gray;
+    border-bottom: 2px solid gray;
+    border-radius: 5px;
+    outline: none;
+
+    &:hover{
+        border: 1px solid #1d5d9b;
+        border-bottom: 2px solid #1d5d9b;
+    }
+
+    &:focus{
+        border: 1px solid #2b3467;
+        border-bottom: 2px solid #2b3467;
     }
 `

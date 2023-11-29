@@ -58,22 +58,18 @@ export const Label = styled.label`
 `;
 
 export const Gender = styled.input`
-    margin: 3px 20px;
-    margin-bottom: 10px;
-    border: 1px solid #b9b4c7;
+    all: unset;
+    appearance: none;
+    margin-left: 20px;
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    display: inline-block; 
+    background: #cbd1d8;
 
-    &:focus{
-        outline: 0;
-        border: 1px solid transparent;
-        border-top: none;
-        border-bottom: 2px solid #2b3467;
-        background: linear-gradient(to top, #dcdcdc, transparent)
-        
-    }
-    
-    &:placeholder{
-        font-size: 15px;
-        color: #b9b4c7;
+    &:checked {
+        background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+        border-radius: 10px;
     }
 `;
 
@@ -99,27 +95,23 @@ export const Date = styled.input`
 `;
 
 export const Input = styled.input`
-    margin: 3px 5%;
-    margin-bottom: 10px;
-    border: 1px solid #b9b4c7;
     width: 90%;
-    
+    margin: 10px 5%;
+    padding: 3px;
+    border: 1px solid #B9B4C7;
+    border-radius: 5px;
+
     &:hover{
-        border: 1px solid gray;
+       border: 1px solid gray;
     }
 
     &:focus{
         outline: 0;
         border: 1px solid transparent;
-        border-top: none;
         border-bottom: 2px solid #2b3467;
-        background: linear-gradient(to top, #dcdcdc, transparent)
-        
-    }
-
-    &:placeholder{
-        font-size: 15px;
-        color: #b9b4c7;
+        border-top: none;
+        -webkit-box-shadow: inset 0px -9px 36px -30px #000000; 
+        box-shadow: inset 0px -9px 36px -30px #000000;
     }
 `;
 
@@ -143,11 +135,11 @@ export const Insert = styled.button`
         transition: 250ms;
         color: #fefefe;
         font-size: 18px;
-      }
-      &:focus {
-        background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+    }
 
-      }
+    &:focus {
+        background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
+    }
 
 `;
 
@@ -168,7 +160,5 @@ export const Reset = styled.button`
     }
     &:focus {
         background-image: linear-gradient(to bottom, #2b3467, #1d5d9b);
-
-
     }
 `;

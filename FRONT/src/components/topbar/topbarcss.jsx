@@ -7,8 +7,6 @@ export const Div = styled.div `
     height: 15%;
     background-color: #2b3467; 
     background-image: linear-gradient(to right, #2b3467, #1D5D9B);
-    
-
 `;
 export const ButtonHide= styled.button `
     margin: 10px 5px;
@@ -19,17 +17,19 @@ export const ButtonHide= styled.button `
     width: 40px;
     border: none;
     border-radius: 5px;
-    
-`;
 
-export const Line= styled.div`
+    &:active{
+        background-image: linear-gradient(to top, #2b3467, #1D5D9B);
+    }
+`;
+export const Line = styled.div`
     margin: 3px;
     background-color: lightgray;
     border-radius: 3px;
     height: 4px;
     width: 70%;
 `;
-export const Img= styled.img `
+export const Img = styled.img `
     margin: 15px;
     margin-left: 2%;
     margin-bottom: 25px;

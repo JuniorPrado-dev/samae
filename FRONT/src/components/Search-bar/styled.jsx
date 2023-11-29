@@ -2,11 +2,18 @@ import styled from "styled-components";
 
 export const CardPesquisa = styled.div`
     margin-top: 20px;
+    margin: auto; 
     padding: 0;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 50%;
     height: 30px;
     transition: 800ms;
     background-color: transparent;
+
+    @media (max-width: 550px){
+        width: 90vw;
+    }
 `
 
 export const Barra = styled.input`
@@ -16,7 +23,7 @@ export const Barra = styled.input`
     height: 32px;
     padding: 4px 8px;
     padding-left: o;
-    width: 70%;
+    width: 80%;
     border-radius: 5px 20px 20px 5px;
     transition: 800ms;
     background-color: #fefefe;
