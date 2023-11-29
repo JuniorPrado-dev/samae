@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check } from '../styled';
 
-export const Sono = ({ checkboxes, handleCheckBoxChange }) => {
+export const SonoAnamnese = ({ checkboxes, handleCheckBoxChange }) => {
     return (
         <main>
             <h2>

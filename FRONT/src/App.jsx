@@ -6,7 +6,6 @@ import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
-import { LoginResponsavel } from './components/login/loginParent';
 import { InicioMobile } from './components/mobile/Mobile';
 
 function App() {
@@ -36,8 +35,6 @@ function App() {
       <Route path="/Anamnese" element={<Anamnese />} />
     </Routes>
     </div>
-    
-    const responsavel = <LoginResponsavel/>
 
     const ReturnLogin = () => {
       const desktopLaptop = useMediaQuery({ minDeviceWidth: 600 });
@@ -51,9 +48,8 @@ function App() {
       );
     };
   return (
-    //system
-    //responsavel
-    <ReturnLogin/>
+    system
+    // <ReturnLogin/>
   )
 
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Data } from '../styled';
 
-export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}) => {
+export const HistoricoEscolar = ({form, onChange, alter, radio, RadioQuestion}) => {
   return (
     <main>
         <h2>
@@ -19,10 +19,10 @@ export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}
             <RadioQuestion
                 question="Apresenta dificuldade na fala?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher5}
-                onChange={(e) => alter('watcher5', e.target.value)}
+                selectedOption={radio.radio5}
+                onChange={(e) => alter('radio5', e.target.value)}
             /><br />
-            {watcher.watcher5 === 'Sim' && (
+            {radio.radio5 === 'Sim' && (
                 <div>
                     <label>    
                         Qual dificuldade seria?
@@ -37,11 +37,11 @@ export const HistoricoEscolar = ({form, onChange, alter, watcher, RadioQuestion}
             <RadioQuestion
                 question="A dificuldade de aprendizado foi avaliada por um profissional?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher6}
-                onChange={(e) => alter('watcher6', e.target.value)}
+                selectedOption={radio.radio6}
+                onChange={(e) => alter('radio6', e.target.value)}
             /><br />
             
-            {watcher.watcher6 === 'Sim' && (
+            {radio.radio6 === 'Sim' && (
                 <div>
                     <label>    
                         Quem seria esse profissional?
