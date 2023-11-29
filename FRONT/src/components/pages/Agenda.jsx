@@ -11,7 +11,7 @@ import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Agenda = () => {
 
-    useProtectedPage()
+    //useProtectedPage()
 
     const [close, setClose] = useState(false);
     const [open, setOpen] = useState(true);

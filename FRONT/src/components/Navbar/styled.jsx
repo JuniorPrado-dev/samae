@@ -32,11 +32,11 @@ export const Agenda = styled.li `
     list-style-type: none;
 
     &:active {
-    background-image: linear-gradient(to left, #2b3467, #1D5D9B);
-
+        background-image: linear-gradient(to left, #2b3467, #1D5D9B);
     }
+
     &:hover {
-    background-color: #2b3467;
+        background-color: #2b3467;
     }
 
     @media (max-width: 550px){

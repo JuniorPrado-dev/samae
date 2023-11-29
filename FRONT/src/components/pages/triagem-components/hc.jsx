@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Check, Exemplo } from '../styled';
 
 export const Hc = ({ checkboxes, handleCheckBoxChange }) => {
 
@@ -9,155 +10,154 @@ export const Hc = ({ checkboxes, handleCheckBoxChange }) => {
             </h2>
             <div>
                 <label>
-                    Interage com outros alunos?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox25"
 
                         checked={checkboxes.checkbox25}
                         onChange={handleCheckBoxChange}
                     />
+                    Interage com outros alunos?
                 </label> <br />
                 <label>
-                    Brinca e obedece a comandos durante as brincadeiras e/ou as aulas?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox26"
 
                         checked={checkboxes.checkbox26}
                         onChange={handleCheckBoxChange}
-                    />
+                    />Brinca e obedece a comandos durante as brincadeiras e/ou as aulas?
                 </label> <br />
                 <label>
-                    Assume postura defensiva quando necessário?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox27"
 
                         checked={checkboxes.checkbox27}
                         onChange={handleCheckBoxChange}
                     />
+                    Assume postura defensiva quando necessário?
                 </label> <br />
-                <label>
-                    Compartilha objetos com os colegas?
-                    <input
+                <label> 
+                    <Check
                         type="checkbox"
                         name="checkbox28"
 
                         checked={checkboxes.checkbox28}
                         onChange={handleCheckBoxChange}
                     />
+                    Compartilha objetos com os colegas?
                 </label> <br />
                 <label>
-                    Demonstra autoexpressão de modo adequado?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox29"
 
                         checked={checkboxes.checkbox29}
                         onChange={handleCheckBoxChange}
-                    /> <br />
-                    Ex: sorrir para coisas felizes, chorar para coisa tristes
-                </label> <br />
+                    /> 
+                    Demonstra autoexpressão de modo adequado?
+                    <Exemplo> Ex: sorrir para coisas felizes, chorar para coisa tristes</Exemplo>
+                </label>
                 <label>
-                    Apresenta comportamento pouco sociável
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox30"
 
                         checked={checkboxes.checkbox30}
                         onChange={handleCheckBoxChange}
                     />
+                    Apresenta comportamento pouco sociável
                 </label> <br />
                 <label>
-                    Interage com o educador a partir das atividades propostas?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox31"
 
                         checked={checkboxes.checkbox31}
                         onChange={handleCheckBoxChange}
                     />
+                    Interage com o educador a partir das atividades propostas?
                 </label> <br />
                 <label>
-                    Reconhece elogio como incentivo?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox32"
 
                         checked={checkboxes.checkbox32}
                         onChange={handleCheckBoxChange}
                     />
+                    Reconhece elogio como incentivo?
                 </label> <br />
                 <label>
-                    Apresenta comportamentos sem motivo aparente?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox33"
 
                         checked={checkboxes.checkbox33}
                         onChange={handleCheckBoxChange}
                     />
+                    Apresenta comportamentos sem motivo aparente?
                 </label> <br />
                 <label>
-                    É uma criança apática?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox34"
 
                         checked={checkboxes.checkbox34}
                         onChange={handleCheckBoxChange}
                     />
+                    É uma criança apática?
                 </label> <br />
                 <label>
-                    Consegue contar relatos de modo sequenciado que faça sentido?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox35"
 
                         checked={checkboxes.checkbox35}
                         onChange={handleCheckBoxChange}
                     />
+                    Consegue contar relatos de modo sequenciado que faça sentido?
                 </label> <br />
                 <label>
-                    É uma criança inquieta e ansiosa?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox36"
 
                         checked={checkboxes.checkbox36}
                         onChange={handleCheckBoxChange}
                     />
+                    É uma criança inquieta e ansiosa?
                 </label> <br />
                 <label>
-                    Possui a tendência de isolar de crianças e adultos?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox37"
 
                         checked={checkboxes.checkbox37}
                         onChange={handleCheckBoxChange}
                     />
+                    Possui a tendência de isolar de crianças e adultos?
                 </label> <br />
                 <label>
-                    Demonstra picos de agressividade quando contrariada?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox38"
 
                         checked={checkboxes.checkbox38}
                         onChange={handleCheckBoxChange}
                     />
+                    Demonstra picos de agressividade quando contrariada?
                 </label> <br />
                 <label>
-                    Consegue se concentrar ao realizar uma atividade?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox39"
 
                         checked={checkboxes.checkbox39}
                         onChange={handleCheckBoxChange}
                     />
+                    Consegue se concentrar ao realizar uma atividade?
                 </label> <br />
             </div><br />
         </main>

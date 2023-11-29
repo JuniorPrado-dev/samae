@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Check } from '../styled';
+import { Radio } from '../../radio-question/styled';
 
 export const LeituraEscrita = ({ checkboxes, handleCheckBoxChange, alter}) => {
 
@@ -10,186 +12,186 @@ export const LeituraEscrita = ({ checkboxes, handleCheckBoxChange, alter}) => {
             <div>
                 <h3>Nível 01:</h3>
                 <label>
-                    Conhece Letras?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox1"
+
                         checked={checkboxes.checkbox1}
                         onChange={handleCheckBoxChange}
                     />
+                    Conhece Letras?
                 </label><br />
                 <label>
-                    Consegue descrever/relacionar imagens com coisas reais?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox2"
 
                         checked={checkboxes.checkbox2}
                         onChange={handleCheckBoxChange}
                     />
+                    Consegue descrever/relacionar imagens com coisas reais?
                 </label><br />
                 <label>
-                    Obtem êxito ao decodificar sílabas pausadamente?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox3"
 
                         checked={checkboxes.checkbox3}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Obtem êxito ao decodificar sílabas pausadamente?
+                </label> <br /><br />
             </div>
             <div>
                 <h3>Nível 02:</h3>
                 <label>
-                    Lê frases pausadamente?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox4"
 
                         checked={checkboxes.checkbox4}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Lê frases pausadamente?
+                </label><br />
                 <label>
-                    Necessita de intervenção na leitura?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox5"
 
                         checked={checkboxes.checkbox5}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Necessita de intervenção na leitura?
+                </label><br />
                 <label>
-                    Escreve frases com a ausência de sílabas ou letras?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox6"
 
                         checked={checkboxes.checkbox6}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Escreve frases com a ausência de sílabas ou letras?
+                </label><br />
                 <label>
-                    Escreve frases pausadamente, porém de maneira correta?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox7"
 
                         checked={checkboxes.checkbox7}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Escreve frases pausadamente, porém de maneira correta?
+                </label><br /><br />
             </div>
 
 
             <div>
                 <h3>Nível 03:</h3>
                 <label>
-                    Lê pausadamente o texto e apresenta dificuldade em explicar o que leu?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox8"
 
                         checked={checkboxes.checkbox8}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Lê pausadamente o texto e apresenta dificuldade em explicar o que leu?
+                </label><br />
                 <label>
-                    Escreve pequenos textos com alguns erros ortográficos e pontuação inadequada?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox9"
 
                         checked={checkboxes.checkbox9}
                         onChange={handleCheckBoxChange}
                     />
-                </label> <br />
+                    Escreve pequenos textos com alguns erros ortográficos e pontuação inadequada?
+                </label><br />
                 <label>
-                    Escreve pequenos textos sem erros ortográficos e pontuação adequada?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox10"
 
                         checked={checkboxes.checkbox10}
                         onChange={handleCheckBoxChange}
                     />
+                    Escreve pequenos textos sem erros ortográficos e pontuação adequada?
 
-                </label> <br />
+                </label><br /><br />
             </div>
 
 
             <div>
                 <h3>Nível 04:</h3>
                 <label>
-                    Consegue ler com segurança?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox11"
 
                         checked={checkboxes.checkbox11}
                         onChange={handleCheckBoxChange}
                     />
+                    Consegue ler com segurança?
 
-                </label> <br />
-                <label>
-                    Obedece os devidos sinais de pontuação?
-                    <input
+                </label><br />
+                <label> 
+                    <Check
                         type="checkbox"
                         name="checkbox12"
 
                         checked={checkboxes.checkbox12}
                         onChange={handleCheckBoxChange}
                     />
+                    Obedece os devidos sinais de pontuação?
 
-                </label> <br />
+                </label><br />
                 <label>
-                    Ler com entonação adequada?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox13"
 
                         checked={checkboxes.checkbox13}
                         onChange={handleCheckBoxChange}
                     />
+                    Ler com entonação adequada?
 
-                </label> <br />
+                </label><br />
                 <label>
-                    Produz pequenos textos e apresenta dificuldade na ascentuação?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox14"
 
                         checked={checkboxes.checkbox14}
                         onChange={handleCheckBoxChange}
                     />
+                    Produz pequenos textos e apresenta dificuldade na ascentuação?
 
-                </label> <br />
+                </label><br />
                 <label>
-                    Produz textos considerando gênero, título, sequência e pontuação adequada?
-                    <input
+                    <Check
                         type="checkbox"
                         name="checkbox15"
 
                         checked={checkboxes.checkbox15}
                         onChange={handleCheckBoxChange}
                     />
-
-                </label> <br />
+                    Produz textos considerando gênero, título, sequência e pontuação adequada?
+                </label><br /><br />
                 <label>
                     Qual o nível de escrita do aluno?
                     <br />
-                    <input type="radio" name="alter" onChange={alter} value="Pré-silábico - 01" />
+                    <Radio type="radio" name="alter" onChange={alter} value="Pré-silábico - 01" />
                     <label htmlFor="triagem" className="alter">Pré-silábico - 01</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Pré-silábico - 02" />
+                    <Radio type="radio" name="alter" onChange={alter} value="Pré-silábico - 02" />
                     <label htmlFor="triagem" className="alter">Pré-silábico - 02</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Silábico" />
+                    <Radio type="radio" name="alter" onChange={alter} value="Silábico" />
                     <label htmlFor="triagem" className="alter">Silábico</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Silábico Alfabético" />
+                    <Radio type="radio" name="alter" onChange={alter} value="Silábico Alfabético" />
                     <label htmlFor="triagem" className="alter">Silábico Alfabético</label><br />
-                    <input type="radio" name="alter" onChange={alter} value="Alfabético" />
-                    <label htmlFor="triagem" className="alter">Alfabético</label><br />
+                    <Radio type="radio" name="alter" onChange={alter} value="Alfabético" />
+                    <label htmlFor="triagem" className="alter">Alfabético</label><br /><br />
                 </label>
             </div><br />
         </main>

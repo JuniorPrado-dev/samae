@@ -1,4 +1,4 @@
-import { Label, Fieldset, Text, Legend, Input, Btns, Insert, Reset, Main, Gender, Date, Form } from './form_style'
+import { Label, Fieldset, Legend, Input, Btns, Insert, Reset, Main, Gender, Date, Form } from './form_style'
 
 export default function Cadastrar({form, onChange, mudaGender, send, cancel}) {
 
