@@ -193,8 +193,8 @@ export const ImgReturn = styled.img`
     height: 60%;
 `
 export const H1 = styled.div`
-    font-weight: bold;
-    margin: 0;
+    font-size: 20px;
+    font-weight: bolder;
 `
 export const H2 = styled.div`
     text-align: center;

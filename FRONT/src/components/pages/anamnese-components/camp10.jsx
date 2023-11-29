@@ -1,7 +1,7 @@
 import React from 'react';
 import { Data } from '../styled';
 
-export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
+export const Saúde = ({form, onChange, alter, radio, RadioQuestion}) => {
   return (
     <main>
         <h2>
@@ -11,10 +11,10 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
             <RadioQuestion
                 question="Apresenta problemas neurológicos?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher22}
-                onChange={(e) => alter('watcher22', e.target.value)}
+                selectedOption={radio.radio22}
+                onChange={(e) => alter('radio22', e.target.value)}
             /><br />
-            {watcher.watcher22 === 'Sim' && (
+            {radio.radio22 === 'Sim' && (
                 <div>       
                     <label>    
                     Faz acompanhamento clínico com alguém? Quem?
@@ -26,8 +26,8 @@ export const Saúde = ({form, onChange, alter, watcher, RadioQuestion}) => {
             <RadioQuestion
                 question="O aluno necessita de acompanhamento emocional especializado?"
                 options={['Sim', 'Não']}
-                selectedOption={watcher.watcher23}
-                onChange={(e) => alter('watcher23', e.target.value)}
+                selectedOption={radio.radio23}
+                onChange={(e) => alter('radio23', e.target.value)}
             /><br />
             <h2>
                 Outras ocorrências?

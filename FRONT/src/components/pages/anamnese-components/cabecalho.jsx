@@ -3,7 +3,7 @@ import { RadioQuestion } from '../../radio-question/radioQ';
 import { Aluno } from '../styled';
 import { Date } from '../../form-student/form_style';
 
-export const Cabecalho = ({form, alter, watcher,onChange}) => {
+export const Cabecalho = ({form, alter, radio, onChange}) => {
   return (
     <main>
         <div>
@@ -14,8 +14,8 @@ export const Cabecalho = ({form, alter, watcher,onChange}) => {
             <RadioQuestion
                 question="Gênero"
                 options={['Masculino', 'Feminino']}
-                selectedOption={watcher.watcher1}
-                onChange={(e) => alter('watcher1', e.target.value)}
+                selectedOption={radio.radio1}
+                onChange={(e) => alter('radio1', e.target.value)}
             /><br/>
             <label>    
                 Data de Nascimento

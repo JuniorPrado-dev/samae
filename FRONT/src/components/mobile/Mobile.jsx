@@ -1,5 +1,6 @@
-import { Button, H1, LogoSamae, Main, Nav, P, Redirect } from "./styled";
+import { Button, H1, ImgFooter, LogoSamae, Main, Nav, P, Redirect } from "./styled";
 import Logo from '../../img/samae_logo.png';
+import Wave from '../../img/wave.png';
 import { LogProfessor } from "./logTeacher";
 import { LogResponsavel } from "./logParent";
 
@@ -8,16 +9,20 @@ export function InicioMobile() {
     function OnclickTeacher() {
         const logTeacher = document.querySelector('#teacher')
         const welcome = document.querySelector('#welcome')
+        const wave = document.querySelector('#wave')
     
         logTeacher.style.display = "flex"
         welcome.style.display = "none"
+        wave.style.display = "none"
     }
     function OnclickParent() {
         const logParent = document.querySelector('#parent')
         const welcome = document.querySelector('#welcome')
+        const wave = document.querySelector('#wave')
     
         logParent.style.display = "flex"
         welcome.style.display = "none"
+        wave.style.display = "none"
     }
 
     return (
@@ -44,6 +49,8 @@ export function InicioMobile() {
             <Redirect id="parent">
                 <LogResponsavel/>
             </Redirect>
+            <ImgFooter src={Wave} id="wave"/>
+
         </Main>
     )
 }

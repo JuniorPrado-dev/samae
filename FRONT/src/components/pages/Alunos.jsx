@@ -8,7 +8,7 @@ import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Alunos = () => {
     
-    useProtectedPage()
+    // useProtectedPage()
 
     const [watcher, setWatch] = useState(false)
     const [watcher2, setWatch2] = useState(true)

@@ -11,7 +11,7 @@ import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Agenda = () => {
 
-    useProtectedPage()
+    // useProtectedPage()
 
     const [close, setClose] = useState(false);
     const [open, setOpen] = useState(true);
@@ -29,7 +29,7 @@ export const Agenda = () => {
     useEffect(() => {
         const fetchAgenda = async () => {
             try {
-                const response = await axios.get("http://localhost:3003/get-agend-teacher");
+                const response = await axios.get("http://localhost:3003/get-agend");
                 const fetchedTasks = response.data; 
                 setTask(fetchedTasks); 
             } catch (error) {
@@ -95,7 +95,7 @@ export const Agenda = () => {
         setOpen(true);
         
         // Conecte a API e o front-end
-        axios.post("http://localhost:3003/post-agend-teacher", newAgenda)
+        axios.post("http://localhost:3003/post-agend", newAgenda)
         .then(function (response) {
             console.log(response);
         })

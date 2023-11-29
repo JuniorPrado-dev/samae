@@ -15,15 +15,10 @@ export const Input = styled.input`
     border-bottom: 2px solid gray;
     border-radius: 3px;
 
-    &:hover{
-        border-bottom: 2px solid #1597bb;
-
-    }
-
     &:focus{
         outline: 0;
         border: 1px solid transparent;
-        border-bottom: 2px solid #2b3467;
+        border-bottom: 2px solid #1597bb;
     }
 
     &::placeholder{
@@ -40,16 +35,9 @@ export const Btn = styled.button`
     text-align: center;
     text-transform: uppercase;
     background: linear-gradient(to top, #2b3467, #1597bb);
-    color: #dcdcdc;
+    color: #fefefe;
     border: transparent;
     border-radius: 30px;
-    transition: 500ms;
-    
-    &:hover{
-        color: #fefefe;
-        font-size: 13px;
-        transition: 500ms;
-    }
 
     &:active{
 

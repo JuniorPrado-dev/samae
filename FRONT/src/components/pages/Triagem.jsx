@@ -6,8 +6,9 @@ import { LeituraEscrita } from './triagem-components/leitura-escrita';
 import { Matematica } from './triagem-components/matematica';
 import { Hc } from './triagem-components/hc';
 import { MainTriagem, Anterior, Cards, ImgCard, Proximo, Enviar, DivButton } from './styled';
-import Back from '../../img/anterior.png'
-import Next from '../../img/proximo.png'
+import Back from '../../img/anterior.png';
+import Next from '../../img/proximo.png';
+import { RadioQuestion } from '../radio-question/radioQ';
 import { useProtectedPage } from "./../../hooks/useProtectedPage";
 
 export const Triagem = () => {
@@ -18,8 +19,8 @@ export const Triagem = () => {
 
     //armazenando checkbox
 
-    useProtectedPage()
-    
+    // useProtectedPage()
+
     const [checkboxes, setCheckboxes] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -81,11 +82,11 @@ export const Triagem = () => {
     })
 
     //armazenando radios
-    const [radioq, setRadioq] = useState({})
+    const [radio, setRadio] = useState({})
 
     const alter = (fieldName, value) => {
-        setRadioq((prevradioqs) => ({
-            ...prevradioqs,
+        setRadio((prevradios) => ({
+            ...prevradios,
             [fieldName]: value,
         }));
     };
@@ -102,6 +103,11 @@ export const Triagem = () => {
         return result;
     };
 
+    //defina a função updateCategory para atualizar uma categoria dentro de um objeto
+    const updateCategory = (obj, category, data) => {
+        obj[category] = data;
+    };
+
     //organizando dados em objetos a fim de enviar à api
     const cabecalho = {};
     const hc = {};
@@ -115,42 +121,42 @@ export const Triagem = () => {
         e.preventDefault()
         const aluno = {
             idTriagem: generateUniqueId(),
-            
+
             cabecalho: {
                 q1: form.nome.value,
                 q2: form.data.value,
                 q3: form.professor.value,
                 q4: form.psicopedagogo.value,
             },
-            hc: {
+            leituraEscritaN1: {
                 q1: checkboxes.checkbox1.toString(),
                 q2: checkboxes.checkbox2.toString(),
                 q3: checkboxes.checkbox3.toString(),
             },
 
-            leituraEscritaN1: {
+            leituraEscritaN2: {
                 q1: checkboxes.checkbox4.toString(),
                 q2: checkboxes.checkbox5.toString(),
                 q3: checkboxes.checkbox6.toString(),
                 q4: checkboxes.checkbox7.toString(),
             },
 
-            leituraEscritaN2: {
+            leituraEscritaN3: {
                 q1: checkboxes.checkbox8.toString(),
                 q2: checkboxes.checkbox9.toString(),
                 q3: checkboxes.checkbox10.toString(),
             },
 
-            leituraEscritaN3: {
+            leituraEscritaN4: {
                 q1: checkboxes.checkbox11.toString(),
                 q2: checkboxes.checkbox12.toString(),
                 q3: checkboxes.checkbox13.toString(),
                 q4: checkboxes.checkbox14.toString(),
                 q5: checkboxes.checkbox15.toString(),
-                q6: radioq.radioq1.value,
+                q6: radio.radio1,
             },
 
-            leituraEscritaN4: {
+            matematica: {
                 q1: checkboxes.checkbox16.toString(),
                 q2: checkboxes.checkbox17.toString(),
                 q3: form.recNum.value,
@@ -164,7 +170,7 @@ export const Triagem = () => {
                 q11: checkboxes.checkbox24.toString(),
             },
 
-            matematica: {
+            hc: {
                 q1: checkboxes.checkbox25.toString(),
                 q2: checkboxes.checkbox26.toString(),
                 q3: checkboxes.checkbox27.toString(),
@@ -192,7 +198,7 @@ export const Triagem = () => {
         updateCategory(matematica, 'aluno', aluno.matematica);
 
         //conecta api e front
-        axios.post('http://localhost:3003/triagem-student', aluno)
+        axios.post('http://localhost:3003/post-triagem', aluno)
             .then(function (response) {
                 console.log(response);
             })
@@ -202,15 +208,49 @@ export const Triagem = () => {
     }
 
     const cards = [
-        <Cabecalho form={form} onChange={onChange} />,
-        <LeituraEscrita checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} alter={alter} />,
-        <Matematica checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} onChange={onChange} form={form} />,
-        <Hc checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />,
+        <Cabecalho
+            form={form}
+            onChange={onChange}
+        />,
+        <LeituraEscrita
+            checkboxes={checkboxes}
+            handleCheckBoxChange={handleCheckBoxChange}
+            alter={alter}
+            radio={radio}
+            onChange={onChange}
+        />,
+        <Matematica
+            checkboxes={checkboxes}
+            handleCheckBoxChange={handleCheckBoxChange}
+            onChange={onChange}
+            form={form}
+        />,
+        <Hc
+            checkboxes={checkboxes}
+            handleCheckBoxChange={handleCheckBoxChange}
+        />,
         <div>
-            <Cabecalho form={form} onChange={onChange} />
-            <LeituraEscrita checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} alter={alter} />
-            <Matematica checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} onChange={onChange} form={form} />
-            <Hc checkboxes={checkboxes} handleCheckBoxChange={handleCheckBoxChange} />
+            <Cabecalho
+                form={form}
+                onChange={onChange}
+            />
+            <LeituraEscrita
+                checkboxes={checkboxes}
+                handleCheckBoxChange={handleCheckBoxChange}
+                alter={alter}
+                radio={radio}
+                onChange={onChange}
+            />
+            <Matematica
+                checkboxes={checkboxes}
+                handleCheckBoxChange={handleCheckBoxChange}
+                onChange={onChange}
+                form={form}
+            />
+            <Hc
+                checkboxes={checkboxes}
+                handleCheckBoxChange={handleCheckBoxChange}
+            />
             <DivButton>
                 <Enviar type="submit">Enviar</Enviar>
             </DivButton>
