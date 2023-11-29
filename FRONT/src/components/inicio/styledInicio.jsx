@@ -193,7 +193,6 @@ export const ImgReturn = styled.img`
     height: 60%;
 `
 export const H1 = styled.div`
-    font-size: 20px;
     font-weight: bolder;
 `
 export const H2 = styled.div`

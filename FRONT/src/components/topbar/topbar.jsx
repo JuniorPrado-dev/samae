@@ -42,9 +42,6 @@ export const Topbar = () => {
                 <Line onMouseEnter={OnMouseEnter} onMouseOut={OnMouseOut}></Line>
             </ButtonHide>
             <Img src={Logo} />
-            <Link to="/login-teacher">
-                <BtnEntrar onClick={Entrar}>Entrar</BtnEntrar>
-            </Link>
         </Div>
 
     )

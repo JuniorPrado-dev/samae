@@ -4,6 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Navbar } from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Home, Agenda, Triagem, Alunos, Anamnese } from "./components/pages"
+import { createGlobalStyle } from 'styled-components';
 import { Topbar } from './components/topbar/topbar';
 import { TelaInicial } from './components/inicio/Inicio';
 import { LoginResponsavel } from './components/login/loginParent';
@@ -24,8 +25,12 @@ function App() {
       console.error(error);
     })
 
-    const system = <div className='App'>
+    const GlobalStyle = createGlobalStyle`
+      @import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,300;0,700;1,300&display=swap');
+    `;
 
+    const system = <div className='App'>
+    <GlobalStyle />
     <Topbar/>
     <Navbar />
     <Routes>
@@ -51,9 +56,8 @@ function App() {
       );
     };
   return (
-    //system
-    //responsavel
-    <ReturnLogin/>
+    system
+    //<ReturnLogin/>
   )
 
 }
